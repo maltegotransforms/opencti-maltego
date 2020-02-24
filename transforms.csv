@@ -1,0 +1,39 @@
+Transform id,Description,Input type,Sets,Output
+opencti.campaign.StixDomainEntityToDetails,OpenCTI: Campaign to Details,STIX2.campaign,OpenCTI: to Details,
+opencti.intrusion-set.StixDomainEntityToDetails,OpenCTI: Intrusion Set to Details,STIX2.intrusion-set,OpenCTI to Details,
+opencti.relationship.StixRelationToDetails,OpenCTI: Relashionship to Details,STIX2.relationship,OpenCTI: to Details,
+opencti.threat-actor.StixDomainEntityToDetails,OpenCTI: Threat Actor to Details,STIX2.threat-actor,OpenCTI to Details,
+opencti.campaign.StixDomainEntityToReports,OpenCTI: Campaign to Reports,STIX2.campaign,OpenCTI to Reports,
+opencti.intrusion-set.StixDomainEntityToReports,OpenCTI: Intrusion Set to Reports,STIX2.intrusion-set,OpenCTI to Reports,
+opencti.relashionship.StixRelationToReports,OpenCTI: Relashionship to Reports,STIX2.relationship,OpenCTI to Reports,
+opencti.threat-actor.StixDomainEntityToReports,OpenCTI: Threat Actor to Reports,STIX2.threat-actor,OpenCTI to Reports,
+opencti.report.ReportToStixDomainEntities,OpenCTI: Report to All entities,STIX2.report,,
+opencti.report.campaign.ReportToStixDomainEntities,OpenCTI: Report to Campaigns,STIX2.report,,campaign
+opencti.report.intrusion-set.ReportToStixDomainEntities,OpenCTI: Report to Intrusion Sets,STIX2.report,,intrusion-set
+opencti.report.threat-actor.ReportToStixDomainEntities,OpenCTI: Report to Threat Actors,STIX2.report,,threat-actor
+opencti.relashionship.StixRelationToStixDomainEntity,OpenCTI: Relashionship to Entities,STIX2.relationship,OpenCTI explicit relations,
+opencti.relashionship.StixRelationToRelations,OpenCTI: Relashionship to Relations,STIX2.relationship,OpenCTI explicit relations,
+opencti.campaign.threat-actor.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Threat Actors,STIX2.campaign,OpenCTI implicit relations,threat-actor
+opencti.campaign.threat-actor.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Campaign to Threat Actors Inferred,STIX2.campaign,OpenCTI implicit relations,threat-actor
+opencti.campaign.threat-actor.StixDomainEntityToRelations,OpenCTI: Campaign to Threat Actor Relations,STIX2.campaign,OpenCTI explicit relations,threat-actor
+opencti.campaign.threat-actor.StixDomainEntityToRelationsInferred,OpenCTI: Campaign to Threat Actor Relations Inferred,STIX2.campaign,OpenCTI explicit relations,threat-actor
+opencti.campaign.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Intrusion Sets,STIX2.campaign,OpenCTI implicit relations,intrusion-set
+opencti.campaign.intrusion-set.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Campaigns to Intrusion Sets Inferred,STIX2.campaign,OpenCTI implicit relations,intrusion-set
+opencti.campaign.intrusion-set.StixDomainEntityToRelations,OpenCTI: Campaign to Intrusion Set Relations,STIX2.campaign,OpenCTI explicit relations,intrusion-set
+opencti.campaign.intrusion-set.StixDomainEntityToRelationsInferred,OpenCTI: Campaign to Intrusion Set Relations Inferred,STIX2.campaign,OpenCTI explicit relations,intrusion-set
+opencti.intrusion-set.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to Campaigns,STIX2.intrusion-set,OpenCTI implicit relations,campaign
+opencti.intrusion-set.campaign.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Intrusion Set to Campaigns Inferred,STIX2.intrusion-set,OpenCTI implicit relations,campaign
+opencti.intrusion-set.campaign.StixDomainEntityToRelations,OpenCTI: Intrusion Set to Campaign Relations,STIX2.intrusion-set,OpenCTI explicit relations,campaign
+opencti.intrusion-set.campaign.StixDomainEntityToRelationsInferred,OpenCTI: Intrusion Set to Campaign Relations Inferred,STIX2.intrusion-set,OpenCTI explicit relations,campaign
+opencti.intrusion-set.threat-actor.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to Threat Actors,STIX2.intrusion-set,OpenCTI implicit relations,threat-actor
+opencti.intrusion-set.threat-actor.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Intrusion Set to Threat Actors Inferred,STIX2.intrusion-set,OpenCTI implicit relations,threat-actor
+opencti.intrusion-set.threat-actor.StixDomainEntityToRelations,OpenCTI: Intrusion Set to Threat Actor Relations,STIX2.intrusion-set,OpenCTI explicit relations,threat-actor
+opencti.intrusion-set.threat-actor.StixDomainEntityToRelationsInferred,OpenCTI: Intrusion Set to Threat Actor Relations Inferred,STIX2.intrusion-set,OpenCTI explicit relations,threat-actor
+opencti.threat-actor.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Campaigns,STIX2.threat-actor,OpenCTI implicit relations,campaign
+opencti.threat-actor.campaign.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Threat Actor to Campaigns Inferred,STIX2.threat-actor,OpenCTI implicit relations,campaign
+opencti.threat-actor.campaign.StixDomainEntityToRelations,OpenCTI: Threat Actor to Campaign Relations,STIX2.threat-actor,OpenCTI explicit relations,campaign
+opencti.threat-actor.campaign.StixDomainEntityToRelationsInferred,OpenCTI: Threat Actor to Campaign Relations Inferred,STIX2.threat-actor,OpenCTI explicit relations,campaign
+opencti.threat-actor.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Intrusion Sets,STIX2.threat-actor,OpenCTI implicit relations,intrusion-set
+opencti.threat-actor.intrusion-set.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Threat Actor to Intrusion Sets Inferred,STIX2.threat-actor,OpenCTI implicit relations,intrusion-set
+opencti.threat-actor.intrusion-set.StixDomainEntityToRelations,OpenCTI: Threat Actor to Intrusion Set Relations,STIX2.threat-actor,OpenCTI explicit relations,intrusion-set
+opencti.threat-actor.intrusion-set.StixDomainEntityToRelationsInferred,OpenCTI: Threat Actor to Intrusion Set Relations Inferred,STIX2.threat-actor,OpenCTI explicit relations,intrusion-set

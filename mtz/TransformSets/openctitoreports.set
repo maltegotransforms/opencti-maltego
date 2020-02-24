@@ -1,0 +1,8 @@
+<TransformSet name="OpenCTI to Reports" description="">
+   <Transforms>
+      <Transform name="opencti.campaign.StixDomainEntityToReports"/>
+      <Transform name="opencti.intrusion-set.StixDomainEntityToReports"/>
+      <Transform name="opencti.relashionship.StixRelationToReports"/>
+      <Transform name="opencti.threat-actor.StixDomainEntityToReports"/>
+   </Transforms>
+</TransformSet>

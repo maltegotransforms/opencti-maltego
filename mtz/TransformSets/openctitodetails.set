@@ -1,0 +1,6 @@
+<TransformSet name="OpenCTI to Details" description="">
+   <Transforms>
+      <Transform name="opencti.intrusion-set.StixDomainEntityToDetails"/>
+      <Transform name="opencti.threat-actor.StixDomainEntityToDetails"/>
+   </Transforms>
+</TransformSet>

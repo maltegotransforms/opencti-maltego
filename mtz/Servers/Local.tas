@@ -1,0 +1,45 @@
+<MaltegoServer name="Local" enabled="true" description="Local transforms hosted on this machine" url="http://localhost">
+   <LastSync>2017-10-06 18:12:26.205 CEST</LastSync>
+   <Protocol version="0.0"/>
+   <Authentication type="none"/>
+   <Transforms>
+      <Transform name="opencti.campaign.StixDomainEntityToDetails"/>
+      <Transform name="opencti.intrusion-set.StixDomainEntityToDetails"/>
+      <Transform name="opencti.threat-actor.StixDomainEntityToDetails"/>
+      <Transform name="opencti.campaign.StixDomainEntityToReports"/>
+      <Transform name="opencti.intrusion-set.StixDomainEntityToReports"/>
+      <Transform name="opencti.relashionship.StixRelationToReports"/>
+      <Transform name="opencti.threat-actor.StixDomainEntityToReports"/>
+      <Transform name="opencti.report.ReportToStixDomainEntities"/>
+      <Transform name="opencti.report.campaign.ReportToStixDomainEntities"/>
+      <Transform name="opencti.report.intrusion-set.ReportToStixDomainEntities"/>
+      <Transform name="opencti.report.threat-actor.ReportToStixDomainEntities"/>
+      <Transform name="opencti.relashionship.StixRelationToStixDomainEntity"/>
+      <Transform name="opencti.relashionship.StixRelationToRelations"/>
+      <Transform name="opencti.campaign.threat-actor.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.campaign.threat-actor.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.campaign.threat-actor.StixDomainEntityToRelations"/>
+      <Transform name="opencti.campaign.threat-actor.StixDomainEntityToRelationsInferred"/>
+      <Transform name="opencti.campaign.intrusion-set.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.campaign.intrusion-set.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.campaign.intrusion-set.StixDomainEntityToRelations"/>
+      <Transform name="opencti.campaign.intrusion-set.StixDomainEntityToRelationsInferred"/>
+      <Transform name="opencti.intrusion-set.campaign.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.intrusion-set.campaign.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.intrusion-set.campaign.StixDomainEntityToRelations"/>
+      <Transform name="opencti.intrusion-set.campaign.StixDomainEntityToRelationsInferred"/>
+      <Transform name="opencti.intrusion-set.threat-actor.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.intrusion-set.threat-actor.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.intrusion-set.threat-actor.StixDomainEntityToRelations"/>
+      <Transform name="opencti.intrusion-set.threat-actor.StixDomainEntityToRelationsInferred"/>
+      <Transform name="opencti.threat-actor.campaign.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.threat-actor.campaign.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.threat-actor.campaign.StixDomainEntityToRelations"/>
+      <Transform name="opencti.threat-actor.campaign.StixDomainEntityToRelationsInferred"/>
+      <Transform name="opencti.threat-actor.intrusion-set.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.threat-actor.intrusion-set.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.threat-actor.intrusion-set.StixDomainEntityToRelations"/>
+      <Transform name="opencti.threat-actor.intrusion-set.StixDomainEntityToRelationsInferred"/>
+   </Transforms>
+   <Seeds/>
+</MaltegoServer>

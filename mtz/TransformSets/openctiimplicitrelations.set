@@ -1,0 +1,16 @@
+<TransformSet name="OpenCTI implicit relations" description="">
+   <Transforms>
+      <Transform name="opencti.campaign.threat-actor.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.campaign.threat-actor.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.campaign.intrusion-set.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.campaign.intrusion-set.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.intrusion-set.campaign.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.intrusion-set.campaign.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.intrusion-set.threat-actor.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.intrusion-set.threat-actor.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.threat-actor.campaign.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.threat-actor.campaign.StixDomainEntityToStixDomainEntityInferred"/>
+      <Transform name="opencti.threat-actor.intrusion-set.StixDomainEntityToStixDomainEntity"/>
+      <Transform name="opencti.threat-actor.intrusion-set.StixDomainEntityToStixDomainEntityInferred"/>
+   </Transforms>
+</TransformSet>
