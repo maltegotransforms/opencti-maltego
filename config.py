@@ -1,8 +1,0 @@
-local_execution_path = "/home/oxid/Dropbox/Developpement/Associations/Luatix/Produits/OpenCTI-Maltego/src"
-python_path = "/usr/bin/python3"
-opencti_config = {
-	"url": "https://demo.opencti.io",
-	"token": "2b4f29e3-5ea8-4890-8cf5-a76f61f1e2b2",
-	"log_level": "error",
-	"ssl_verify": True
-}
