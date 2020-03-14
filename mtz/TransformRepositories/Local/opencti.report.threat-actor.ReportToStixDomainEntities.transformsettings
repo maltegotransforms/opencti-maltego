@@ -1,8 +1,8 @@
 <TransformSettings enabled="true" disclaimerAccepted="false" showHelp="true" runWithAll="true" favorite="false">
    <Properties>
-      <Property name="transform.local.command" type="string" popup="false">C:\Users\SGDSN-ADM\AppData\Local\Programs\Python\Python38\python</Property>
-      <Property name="transform.local.parameters" type="string" popup="false">C:\Users\SGDSN-ADM\Desktop\GIT\opencti-maltego\src/OpenCTI.py --transform ReportToStixDomainEntities --output threat-actor</Property>
-      <Property name="transform.local.working-directory" type="string" popup="false">C:\Users\SGDSN-ADM\Desktop\GIT\opencti-maltego\src</Property>
+      <Property name="transform.local.command" type="string" popup="false">/usr/bin/python3</Property>
+      <Property name="transform.local.parameters" type="string" popup="false">/home/oxid/Dropbox/Developpement/Associations/Luatix/Produits/OpenCTI-Maltego/src/OpenCTI.py --transform ReportToStixDomainEntities --output threat-actor</Property>
+      <Property name="transform.local.working-directory" type="string" popup="false">/home/oxid/Dropbox/Developpement/Associations/Luatix/Produits/OpenCTI-Maltego/src</Property>
       <Property name="transform.local.debug" type="boolean" popup="false">false</Property>
    </Properties>
 </TransformSettings>

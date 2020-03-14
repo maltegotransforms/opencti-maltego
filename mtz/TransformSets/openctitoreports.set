@@ -1,8 +1,17 @@
-<TransformSet name="OpenCTI to Reports" description="">
+<TransformSet name="OpenCTI: to Reports" description="">
    <Transforms>
-      <Transform name="opencti.campaign.StixDomainEntityToReports"/>
-      <Transform name="opencti.intrusion-set.StixDomainEntityToReports"/>
-      <Transform name="opencti.relashionship.StixRelationToReports"/>
+      <Transform name="opencti.identity.StixDomainEntityToReports"/>
       <Transform name="opencti.threat-actor.StixDomainEntityToReports"/>
+      <Transform name="opencti.intrusion-set.StixDomainEntityToReports"/>
+      <Transform name="opencti.campaign.StixDomainEntityToReports"/>
+      <Transform name="opencti.incident.StixDomainEntityToReports"/>
+      <Transform name="opencti.malware.StixDomainEntityToReports"/>
+      <Transform name="opencti.tool.StixDomainEntityToReports"/>
+      <Transform name="opencti.vulnerability.StixDomainEntityToReports"/>
+      <Transform name="opencti.attack-pattern.StixDomainEntityToReports"/>
+      <Transform name="opencti.course-of-action.StixDomainEntityToReports"/>
+      <Transform name="opencti.report.StixDomainEntityToReports"/>
+      <Transform name="opencti.indicator.StixDomainEntityToReports"/>
+      <Transform name="opencti.relashionship.StixRelationToReports"/>
    </Transforms>
 </TransformSet>

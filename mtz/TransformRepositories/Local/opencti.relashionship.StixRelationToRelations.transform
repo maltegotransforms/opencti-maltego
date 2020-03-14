@@ -1,4 +1,4 @@
-<MaltegoTransform name="opencti.relashionship.StixRelationToRelations" displayName="OpenCTI: Relashionship to Relations" abstract="false" template="false" visibility="public" description="" author="OpenCTI-Maltego" requireDisplayInfo="false">
+<MaltegoTransform name="opencti.relashionship.StixRelationToRelations" displayName="OpenCTI: Relationship to Relations" abstract="false" template="false" visibility="public" description="" author="OpenCTI-Maltego" requireDisplayInfo="false">
    <TransformAdapter>com.paterva.maltego.transform.protocol.v2api.LocalTransformAdapterV2</TransformAdapter>
    <Properties>
       <Fields>
