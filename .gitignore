@@ -1,3 +1,4 @@
 *.pyc
 config.py
+mtz/*
 transforms.mtz
