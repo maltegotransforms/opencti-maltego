@@ -1,4 +1,4 @@
-local_execution_path = "/home/oxid/Dropbox/Developpement/Associations/Luatix/Produits/OpenCTI-Maltego/src"
+local_execution_path = "/path/to/your/project/OpenCTI-Maltego/src"
 python_path = "/usr/bin/python3"
 opencti_config = {
 	"url": "https://demo.opencti.io",
