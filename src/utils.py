@@ -27,13 +27,28 @@ def sanitize(element, encode = False):
     return element
 
 def STIX2toOpenCTItype(stix2_type):
-    opencti_type = ""
+    if stix2_type == "identity":
+        return "Identity"
+    if stix2_type == "threat-actor":
+        return "Threat-Actor"
+    if stix2_type == "intrusion-set":
+        return "Intrusion-Set"
     if stix2_type == "campaign":
-        opencti_type = "Campaign"
-    elif stix2_type == "intrusion-set":
-        opencti_type = "Intrusion-Set"
-    elif stix2_type == "report":
-        opencti_type = "Report"
-    elif stix2_type == "threat-actor":
-        opencti_type = "Threat-Actor"
-    return opencti_type
+        return "Campaign"
+    if stix2_type == "incident":
+        return "Incident"
+    if stix2_type == "malware":
+        return "Malware"
+    if stix2_type == "tool":
+        return "Tool"
+    if stix2_type == "vulnerability":
+        return "Vulnerability"
+    if stix2_type == "attack-pattern":
+        return "Attack-Pattern"
+    if stix2_type == "course-of-action":
+        return "Course-Of-Action"
+    if stix2_type == "report":
+        return "Report"
+    if stix2_type == "indicator":
+        return "Indicator"
+    return ""

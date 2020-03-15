@@ -1,5 +1,9 @@
-def addCampaign(transform, opencti_entity):
-    entity = transform.addEntity(Campaign, sanitize(opencti_entity["name"], True))
+from utils import sanitize, STIX2toOpenCTItype
+from maltego_trx.entities import *
+from entities import *
+
+def addIdentity(transform, opencti_entity):
+    entity = transform.addEntity(Identity, sanitize(opencti_entity["name"], True))
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
     entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
@@ -11,6 +15,24 @@ def addCampaign(transform, opencti_entity):
     entity.addProperty(fieldName="objective", value=opencti_entity["objective"])
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    return entity
+
+def addThreatActor(transform, opencti_entity):
+    entity = transform.addEntity(ThreatActor, sanitize(opencti_entity["name"], True))
+    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
+    entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
+    entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
+    entity.addProperty(fieldName="aliases", value=sanitize(opencti_entity["alias"], True))
+    entity.addProperty(fieldName="object_marking_refs", value=[r["id"] for r in opencti_entity["markingDefinitions"]])
+    entity.addProperty(fieldName="external_references", value=opencti_entity["externalReferencesIds"])
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    entity.addProperty(fieldName="goals", value=[opencti_entity["goal"]])
+    entity.addProperty(fieldName="sophistication", value=opencti_entity["sophistication"])
+    entity.addProperty(fieldName="resource_level", value=opencti_entity["resource_level"])
+    entity.addProperty(fieldName="primary_motivation", value=opencti_entity["primary_motivation"])
+    entity.addProperty(fieldName="secondary_motivations", value=[opencti_entity["secondary_motivation"]])
+    entity.addProperty(fieldName="personal_motivations", value=[opencti_entity["personal_motivation"]])
     return entity
 
 def addIntrusionSet(transform, opencti_entity):
@@ -27,6 +49,96 @@ def addIntrusionSet(transform, opencti_entity):
     entity.addProperty(fieldName="resource_level", value=opencti_entity["resource_level"])
     entity.addProperty(fieldName="primary_motivation", value=opencti_entity["primary_motivation"])
     entity.addProperty(fieldName="secondary_motivations", value=[opencti_entity["secondary_motivation"]])
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    return entity
+
+def addCampaign(transform, opencti_entity):
+    entity = transform.addEntity(Campaign, sanitize(opencti_entity["name"], True))
+    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
+    entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
+    entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
+    entity.addProperty(fieldName="aliases", value=sanitize(opencti_entity["alias"], True))
+    entity.addProperty(fieldName="object_marking_refs", value=[r["id"] for r in opencti_entity["markingDefinitions"]])
+    entity.addProperty(fieldName="external_references", value=opencti_entity["externalReferencesIds"])
+    entity.addProperty(fieldName="first_seen", value=opencti_entity["first_seen"])
+    entity.addProperty(fieldName="last_seen", value=opencti_entity["last_seen"])
+    entity.addProperty(fieldName="objective", value=opencti_entity["objective"])
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    return entity
+
+def addIncident(transform, opencti_entity):
+    entity = transform.addEntity(Incident, sanitize(opencti_entity["name"], True))
+    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
+    entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
+    entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
+    entity.addProperty(fieldName="aliases", value=sanitize(opencti_entity["alias"], True))
+    entity.addProperty(fieldName="object_marking_refs", value=[r["id"] for r in opencti_entity["markingDefinitions"]])
+    entity.addProperty(fieldName="external_references", value=opencti_entity["externalReferencesIds"])
+    entity.addProperty(fieldName="first_seen", value=opencti_entity["first_seen"])
+    entity.addProperty(fieldName="last_seen", value=opencti_entity["last_seen"])
+    entity.addProperty(fieldName="objective", value=opencti_entity["objective"])
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    return entity
+
+def addMalware(transform, opencti_entity):
+    entity = transform.addEntity(Malware, sanitize(opencti_entity["name"], True))
+    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
+    entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
+    entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
+    entity.addProperty(fieldName="aliases", value=sanitize(opencti_entity["alias"], True))
+    entity.addProperty(fieldName="object_marking_refs", value=[r["id"] for r in opencti_entity["markingDefinitions"]])
+    entity.addProperty(fieldName="external_references", value=opencti_entity["externalReferencesIds"])
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    return entity
+
+def addTool(transform, opencti_entity):
+    entity = transform.addEntity(Tool, sanitize(opencti_entity["name"], True))
+    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
+    entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
+    entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
+    entity.addProperty(fieldName="aliases", value=sanitize(opencti_entity["alias"], True))
+    entity.addProperty(fieldName="object_marking_refs", value=[r["id"] for r in opencti_entity["markingDefinitions"]])
+    entity.addProperty(fieldName="external_references", value=opencti_entity["externalReferencesIds"])
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    return entity
+
+def addVulnerability(transform, opencti_entity):
+    entity = transform.addEntity(Vulnerability, sanitize(opencti_entity["name"], True))
+    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
+    entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
+    entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
+    entity.addProperty(fieldName="aliases", value=sanitize(opencti_entity["alias"], True))
+    entity.addProperty(fieldName="object_marking_refs", value=[r["id"] for r in opencti_entity["markingDefinitions"]])
+    entity.addProperty(fieldName="external_references", value=opencti_entity["externalReferencesIds"])
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    return entity
+
+def addAttackPattern(transform, opencti_entity):
+    entity = transform.addEntity(AttackPattern, sanitize(opencti_entity["name"], True))
+    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
+    entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
+    entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
+    entity.addProperty(fieldName="aliases", value=sanitize(opencti_entity["alias"], True))
+    entity.addProperty(fieldName="object_marking_refs", value=[r["id"] for r in opencti_entity["markingDefinitions"]])
+    entity.addProperty(fieldName="external_references", value=opencti_entity["externalReferencesIds"])
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    return entity
+
+def addCourseOfAction(transform, opencti_entity):
+    entity = transform.addEntity(CourseOfAction, sanitize(opencti_entity["name"], True))
+    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
+    entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
+    entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
+    entity.addProperty(fieldName="aliases", value=sanitize(opencti_entity["alias"], True))
+    entity.addProperty(fieldName="object_marking_refs", value=[r["id"] for r in opencti_entity["markingDefinitions"]])
+    entity.addProperty(fieldName="external_references", value=opencti_entity["externalReferencesIds"])
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
     return entity
@@ -61,24 +173,6 @@ def addReport(transform, opencti_entity):
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
     entity.addProperty(fieldName="object_refs", value=opencti_entity["objectRefsIds"])
-    return entity
-
-def addThreatActor(transform, opencti_entity):
-    entity = transform.addEntity(ThreatActor, sanitize(opencti_entity["name"], True))
-    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
-    entity.addProperty(fieldName="created_by_ref", value=opencti_entity["createdByRef"]["id"] if opencti_entity["createdByRef"] else None)
-    entity.addProperty(fieldName="description", value=sanitize(opencti_entity["description"], True))
-    entity.addProperty(fieldName="aliases", value=sanitize(opencti_entity["alias"], True))
-    entity.addProperty(fieldName="object_marking_refs", value=[r["id"] for r in opencti_entity["markingDefinitions"]])
-    entity.addProperty(fieldName="external_references", value=opencti_entity["externalReferencesIds"])
-    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
-    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
-    entity.addProperty(fieldName="goals", value=[opencti_entity["goal"]])
-    entity.addProperty(fieldName="sophistication", value=opencti_entity["sophistication"])
-    entity.addProperty(fieldName="resource_level", value=opencti_entity["resource_level"])
-    entity.addProperty(fieldName="primary_motivation", value=opencti_entity["primary_motivation"])
-    entity.addProperty(fieldName="secondary_motivations", value=[opencti_entity["secondary_motivation"]])
-    entity.addProperty(fieldName="personal_motivations", value=[opencti_entity["personal_motivation"]])     
     return entity
 
 def searchAndAddEntity(opencti_api_client, transform, stix_id, stix_type, stix_name, output = None):
