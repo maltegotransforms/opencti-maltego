@@ -7,7 +7,6 @@ Use the OpenCTI platform in your Maltego application thanks to a set of transfor
 ```
 $ git clone https://github.com/amr-cossi/OpenCTI-Maltego
 $ cd OpenCTI-Maltego
-$ git submodule init
 ```
 
 ### Requirements
@@ -54,4 +53,6 @@ Finally just import the file `output/transforms.mtz` in Maltego using the "Impor
 
 ## TODO
 
-- Add a virtual env capability
+- Implement "explain inference" transform
+- Handle sectors
+- Less strict sanitize on entity names (use TRX functions ?)
