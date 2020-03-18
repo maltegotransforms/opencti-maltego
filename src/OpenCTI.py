@@ -162,13 +162,13 @@ if __name__ == "__main__":
                                 + "\n"
                                 + (
                                     relation["first_seen"][0:10]
-                                    if len(relation["first_seen"]) > 9
+                                    if "first_seen" in relation and relation["first_seen"] and len(relation["first_seen"]) > 9
                                     else ""
                                 )
                                 + "\n"
                                 + (
                                     relation["last_seen"][0:10]
-                                    if len(relation["last_seen"]) > 9
+                                    if "last_seen" in relation and relation["last_seen"] and len(relation["last_seen"]) > 9
                                     else ""
                                 )
                             )
