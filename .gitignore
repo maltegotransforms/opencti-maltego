@@ -2,5 +2,6 @@
 __pycache__
 config.py
 mtz/*
-transforms.mtz
+output/*
+*.mtz
 .idea

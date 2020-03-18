@@ -40,10 +40,10 @@ opencti.report.report.ReportToStixDomainEntities,Report to Reports,STIX2.report,
 opencti.report.indicator.ReportToStixDomainEntities,Report to Indicators,STIX2.report,OpenCTI,indicator
 opencti.relashionship.StixRelationToStixDomainEntity,Relationship to Entities,STIX2.relationship,OpenCTI explicit relations,
 opencti.relashionship.StixRelationToRelations,Relationship to Relations,STIX2.relationship,OpenCTI explicit relations,
-opencti.threat-actor.identity.StixDomainEntityToStixDomainEntity,Threat Actor to all Stix Domain Objects,STIX2.threat-actor,OpenCTI implicit relations,
-opencti.threat-actor.identity.StixDomainEntityToStixDomainEntityInferred,Threat Actor to all Stix Domain Objects Inferred,STIX2.threat-actor,OpenCTI implicit relations,
-opencti.threat-actor.identity.StixDomainEntityToRelations,Threat Actor to all Stix Domain Object Relations,STIX2.threat-actor,OpenCTI explicit relations,
-opencti.threat-actor.identity.StixDomainEntityToRelationsInferred,Threat Actor to all Stix Domain Object Relations Inferred,STIX2.threat-actor,OpenCTI explicit relations,
+opencti.threat-actor.StixDomainEntity.StixDomainEntityToStixDomainEntity,Threat Actor to all Stix Domain Objects,STIX2.threat-actor,OpenCTI implicit relations,
+opencti.threat-actor.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Threat Actor to all Stix Domain Objects Inferred,STIX2.threat-actor,OpenCTI implicit relations,
+opencti.threat-actor.StixDomainEntity.StixDomainEntityToRelations,Threat Actor to all Stix Domain Object Relations,STIX2.threat-actor,OpenCTI explicit relations,
+opencti.threat-actor.StixDomainEntity.StixDomainEntityToRelationsInferred,Threat Actor to all Stix Domain Object Relations Inferred,STIX2.threat-actor,OpenCTI explicit relations,
 opencti.threat-actor.identity.StixDomainEntityToStixDomainEntity,Threat Actor to Identities,STIX2.threat-actor,OpenCTI implicit relations,identity
 opencti.threat-actor.identity.StixDomainEntityToStixDomainEntityInferred,Threat Actor to Identities Inferred,STIX2.threat-actor,OpenCTI implicit relations,identity
 opencti.threat-actor.identity.StixDomainEntityToRelations,Threat Actor to Identity Relations,STIX2.threat-actor,OpenCTI explicit relations,identity
@@ -84,10 +84,10 @@ opencti.threat-actor.indicator.StixDomainEntityToStixDomainEntity,Threat Actor t
 opencti.threat-actor.indicator.StixDomainEntityToStixDomainEntityInferred,Threat Actor to Indicators Inferred,STIX2.threat-actor,OpenCTI implicit relations,indicator
 opencti.threat-actor.indicator.StixDomainEntityToRelations,Threat Actor to Indicators Relations,STIX2.threat-actor,OpenCTI explicit relations,indicator
 opencti.threat-actor.indicator.StixDomainEntityToRelationsInferred,Threat Actor to Indicators Relations Inferred,STIX2.threat-actor,OpenCTI explicit relations,indicator
-opencti.intrusion-set.identity.StixDomainEntityToStixDomainEntity,Intrusion Set to all Stix Domain Objects,STIX2.intrusion-set,OpenCTI implicit relations,
-opencti.intrusion-set.identity.StixDomainEntityToStixDomainEntityInferred,Intrusion Set to all Stix Domain Objects Inferred,STIX2.intrusion-set,OpenCTI implicit relations,
-opencti.intrusion-set.identity.StixDomainEntityToRelations,Intrusion Set to all Stix Domain Object Relations,STIX2.intrusion-set,OpenCTI explicit relations,
-opencti.intrusion-set.identity.StixDomainEntityToRelationsInferred,Intrusion Set to all Stix Domain Object Relations Inferred,STIX2.intrusion-set,OpenCTI explicit relations,
+opencti.intrusion-set.StixDomainEntity.StixDomainEntityToStixDomainEntity,Intrusion Set to all Stix Domain Objects,STIX2.intrusion-set,OpenCTI implicit relations,
+opencti.intrusion-set.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Intrusion Set to all Stix Domain Objects Inferred,STIX2.intrusion-set,OpenCTI implicit relations,
+opencti.intrusion-set.StixDomainEntity.StixDomainEntityToRelations,Intrusion Set to all Stix Domain Object Relations,STIX2.intrusion-set,OpenCTI explicit relations,
+opencti.intrusion-set.StixDomainEntity.StixDomainEntityToRelationsInferred,Intrusion Set to all Stix Domain Object Relations Inferred,STIX2.intrusion-set,OpenCTI explicit relations,
 opencti.intrusion-set.identity.StixDomainEntityToStixDomainEntity,Intrusion Set to Identities,STIX2.intrusion-set,OpenCTI implicit relations,identity
 opencti.intrusion-set.identity.StixDomainEntityToStixDomainEntityInferred,Intrusion Set to Identities Inferred,STIX2.intrusion-set,OpenCTI implicit relations,identity
 opencti.intrusion-set.identity.StixDomainEntityToRelations,Intrusion Set to Identity Relations,STIX2.intrusion-set,OpenCTI explicit relations,identity
@@ -128,6 +128,10 @@ opencti.intrusion-set.indicator.StixDomainEntityToStixDomainEntity,Intrusion Set
 opencti.intrusion-set.indicator.StixDomainEntityToStixDomainEntityInferred,Intrusion Set to Indicators Inferred,STIX2.intrusion-set,OpenCTI implicit relations,indicator
 opencti.intrusion-set.indicator.StixDomainEntityToRelations,Intrusion Set to Indicators Relations,STIX2.intrusion-set,OpenCTI explicit relations,indicator
 opencti.intrusion-set.indicator.StixDomainEntityToRelationsInferred,Intrusion Set to Indicators Relations Inferred,STIX2.intrusion-set,OpenCTI explicit relations,indicator
+opencti.campaign.StixDomainEntity.StixDomainEntityToStixDomainEntity,Campaign to all Stix Domain Objects,STIX2.campaign,OpenCTI implicit relations,
+opencti.campaign.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Campaign to all Stix Domain Objects Inferred,STIX2.campaign,OpenCTI implicit relations,
+opencti.campaign.StixDomainEntity.StixDomainEntityToRelations,Campaign to all Stix Domain Object Relations,STIX2.campaign,OpenCTI explicit relations,
+opencti.campaign.StixDomainEntity.StixDomainEntityToRelationsInferred,Campaign to all Stix Domain Object Relations Inferred,STIX2.campaign,OpenCTI explicit relations,
 opencti.campaign.identity.StixDomainEntityToStixDomainEntity,Campaign to Identities,STIX2.campaign,OpenCTI implicit relations,identity
 opencti.campaign.identity.StixDomainEntityToStixDomainEntityInferred,Campaign to Identities Inferred,STIX2.campaign,OpenCTI implicit relations,identity
 opencti.campaign.identity.StixDomainEntityToRelations,Campaign to Identity Relations,STIX2.campaign,OpenCTI explicit relations,identity
@@ -168,6 +172,10 @@ opencti.campaign.indicator.StixDomainEntityToStixDomainEntity,Campaign to Indica
 opencti.campaign.indicator.StixDomainEntityToStixDomainEntityInferred,Campaign to Indicators Inferred,STIX2.campaign,OpenCTI implicit relations,indicator
 opencti.campaign.indicator.StixDomainEntityToRelations,Campaign to Indicators Relations,STIX2.campaign,OpenCTI explicit relations,indicator
 opencti.campaign.indicator.StixDomainEntityToRelationsInferred,Campaign to Indicators Relations Inferred,STIX2.campaign,OpenCTI explicit relations,indicator
+opencti.incident.StixDomainEntity.StixDomainEntityToStixDomainEntity,Incident to all Stix Domain Objects,STIX2.incident,OpenCTI implicit relations,
+opencti.incident.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Incident to all Stix Domain Objects Inferred,STIX2.incident,OpenCTI implicit relations,
+opencti.incident.StixDomainEntity.StixDomainEntityToRelations,Incident to all Stix Domain Object Relations,STIX2.incident,OpenCTI explicit relations,
+opencti.incident.StixDomainEntity.StixDomainEntityToRelationsInferred,Incident to all Stix Domain Object Relations Inferred,STIX2.incident,OpenCTI explicit relations,
 opencti.incident.identity.StixDomainEntityToStixDomainEntity,Incident to Identities,STIX2.incident,OpenCTI implicit relations,identity
 opencti.incident.identity.StixDomainEntityToStixDomainEntityInferred,Incident to Identities Inferred,STIX2.incident,OpenCTI implicit relations,identity
 opencti.incident.identity.StixDomainEntityToRelations,Incident to Identity Relations,STIX2.incident,OpenCTI explicit relations,identity
@@ -204,6 +212,10 @@ opencti.incident.attack-pattern.StixDomainEntityToStixDomainEntity,Incident to A
 opencti.incident.attack-pattern.StixDomainEntityToStixDomainEntityInferred,Incident to Attack Patterns Inferred,STIX2.incident,OpenCTI implicit relations,attack-pattern
 opencti.incident.attack-pattern.StixDomainEntityToRelations,Incident to Attack Pattern Relations,STIX2.incident,OpenCTI explicit relations,attack-pattern
 opencti.incident.attack-pattern.StixDomainEntityToRelationsInferred,Incident to Attack Pattern Relations Inferred,STIX2.incident,OpenCTI explicit relations,attack-pattern
+opencti.malware.StixDomainEntity.StixDomainEntityToStixDomainEntity,Malware to all Stix Domain Objects,STIX2.malware,OpenCTI implicit relations,
+opencti.malware.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Malware to all Stix Domain Objects Inferred,STIX2.malware,OpenCTI implicit relations,
+opencti.malware.StixDomainEntity.StixDomainEntityToRelations,Malware to all Stix Domain Object Relations,STIX2.malware,OpenCTI explicit relations,
+opencti.malware.StixDomainEntity.StixDomainEntityToRelationsInferred,Malware to all Stix Domain Object Relations Inferred,STIX2.malware,OpenCTI explicit relations,
 opencti.malware.identity.StixDomainEntityToStixDomainEntity,Malware to Identities,STIX2.malware,OpenCTI implicit relations,identity
 opencti.malware.identity.StixDomainEntityToStixDomainEntityInferred,Malware to Identities Inferred,STIX2.malware,OpenCTI implicit relations,identity
 opencti.malware.identity.StixDomainEntityToRelations,Malware to Identity Relations,STIX2.malware,OpenCTI explicit relations,identity
@@ -244,6 +256,10 @@ opencti.malware.indicator.StixDomainEntityToStixDomainEntity,Malware to Indicato
 opencti.malware.indicator.StixDomainEntityToStixDomainEntityInferred,Malware to Indicators Inferred,STIX2.malware,OpenCTI implicit relations,indicator
 opencti.malware.indicator.StixDomainEntityToRelations,Malware to Indicators Relations,STIX2.malware,OpenCTI explicit relations,indicator
 opencti.malware.indicator.StixDomainEntityToRelationsInferred,Malware to Indicators Relations Inferred,STIX2.malware,OpenCTI explicit relations,indicator
+opencti.tool.StixDomainEntity.StixDomainEntityToStixDomainEntity,Tool to all Stix Domain Objects,STIX2.tool,OpenCTI implicit relations,
+opencti.tool.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Tool to all Stix Domain Objects Inferred,STIX2.tool,OpenCTI implicit relations,
+opencti.tool.StixDomainEntity.StixDomainEntityToRelations,Tool to all Stix Domain Object Relations,STIX2.tool,OpenCTI explicit relations,
+opencti.tool.StixDomainEntity.StixDomainEntityToRelationsInferred,Tool to all Stix Domain Object Relations Inferred,STIX2.tool,OpenCTI explicit relations,
 opencti.tool.identity.StixDomainEntityToStixDomainEntity,Tool to Identities,STIX2.tool,OpenCTI implicit relations,identity
 opencti.tool.identity.StixDomainEntityToStixDomainEntityInferred,Tool to Identities Inferred,STIX2.tool,OpenCTI implicit relations,identity
 opencti.tool.identity.StixDomainEntityToRelations,Tool to Identity Relations,STIX2.tool,OpenCTI explicit relations,identity
@@ -284,6 +300,10 @@ opencti.tool.indicator.StixDomainEntityToStixDomainEntity,Tool to Indicators,STI
 opencti.tool.indicator.StixDomainEntityToStixDomainEntityInferred,Tool to Indicators Inferred,STIX2.tool,OpenCTI implicit relations,indicator
 opencti.tool.indicator.StixDomainEntityToRelations,Tool to Indicators Relations,STIX2.tool,OpenCTI explicit relations,indicator
 opencti.tool.indicator.StixDomainEntityToRelationsInferred,Tool to Indicators Relations Inferred,STIX2.tool,OpenCTI explicit relations,indicator
+opencti.vulnerability.StixDomainEntity.StixDomainEntityToStixDomainEntity,Vulnerability to all Stix Domain Objects,STIX2.vulnerability,OpenCTI implicit relations,
+opencti.vulnerability.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Vulnerability to all Stix Domain Objects Inferred,STIX2.vulnerability,OpenCTI implicit relations,
+opencti.vulnerability.StixDomainEntity.StixDomainEntityToRelations,Vulnerability to all Stix Domain Object Relations,STIX2.vulnerability,OpenCTI explicit relations,
+opencti.vulnerability.StixDomainEntity.StixDomainEntityToRelationsInferred,Vulnerability to all Stix Domain Object Relations Inferred,STIX2.vulnerability,OpenCTI explicit relations,
 opencti.vulnerability.identity.StixDomainEntityToStixDomainEntity,Vulnerability to Identities,STIX2.vulnerability,OpenCTI implicit relations,identity
 opencti.vulnerability.identity.StixDomainEntityToStixDomainEntityInferred,Vulnerability to Identities Inferred,STIX2.vulnerability,OpenCTI implicit relations,identity
 opencti.vulnerability.identity.StixDomainEntityToRelations,Vulnerability to Identity Relations,STIX2.vulnerability,OpenCTI explicit relations,identity
@@ -320,6 +340,10 @@ opencti.vulnerability.attack-pattern.StixDomainEntityToStixDomainEntity,Vulnerab
 opencti.vulnerability.attack-pattern.StixDomainEntityToStixDomainEntityInferred,Vulnerability to Attack Patterns Inferred,STIX2.vulnerability,OpenCTI implicit relations,attack-pattern
 opencti.vulnerability.attack-pattern.StixDomainEntityToRelations,Vulnerability to Attack Pattern Relations,STIX2.vulnerability,OpenCTI explicit relations,attack-pattern
 opencti.vulnerability.attack-pattern.StixDomainEntityToRelationsInferred,Vulnerability to Attack Pattern Relations Inferred,STIX2.vulnerability,OpenCTI explicit relations,attack-pattern
+opencti.attack-pattern.StixDomainEntity.StixDomainEntityToStixDomainEntity,Attack Pattern to all Stix Domain Objects,STIX2.attack-pattern,OpenCTI implicit relations,
+opencti.attack-pattern.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Attack Pattern to all Stix Domain Objects Inferred,STIX2.attack-pattern,OpenCTI implicit relations,
+opencti.attack-pattern.StixDomainEntity.StixDomainEntityToRelations,Attack Pattern to all Stix Domain Object Relations,STIX2.attack-pattern,OpenCTI explicit relations,
+opencti.attack-pattern.StixDomainEntity.StixDomainEntityToRelationsInferred,Attack Pattern to all Stix Domain Object Relations Inferred,STIX2.attack-pattern,OpenCTI explicit relations,
 opencti.attack-pattern.identity.StixDomainEntityToStixDomainEntity,Attack Pattern to Identities,STIX2.attack-pattern,OpenCTI implicit relations,identity
 opencti.attack-pattern.identity.StixDomainEntityToStixDomainEntityInferred,Attack Pattern to Identities Inferred,STIX2.attack-pattern,OpenCTI implicit relations,identity
 opencti.attack-pattern.identity.StixDomainEntityToRelations,Attack Pattern to Identity Relations,STIX2.attack-pattern,OpenCTI explicit relations,identity
@@ -360,6 +384,10 @@ opencti.attack-pattern.course-of-action.StixDomainEntityToStixDomainEntity,Attac
 opencti.attack-pattern.course-of-action.StixDomainEntityToStixDomainEntityInferred,Attack Pattern to Courses Of Action Inferred,STIX2.attack-pattern,OpenCTI implicit relations,course-of-action
 opencti.attack-pattern.course-of-action.StixDomainEntityToRelations,Attack Pattern to Courses Of Action Relations,STIX2.attack-pattern,OpenCTI explicit relations,course-of-action
 opencti.attack-pattern.course-of-action.StixDomainEntityToRelationsInferred,Attack Pattern to Courses Of Action Relations Inferred,STIX2.attack-pattern,OpenCTI explicit relations,course-of-action
+opencti.course-of-action.StixDomainEntity.StixDomainEntityToStixDomainEntity,Course Of Action to all Stix Domain Objects,STIX2.course-of-action,OpenCTI implicit relations,
+opencti.course-of-action.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Course Of Action to all Stix Domain Objects Inferred,STIX2.course-of-action,OpenCTI implicit relations,
+opencti.course-of-action.StixDomainEntity.StixDomainEntityToRelations,Course Of Action to all Stix Domain Object Relations,STIX2.course-of-action,OpenCTI explicit relations,
+opencti.course-of-action.StixDomainEntity.StixDomainEntityToRelationsInferred,Course Of Action to all Stix Domain Object Relations Inferred,STIX2.course-of-action,OpenCTI explicit relations,
 opencti.course-of-action.attack-pattern.StixDomainEntityToStixDomainEntity,Course Of Action to Attack Patterns,STIX2.course-of-action,OpenCTI implicit relations,attack-pattern
 opencti.course-of-action.attack-pattern.StixDomainEntityToStixDomainEntityInferred,Course Of Action to Attack Patterns Inferred,STIX2.course-of-action,OpenCTI implicit relations,attack-pattern
 opencti.course-of-action.attack-pattern.StixDomainEntityToRelations,Course Of Action to Attack Pattern Relations,STIX2.course-of-action,OpenCTI explicit relations,attack-pattern
@@ -368,6 +396,10 @@ opencti.course-of-action.course-of-action.StixDomainEntityToStixDomainEntity,Cou
 opencti.course-of-action.course-of-action.StixDomainEntityToStixDomainEntityInferred,Course Of Action to Courses Of Action Inferred,STIX2.course-of-action,OpenCTI implicit relations,course-of-action
 opencti.course-of-action.course-of-action.StixDomainEntityToRelations,Course Of Action to Courses Of Action Relations,STIX2.course-of-action,OpenCTI explicit relations,course-of-action
 opencti.course-of-action.course-of-action.StixDomainEntityToRelationsInferred,Course Of Action to Courses Of Action Relations Inferred,STIX2.course-of-action,OpenCTI explicit relations,course-of-action
+opencti.indicator.StixDomainEntity.StixDomainEntityToStixDomainEntity,Indicator to all Stix Domain Objects,STIX2.indicator,OpenCTI implicit relations,
+opencti.indicator.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,Indicator to all Stix Domain Objects Inferred,STIX2.indicator,OpenCTI implicit relations,
+opencti.indicator.StixDomainEntity.StixDomainEntityToRelations,Indicator to all Stix Domain Object Relations,STIX2.indicator,OpenCTI explicit relations,
+opencti.indicator.StixDomainEntity.StixDomainEntityToRelationsInferred,Indicator to all Stix Domain Object Relations Inferred,STIX2.indicator,OpenCTI explicit relations,
 opencti.indicator.identity.StixDomainEntityToStixDomainEntity,Indicator to Identities,STIX2.indicator,OpenCTI implicit relations,identity
 opencti.indicator.identity.StixDomainEntityToStixDomainEntityInferred,Indicator to Identities Inferred,STIX2.indicator,OpenCTI implicit relations,identity
 opencti.indicator.identity.StixDomainEntityToRelations,Indicator to Identity Relations,STIX2.indicator,OpenCTI explicit relations,identity
