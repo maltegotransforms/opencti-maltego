@@ -50,7 +50,7 @@ If you specified a different path for the `src` directory of thie repository, pl
 $ cp -a src /path/to/your/project/OpenCTI-Maltego/src
 ```
 
-Finally just import the file `transforms.mtz` in Maltego using the "Import config" menu.
+Finally just import the file `output/transforms.mtz` in Maltego using the "Import config" menu.
 
 ## TODO
 
