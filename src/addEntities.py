@@ -1,3 +1,6 @@
+from pycti.utils.constants import (
+    IdentityTypes,
+)
 from utils import sanitize, STIX2toOpenCTItype
 from maltego_trx.entities import *
 from entities import *
@@ -26,9 +29,13 @@ def addIdentity(transform, opencti_entity):
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
     )
-    entity.addProperty(fieldName="first_seen", value=opencti_entity["first_seen"])
-    entity.addProperty(fieldName="last_seen", value=opencti_entity["last_seen"])
-    entity.addProperty(fieldName="objective", value=opencti_entity["objective"])
+    if opencti_entity["entity_type"] == "user":
+        identity_class = "individual"
+    elif opencti_entity["entity_type"] == "sector":
+        identity_class = "class"
+    else:
+        identity_class = "organization"
+    entity.addProperty(fieldName="identity_class", value=identity_class)
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
     return entity
@@ -407,24 +414,20 @@ def addRelationship(transform, opencti_entity):
 
 
 def searchAndAddEntity(
-    opencti_api_client, transform, stix_id, stix_type, stix_name, output=None
+        opencti_api_client, transform, stix_id, stix_type, stix_name, output=None
 ):
     types = [STIX2toOpenCTItype(stix_type)]
     opencti_entity = None
     maltego_entity = None
 
-    if not output or output == stix_type:
+    if not output or output == stix_type or (output == 'identity' and IdentityTypes.has_value(stix_type)):
         # Search for entity in OpenCTI based on STIX id or (type, name)
         opencti_entity = opencti_api_client.stix_domain_entity.get_by_stix_id_or_name(
             types=types, stix_id_key=stix_id, name=stix_name
         )
         if opencti_entity:
             # Don't trust input type as id is prioritary over (name, type)
-            if (
-                "identity" in opencti_entity["parent_types"]
-                and opencti_entity["entity_type"] != "threat-actor"
-            ):
-                print("la")
+            if "Identity" in opencti_entity["parent_types"]:
                 maltego_entity = addIdentity(transform, opencti_entity)
             elif opencti_entity["entity_type"] == "threat-actor":
                 maltego_entity = addThreatActor(transform, opencti_entity)
@@ -453,7 +456,7 @@ def searchAndAddEntity(
 
 
 def searchAndAddRelashionship(
-    opencti_api_client, transform, stix_id, stix_type="relationship", output=None
+        opencti_api_client, transform, stix_id, stix_type="relationship", output=None
 ):
     opencti_entity = None
     maltego_entity = None

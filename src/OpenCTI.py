@@ -120,29 +120,36 @@ if __name__ == "__main__":
                         fromId=entity["opencti_entity"]["id"],
                         toTypes=[STIX2toOpenCTItype(args.output)],
                         inferred=inferred,
+                        forceNatural=True
                     )
                 else:
                     stix_relations = opencti_api_client.stix_relation.list(
-                        fromId=entity["opencti_entity"]["id"], inferred=inferred
+                        fromId=entity["opencti_entity"]["id"], inferred=inferred, forceNatural=True
                     )
                 if len(stix_relations) > 0:
                     if "Relations" in args.transformName:
                         for relation in stix_relations:
                             reverse_link = False
-                            # TODO: implement reverse link with parameter introduced in pycti 3.0.2
+                            if relation["to"]["id"] == entity["opencti_entity"]["id"]:
+                                reverse_link = True
                             child_entity = addRelationship(transform, relation)
                             if "inferred" in relation and relation["inferred"]:
                                 child_entity.setLinkLabel("Inferred")
+                            if reverse_link:
+                                child_entity.reverseLink()
                     else:
                         for relation in stix_relations:
-                            reverse_link = False
-                            # TODO: implement reverse link with parameter introduced in pycti 3.0.2
-
+                            if relation["to"]["id"] == entity["opencti_entity"]["id"]:
+                                reverse_link = True
+                                neighbour_data = relation["from"]
+                            else:
+                                reverse_link = False
+                                neighbour_data = relation["to"]
                             neighbour_entity = searchAndAddEntity(
                                 opencti_api_client,
                                 transform,
-                                relation["to"]["stix_id_key"],
-                                relation["to"]["entity_type"],
+                                neighbour_data["stix_id_key"],
+                                neighbour_data["entity_type"],
                                 None,
                                 args.output,
                             )

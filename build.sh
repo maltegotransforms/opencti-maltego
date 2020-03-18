@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Clear
+rm transforms.mtz
 rm -R mtz/Servers/* mtz/TransformSets/* mtz/TransformRepositories/Local/*
 
 python3 generate_transforms.py transforms.csv
