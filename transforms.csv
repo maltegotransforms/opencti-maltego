@@ -40,6 +40,10 @@ opencti.report.report.ReportToStixDomainEntities,Report to Reports,STIX2.report,
 opencti.report.indicator.ReportToStixDomainEntities,Report to Indicators,STIX2.report,OpenCTI,indicator
 opencti.relashionship.StixRelationToStixDomainEntity,Relationship to Entities,STIX2.relationship,OpenCTI explicit relations,
 opencti.relashionship.StixRelationToRelations,Relationship to Relations,STIX2.relationship,OpenCTI explicit relations,
+opencti.threat-actor.identity.StixDomainEntityToStixDomainEntity,Threat Actor to all Stix Domain Objects,STIX2.threat-actor,OpenCTI implicit relations,
+opencti.threat-actor.identity.StixDomainEntityToStixDomainEntityInferred,Threat Actor to all Stix Domain Objects Inferred,STIX2.threat-actor,OpenCTI implicit relations,
+opencti.threat-actor.identity.StixDomainEntityToRelations,Threat Actor to all Stix Domain Object Relations,STIX2.threat-actor,OpenCTI explicit relations,
+opencti.threat-actor.identity.StixDomainEntityToRelationsInferred,Threat Actor to all Stix Domain Object Relations Inferred,STIX2.threat-actor,OpenCTI explicit relations,
 opencti.threat-actor.identity.StixDomainEntityToStixDomainEntity,Threat Actor to Identities,STIX2.threat-actor,OpenCTI implicit relations,identity
 opencti.threat-actor.identity.StixDomainEntityToStixDomainEntityInferred,Threat Actor to Identities Inferred,STIX2.threat-actor,OpenCTI implicit relations,identity
 opencti.threat-actor.identity.StixDomainEntityToRelations,Threat Actor to Identity Relations,STIX2.threat-actor,OpenCTI explicit relations,identity
@@ -80,6 +84,10 @@ opencti.threat-actor.indicator.StixDomainEntityToStixDomainEntity,Threat Actor t
 opencti.threat-actor.indicator.StixDomainEntityToStixDomainEntityInferred,Threat Actor to Indicators Inferred,STIX2.threat-actor,OpenCTI implicit relations,indicator
 opencti.threat-actor.indicator.StixDomainEntityToRelations,Threat Actor to Indicators Relations,STIX2.threat-actor,OpenCTI explicit relations,indicator
 opencti.threat-actor.indicator.StixDomainEntityToRelationsInferred,Threat Actor to Indicators Relations Inferred,STIX2.threat-actor,OpenCTI explicit relations,indicator
+opencti.intrusion-set.identity.StixDomainEntityToStixDomainEntity,Intrusion Set to all Stix Domain Objects,STIX2.intrusion-set,OpenCTI implicit relations,
+opencti.intrusion-set.identity.StixDomainEntityToStixDomainEntityInferred,Intrusion Set to all Stix Domain Objects Inferred,STIX2.intrusion-set,OpenCTI implicit relations,
+opencti.intrusion-set.identity.StixDomainEntityToRelations,Intrusion Set to all Stix Domain Object Relations,STIX2.intrusion-set,OpenCTI explicit relations,
+opencti.intrusion-set.identity.StixDomainEntityToRelationsInferred,Intrusion Set to all Stix Domain Object Relations Inferred,STIX2.intrusion-set,OpenCTI explicit relations,
 opencti.intrusion-set.identity.StixDomainEntityToStixDomainEntity,Intrusion Set to Identities,STIX2.intrusion-set,OpenCTI implicit relations,identity
 opencti.intrusion-set.identity.StixDomainEntityToStixDomainEntityInferred,Intrusion Set to Identities Inferred,STIX2.intrusion-set,OpenCTI implicit relations,identity
 opencti.intrusion-set.identity.StixDomainEntityToRelations,Intrusion Set to Identity Relations,STIX2.intrusion-set,OpenCTI explicit relations,identity

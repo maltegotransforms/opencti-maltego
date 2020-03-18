@@ -178,7 +178,6 @@ if __name__ == "__main__":
 
             # StixRelationToStixDomainEntity: Find and add from and to entities
             elif args.transformName == "StixRelationToStixDomainEntity":
-                # TODO: implement reverse link with parameter introduced in pycti 3.0.2
                 from_entity = searchAndAddEntity(
                     opencti_api_client,
                     transform,
