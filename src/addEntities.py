@@ -379,6 +379,29 @@ def addIndicator(transform, opencti_entity):
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
     return entity
 
+def addIpv4Addr(transform, opencti_entity):
+    entity = transform.addEntity(Ipv4Addr, sanitize(opencti_entity["value"], True))
+    entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
+    entity.addProperty(
+        fieldName="created_by_ref",
+        value=opencti_entity["createdByRef"]["id"]
+        if opencti_entity["createdByRef"]
+        else None,
+    )
+    entity.addProperty(
+        fieldName="description", value=sanitize(opencti_entity["description"], True)
+    )
+    entity.addProperty(
+        fieldName="object_marking_refs",
+        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+    )
+    entity.addProperty(
+        fieldName="external_references", value=opencti_entity["externalReferencesIds"]
+    )
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    return entity
+
 
 def addRelationship(transform, opencti_entity):
     entity = transform.addEntity(

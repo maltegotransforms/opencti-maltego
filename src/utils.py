@@ -50,6 +50,20 @@ def STIX2toOpenCTItype(stix2_type):
         return "Course-Of-Action"
     if stix2_type == "report":
         return "Report"
+    if stix2_type == "autonomous-system":
+        return "Autonomous-System"
+    if stix2_type == "domain-name":
+        return "Domain-Name"
+    if stix2_type == "mac-addr":
+        return "Mac-Addr"
+    if stix2_type == "ipv4-addr":
+        return "IPv4-Addr"
+    if stix2_type == "ipv6-addr":
+        return "IPv6-Addr"
+    if stix2_type == "url":
+        return "URL"
+    if stix2_type == "email-addr":
+        return "Email-Addr"
     if stix2_type == "indicator":
         return "Indicator"
     return ""

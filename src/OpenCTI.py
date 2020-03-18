@@ -8,6 +8,9 @@
 
 import argparse
 from pycti import OpenCTIApiClient
+from pycti.utils.constants import (
+    ObservableTypes,
+)
 from maltego_trx.maltego import *
 from maltego_trx.entities import *
 from entities import *
@@ -112,16 +115,29 @@ if __name__ == "__main__":
                 "StixDomainEntityToRelations",
                 "StixDomainEntityToRelationsInferred",
                 "StixRelationToRelations",
+                "StixDomainEntityToIndicator",
             ]:
                 inferred = "Inferred" in args.transformName
                 stix_relations = []
                 if args.output:
-                    stix_relations = opencti_api_client.stix_relation.list(
-                        fromId=entity["opencti_entity"]["id"],
-                        toTypes=[STIX2toOpenCTItype(args.output)],
-                        inferred=inferred,
-                        forceNatural=True
-                    )
+                    maltego_type = args.output
+                    opencti_type = STIX2toOpenCTItype(args.output)
+                    if args.transformName == "StixDomainEntityToIndicator":
+                        maltego_type = 'indicator'
+                        stix_relations = opencti_api_client.stix_relation.list(
+                            fromId=entity["opencti_entity"]["id"],
+                            toTypes=["Indicator"],
+                            filters=[{"key": "toMainObservableType", "values": [opencti_type.lower()]}],
+                            inferred=inferred,
+                            forceNatural=True
+                        )
+                    else:
+                        stix_relations = opencti_api_client.stix_relation.list(
+                            fromId=entity["opencti_entity"]["id"],
+                            toTypes=[opencti_type],
+                            inferred=inferred,
+                            forceNatural=True
+                        )
                 else:
                     stix_relations = opencti_api_client.stix_relation.list(
                         fromId=entity["opencti_entity"]["id"], inferred=inferred, forceNatural=True
@@ -151,7 +167,7 @@ if __name__ == "__main__":
                                 neighbour_data["stix_id_key"],
                                 neighbour_data["entity_type"],
                                 None,
-                                args.output,
+                                maltego_type,
                             )
 
                             neighbour_entity["maltego_entity"].setLinkLabel(
@@ -176,6 +192,9 @@ if __name__ == "__main__":
                             if reverse_link:
                                 neighbour_entity["maltego_entity"].reverseLink()
 
+            # StixDomainEntityToStixObservable: Return observables
+            elif args.transformName == "StixDomainEntityToStixObservable":
+                print(entity)
             # StixRelationToStixDomainEntity: Find and add from and to entities
             elif args.transformName == "StixRelationToStixDomainEntity":
                 from_entity = searchAndAddEntity(
