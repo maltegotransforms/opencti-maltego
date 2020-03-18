@@ -192,8 +192,8 @@ if __name__ == "__main__":
                 to_entity = searchAndAddEntity(
                     opencti_api_client,
                     transform,
-                    entity["opencti_entity"]["stix_id_key"],
-                    entity["opencti_entity"]["entity_type"],
+                    entity["opencti_entity"]["to"]["stix_id_key"],
+                    entity["opencti_entity"]["to"]["entity_type"],
                     None,
                     args.output,
                 )
