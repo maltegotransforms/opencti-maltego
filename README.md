@@ -53,4 +53,6 @@ Finally just import the file `output/transforms.mtz` in Maltego using the "Impor
 
 ## TODO
 
-- Add a virtual env capability
+- Implement "explain inference" transform
+- Handle sectors
+- Less strict sanitize on entity names (use TRX functions ?)
