@@ -7,7 +7,6 @@ Use the OpenCTI platform in your Maltego application thanks to a set of transfor
 ```
 $ git clone https://github.com/amr-cossi/OpenCTI-Maltego
 $ cd OpenCTI-Maltego
-$ git submodule init
 ```
 
 ### Requirements

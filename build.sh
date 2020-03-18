@@ -9,7 +9,7 @@ python3 generate_transforms.py transforms.csv
 
 echo "Create MTZ package"
 cd mtz
-zip -q -r ../output/transforms.mtz ./Servers ./TransformRepositories ./TransformSets
+zip -q -x .empty -r ../output/transforms.mtz ./Servers ./TransformRepositories ./TransformSets
 cd ../
 
 # Add opencti configuration file next to transforms
