@@ -11,20 +11,21 @@ def addIdentity(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
     entity.addProperty(
         fieldName="description", value=sanitize(opencti_entity["description"], True)
     )
-    entity.addProperty(fieldName="type", value=opencti_entity["entity_type"])
+    entity.addProperty(fieldName="type", value="identity")
+    # No aliases in official schema
     entity.addProperty(
         fieldName="aliases", value=sanitize(opencti_entity["alias"], True)
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -46,7 +47,7 @@ def addThreatActor(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -58,7 +59,7 @@ def addThreatActor(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -90,7 +91,7 @@ def addIntrusionSet(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -102,7 +103,7 @@ def addIntrusionSet(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -130,7 +131,7 @@ def addCampaign(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -142,7 +143,7 @@ def addCampaign(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -160,7 +161,7 @@ def addIncident(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -172,7 +173,7 @@ def addIncident(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -190,7 +191,7 @@ def addMalware(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -202,7 +203,7 @@ def addMalware(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -217,7 +218,7 @@ def addTool(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -229,7 +230,7 @@ def addTool(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -244,7 +245,7 @@ def addVulnerability(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -256,7 +257,7 @@ def addVulnerability(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -271,7 +272,7 @@ def addAttackPattern(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -283,7 +284,7 @@ def addAttackPattern(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -298,7 +299,7 @@ def addCourseOfAction(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -310,7 +311,7 @@ def addCourseOfAction(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -325,7 +326,7 @@ def addReport(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -337,7 +338,7 @@ def addReport(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -358,7 +359,7 @@ def addIndicator(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -370,7 +371,7 @@ def addIndicator(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -384,7 +385,7 @@ def addIpv4Addr(transform, opencti_entity):
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -393,7 +394,7 @@ def addIpv4Addr(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
@@ -412,7 +413,7 @@ def addRelationship(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="created_by_ref",
-        value=opencti_entity["createdByRef"]["id"]
+        value=opencti_entity["createdByRef"]["stix_id_key"]
         if opencti_entity["createdByRef"]
         else None,
     )
@@ -421,7 +422,7 @@ def addRelationship(transform, opencti_entity):
     )
     entity.addProperty(
         fieldName="object_marking_refs",
-        value=[r["id"] for r in opencti_entity["markingDefinitions"]],
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
     )
     entity.addProperty(
         fieldName="external_references", value=opencti_entity["externalReferencesIds"]
