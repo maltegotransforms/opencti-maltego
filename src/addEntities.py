@@ -4,7 +4,24 @@ from pycti.utils.constants import (
 from utils import sanitize, STIX2toOpenCTItype
 from maltego_trx.entities import *
 from entities import *
+from config import format_config
 
+def formatMarkings(entity, markingDefinitions):
+    for r in markingDefinitions:
+        if (
+            format_config["marking_color"]
+            and r["definition_type"] == format_config["marking_color"]
+        ):
+            entity.addProperty(
+                fieldName="marking_color", value=r["color"]
+            )
+        if (
+            format_config["marking_text"]
+            and r["definition_type"] == format_config["marking_text"]
+        ):
+            entity.addProperty(
+                fieldName="marking_text", value=r["definition"]
+            )
 
 def addIdentity(transform, opencti_entity):
     entity = transform.addEntity(Identity, sanitize(opencti_entity["name"], True))
@@ -39,6 +56,7 @@ def addIdentity(transform, opencti_entity):
     entity.addProperty(fieldName="identity_class", value=identity_class)
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -83,6 +101,7 @@ def addThreatActor(transform, opencti_entity):
     entity.addProperty(
         fieldName="personal_motivations", value=[opencti_entity["personal_motivation"]]
     )
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -123,6 +142,7 @@ def addIntrusionSet(transform, opencti_entity):
     )
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -153,6 +173,7 @@ def addCampaign(transform, opencti_entity):
     entity.addProperty(fieldName="objective", value=opencti_entity["objective"])
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -183,6 +204,7 @@ def addIncident(transform, opencti_entity):
     entity.addProperty(fieldName="objective", value=opencti_entity["objective"])
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -210,6 +232,7 @@ def addMalware(transform, opencti_entity):
     )
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -237,6 +260,7 @@ def addTool(transform, opencti_entity):
     )
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -264,6 +288,7 @@ def addVulnerability(transform, opencti_entity):
     )
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -291,6 +316,7 @@ def addAttackPattern(transform, opencti_entity):
     )
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -318,6 +344,7 @@ def addCourseOfAction(transform, opencti_entity):
     )
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -351,6 +378,7 @@ def addReport(transform, opencti_entity):
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
     entity.addProperty(fieldName="object_refs", value=opencti_entity["objectRefsIds"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -378,6 +406,7 @@ def addIndicator(transform, opencti_entity):
     )
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 def addIpv4Addr(transform, opencti_entity):
@@ -401,6 +430,7 @@ def addIpv4Addr(transform, opencti_entity):
     )
     entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 
@@ -434,6 +464,7 @@ def addRelationship(transform, opencti_entity):
     entity.addProperty(fieldName="target_ref", value=opencti_entity["to"]["id"])
     entity.addProperty(fieldName="start_time", value=opencti_entity["first_seen"])
     entity.addProperty(fieldName="stop_time", value=opencti_entity["last_seen"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
 

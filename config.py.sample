@@ -11,3 +11,9 @@ opencti_config = {
 	"log_level": "error",
 	"ssl_verify": True
 }
+
+# OpenCTI marking types to be shown on each entity in Maltego
+format_config = {
+	"marking_color": "TLP",
+	"marking_text": None
+}
