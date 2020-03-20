@@ -17,3 +17,10 @@ format_config = {
 	"marking_color": "TLP",
 	"marking_text": None
 }
+
+# Config to handle Maltego entities inheritance properties
+# Format :
+# "stix_type": [(opencti_property_key, maltego_property_key), (opencti_property_key2, maltego_property_key2)...]
+heritage_config = {
+    "ipv4-addr": [("observable_value", "ipv4-address")],
+}

@@ -16,6 +16,7 @@ from config import local_execution_path, python_path, opencti_config
 from utils import sanitize, STIX2toOpenCTItype
 from addEntities import (
     searchAndAddEntity,
+    searchAndAddObservable,
     searchAndAddRelashionship,
     addRelationship,
     addReport,
@@ -69,6 +70,8 @@ if __name__ == "__main__":
         # Search and complete details for the input entity (StixRelation or StixEntity)
         if args.transformName.startswith("StixRelation"):
             entity = searchAndAddRelashionship(opencti_api_client, transform, input_id)
+        elif args.transformName.startswith("StixObservable"):
+            entity = searchAndAddObservable(opencti_api_client, transform, input_id, input_name)
         else:
             entity = searchAndAddEntity(
                 opencti_api_client, transform, input_id, input_type, input_name
@@ -204,7 +207,54 @@ if __name__ == "__main__":
 
             # StixDomainEntityToStixObservable: Return observables
             elif args.transformName == "StixDomainEntityToStixObservable":
-                print(entity)
+                if "observableRefs" in entity["opencti_entity"]:
+                    for observable in entity["opencti_entity"]["observableRefs"]:
+                        searchAndAddObservable(opencti_api_client, transform, observable["id"], None)
+                else:
+                    stix_relations = opencti_api_client.stix_relation.list(
+                        fromId=entity["opencti_entity"]["id"],
+                        toTypes=["StixObservable"],
+                        forceNatural=True,
+                    )
+                    if len(stix_relations) > 0:
+                        for relation in stix_relations:
+                            if relation["to"]["id"] == entity["opencti_entity"]["id"]:
+                                reverse_link = True
+                                neighbour_data = relation["from"]
+                            else:
+                                reverse_link = False
+                                neighbour_data = relation["to"]
+                            neighbour_entity = searchAndAddObservable(
+                                opencti_api_client,
+                                transform,
+                                neighbour_data["id"],
+                                None,
+                            )
+                            neighbour_entity["maltego_entity"].setLinkLabel(
+                                "Inferred\n"
+                                if "inferred" in relation and relation["inferred"]
+                                else ""
+                                + relation["relationship_type"]
+                                + "\n"
+                                + (
+                                    relation["first_seen"][0:10]
+                                    if "first_seen" in relation
+                                    and relation["first_seen"]
+                                    and len(relation["first_seen"]) > 9
+                                    else ""
+                                )
+                                + "\n"
+                                + (
+                                    relation["last_seen"][0:10]
+                                    if "last_seen" in relation
+                                    and relation["last_seen"]
+                                    and len(relation["last_seen"]) > 9
+                                    else ""
+                                )
+                            )
+                            if reverse_link:
+                                neighbour_entity["maltego_entity"].reverseLink()
+
             # StixRelationToStixDomainEntity: Find and add from and to entities
             elif args.transformName == "StixRelationToStixDomainEntity":
                 from_entity = searchAndAddEntity(
@@ -215,6 +265,7 @@ if __name__ == "__main__":
                     None,
                     args.output,
                 )
+
                 from_entity["maltego_entity"].reverseLink()
 
                 to_entity = searchAndAddEntity(
@@ -232,6 +283,19 @@ if __name__ == "__main__":
                 ):
                     from_entity.setLinkLabel("Inferred")
                     to_entity.setLinkLabel("Inferred")
+            # StixObservableToIndicators: Return indicators
+            elif args.transformName == "StixObservableToIndicators":
+                maltego_type = None
+                if "indicators" in entity["opencti_entity"]:
+                    for indicator in entity["opencti_entity"]["indicators"]:
+                        neighbour_entity = searchAndAddEntity(
+                            opencti_api_client,
+                            transform,
+                            indicator["stix_id_key"],
+                            indicator["entity_type"],
+                            None,
+                            maltego_type,
+                        )
 
         # Output Maltego XML result
         print(transform.returnOutput())
