@@ -1,6 +1,4 @@
-from pycti.utils.constants import (
-    IdentityTypes,
-)
+from pycti.utils.constants import IdentityTypes
 from utils import sanitize, STIX2toOpenCTItype
 from maltego_trx.entities import *
 from entities import *
@@ -379,6 +377,7 @@ def addIndicator(transform, opencti_entity):
     entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
     return entity
 
+
 def addIpv4Addr(transform, opencti_entity):
     entity = transform.addEntity(Ipv4Addr, sanitize(opencti_entity["value"], True))
     entity.addProperty(fieldName="id", value=opencti_entity["stix_id_key"])
@@ -437,13 +436,17 @@ def addRelationship(transform, opencti_entity):
 
 
 def searchAndAddEntity(
-        opencti_api_client, transform, stix_id, stix_type, stix_name, output=None
+    opencti_api_client, transform, stix_id, stix_type, stix_name, output=None
 ):
     types = [STIX2toOpenCTItype(stix_type)]
     opencti_entity = None
     maltego_entity = None
 
-    if not output or output == stix_type or (output == 'identity' and IdentityTypes.has_value(stix_type)):
+    if (
+        not output
+        or output == stix_type
+        or (output == "identity" and IdentityTypes.has_value(stix_type))
+    ):
         # Search for entity in OpenCTI based on STIX id or (type, name)
         opencti_entity = opencti_api_client.stix_domain_entity.get_by_stix_id_or_name(
             types=types, stix_id_key=stix_id, name=stix_name
@@ -479,7 +482,7 @@ def searchAndAddEntity(
 
 
 def searchAndAddRelashionship(
-        opencti_api_client, transform, stix_id, stix_type="relationship", output=None
+    opencti_api_client, transform, stix_id, stix_type="relationship", output=None
 ):
     opencti_entity = None
     maltego_entity = None

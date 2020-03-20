@@ -8,9 +8,7 @@
 
 import argparse
 from pycti import OpenCTIApiClient
-from pycti.utils.constants import (
-    ObservableTypes,
-)
+from pycti.utils.constants import ObservableTypes
 from maltego_trx.maltego import *
 from maltego_trx.entities import *
 from entities import *
@@ -123,24 +121,32 @@ if __name__ == "__main__":
                     maltego_type = args.output
                     opencti_type = STIX2toOpenCTItype(args.output)
                     if args.transformName == "StixDomainEntityToIndicator":
-                        maltego_type = 'indicator'
+                        maltego_type = "indicator"
                         stix_relations = opencti_api_client.stix_relation.list(
                             fromId=entity["opencti_entity"]["id"],
                             toTypes=["Indicator"],
-                            filters=[{"key": "toMainObservableType", "values": [opencti_type.lower()]}],
+                            filters=[
+                                {
+                                    "key": "toMainObservableType",
+                                    "values": [opencti_type.lower()],
+                                }
+                            ],
                             inferred=inferred,
-                            forceNatural=True
+                            forceNatural=True,
                         )
                     else:
                         stix_relations = opencti_api_client.stix_relation.list(
                             fromId=entity["opencti_entity"]["id"],
                             toTypes=[opencti_type],
                             inferred=inferred,
-                            forceNatural=True
+                            forceNatural=True,
                         )
                 else:
+                    maltego_type = None
                     stix_relations = opencti_api_client.stix_relation.list(
-                        fromId=entity["opencti_entity"]["id"], inferred=inferred, forceNatural=True
+                        fromId=entity["opencti_entity"]["id"],
+                        inferred=inferred,
+                        forceNatural=True,
                     )
                 if len(stix_relations) > 0:
                     if "Relations" in args.transformName:
@@ -178,13 +184,17 @@ if __name__ == "__main__":
                                 + "\n"
                                 + (
                                     relation["first_seen"][0:10]
-                                    if "first_seen" in relation and relation["first_seen"] and len(relation["first_seen"]) > 9
+                                    if "first_seen" in relation
+                                    and relation["first_seen"]
+                                    and len(relation["first_seen"]) > 9
                                     else ""
                                 )
                                 + "\n"
                                 + (
                                     relation["last_seen"][0:10]
-                                    if "last_seen" in relation and relation["last_seen"] and len(relation["last_seen"]) > 9
+                                    if "last_seen" in relation
+                                    and relation["last_seen"]
+                                    and len(relation["last_seen"]) > 9
                                     else ""
                                 )
                             )
