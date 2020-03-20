@@ -4,22 +4,20 @@ from maltego_trx.entities import *
 from entities import *
 from config import format_config
 
+
 def formatMarkings(entity, markingDefinitions):
     for r in markingDefinitions:
         if (
             format_config["marking_color"]
             and r["definition_type"] == format_config["marking_color"]
         ):
-            entity.addProperty(
-                fieldName="marking_color", value=r["color"]
-            )
+            entity.addProperty(fieldName="marking_color", value=r["color"])
         if (
             format_config["marking_text"]
             and r["definition_type"] == format_config["marking_text"]
         ):
-            entity.addProperty(
-                fieldName="marking_text", value=r["definition"]
-            )
+            entity.addProperty(fieldName="marking_text", value=r["definition"])
+
 
 def addIdentity(transform, opencti_entity):
     entity = transform.addEntity(Identity, sanitize(opencti_entity["name"], True))
