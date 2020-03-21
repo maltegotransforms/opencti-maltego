@@ -2,10 +2,7 @@ from pycti.utils.constants import IdentityTypes
 from utils import sanitize, STIX2toOpenCTItype
 from maltego_trx.entities import *
 from entities import *
-from config import (
-    format_config,
-    heritage_config
-)
+from config import format_config, heritage_config
 
 
 def formatMarkings(entity, markingDefinitions):
@@ -411,8 +408,11 @@ def addIndicator(transform, opencti_entity):
     formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
+
 def addAutonomousSystem(transform, opencti_entity):
-    entity = transform.addEntity(AutonomousSystem, sanitize(opencti_entity["observable_value"], True))
+    entity = transform.addEntity(
+        AutonomousSystem, sanitize(opencti_entity["observable_value"], True)
+    )
     entity.addProperty(fieldName="id", value=opencti_entity["id"])
     entity.addProperty(
         fieldName="created_by_ref",
@@ -421,7 +421,9 @@ def addAutonomousSystem(transform, opencti_entity):
         else None,
     )
     entity.addProperty(
-        fieldName="description", displayName="description", value=sanitize(opencti_entity["description"], True)
+        fieldName="description",
+        displayName="description",
+        value=sanitize(opencti_entity["description"], True),
     )
     entity.addProperty(
         fieldName="object_marking_refs",
@@ -440,8 +442,11 @@ def addAutonomousSystem(transform, opencti_entity):
 
     return entity
 
+
 def addDomainName(transform, opencti_entity):
-    entity = transform.addEntity(DomainName, sanitize(opencti_entity["observable_value"], True))
+    entity = transform.addEntity(
+        DomainName, sanitize(opencti_entity["observable_value"], True)
+    )
     entity.addProperty(fieldName="id", value=opencti_entity["id"])
     entity.addProperty(
         fieldName="created_by_ref",
@@ -450,7 +455,9 @@ def addDomainName(transform, opencti_entity):
         else None,
     )
     entity.addProperty(
-        fieldName="description", displayName="description", value=sanitize(opencti_entity["description"], True)
+        fieldName="description",
+        displayName="description",
+        value=sanitize(opencti_entity["description"], True),
     )
     entity.addProperty(
         fieldName="object_marking_refs",
@@ -469,8 +476,11 @@ def addDomainName(transform, opencti_entity):
 
     return entity
 
+
 def addDirectory(transform, opencti_entity):
-    entity = transform.addEntity(Directory, sanitize(opencti_entity["observable_value"], True))
+    entity = transform.addEntity(
+        Directory, sanitize(opencti_entity["observable_value"], True)
+    )
     entity.addProperty(fieldName="id", value=opencti_entity["id"])
     entity.addProperty(
         fieldName="created_by_ref",
@@ -479,7 +489,9 @@ def addDirectory(transform, opencti_entity):
         else None,
     )
     entity.addProperty(
-        fieldName="description", displayName="description", value=sanitize(opencti_entity["description"], True)
+        fieldName="description",
+        displayName="description",
+        value=sanitize(opencti_entity["description"], True),
     )
     entity.addProperty(
         fieldName="object_marking_refs",
@@ -498,8 +510,11 @@ def addDirectory(transform, opencti_entity):
 
     return entity
 
+
 def addFile(transform, opencti_entity):
-    entity = transform.addEntity(File, sanitize(opencti_entity["observable_value"], True))
+    entity = transform.addEntity(
+        File, sanitize(opencti_entity["observable_value"], True)
+    )
     entity.addProperty(fieldName="id", value=opencti_entity["id"])
     entity.addProperty(
         fieldName="created_by_ref",
@@ -508,7 +523,9 @@ def addFile(transform, opencti_entity):
         else None,
     )
     entity.addProperty(
-        fieldName="description", displayName="description", value=sanitize(opencti_entity["description"], True)
+        fieldName="description",
+        displayName="description",
+        value=sanitize(opencti_entity["description"], True),
     )
     entity.addProperty(
         fieldName="object_marking_refs",
@@ -525,10 +542,17 @@ def addFile(transform, opencti_entity):
         for mapping in heritage_config["file"]:
             entity.addProperty(fieldName=mapping[1], value=opencti_entity[mapping[0]])
 
+    if opencti_entity["entity_type"] == "File-MD5" or opencti_entity["entity_type"] == "File-SHA1" or opencti_entity["entity_type"] == "File-SHA256":
+        entity.addProperty(
+            fieldName="hashes", value=[opencti_entity["observable_value"]]
+        )
+
     return entity
 
-def addIpv4Addr(transform, opencti_entity):
-    entity = transform.addEntity(Ipv4Addr, sanitize(opencti_entity["observable_value"], True))
+def addEmailAddr(transform, opencti_entity):
+    entity = transform.addEntity(
+        File, sanitize(opencti_entity["observable_value"], True)
+    )
     entity.addProperty(fieldName="id", value=opencti_entity["id"])
     entity.addProperty(
         fieldName="created_by_ref",
@@ -537,7 +561,42 @@ def addIpv4Addr(transform, opencti_entity):
         else None,
     )
     entity.addProperty(
-        fieldName="description", displayName="description", value=sanitize(opencti_entity["description"], True)
+        fieldName="description",
+        displayName="description",
+        value=sanitize(opencti_entity["description"], True),
+    )
+    entity.addProperty(
+        fieldName="object_marking_refs",
+        value=[r["stix_id_key"] for r in opencti_entity["markingDefinitions"]],
+    )
+    entity.addProperty(
+        fieldName="external_references", value=opencti_entity["externalReferencesIds"]
+    )
+    entity.addProperty(fieldName="created", value=opencti_entity["created_at"])
+    entity.addProperty(fieldName="modified", value=opencti_entity["updated_at"])
+    formatMarkings(entity, opencti_entity["markingDefinitions"])
+
+    if "email-addr" in heritage_config:
+        for mapping in heritage_config["email-addr"]:
+            entity.addProperty(fieldName=mapping[1], value=opencti_entity[mapping[0]])
+
+    return entity
+
+def addIpv4Addr(transform, opencti_entity):
+    entity = transform.addEntity(
+        Ipv4Addr, sanitize(opencti_entity["observable_value"], True)
+    )
+    entity.addProperty(fieldName="id", value=opencti_entity["id"])
+    entity.addProperty(
+        fieldName="created_by_ref",
+        value=opencti_entity["createdByRef"]["stix_id_key"]
+        if opencti_entity["createdByRef"]
+        else None,
+    )
+    entity.addProperty(
+        fieldName="description",
+        displayName="description",
+        value=sanitize(opencti_entity["description"], True),
     )
     entity.addProperty(
         fieldName="object_marking_refs",
@@ -552,12 +611,19 @@ def addIpv4Addr(transform, opencti_entity):
 
     if "ipv4-addr" in heritage_config:
         for mapping in heritage_config["ipv4-addr"]:
-            entity.addProperty(fieldName=mapping[1], matchingRule="strict", value=opencti_entity[mapping[0]])
+            entity.addProperty(
+                fieldName=mapping[1],
+                matchingRule="strict",
+                value=opencti_entity[mapping[0]],
+            )
 
     return entity
 
+
 def addIpv6Addr(transform, opencti_entity):
-    entity = transform.addEntity(Ipv6Addr, sanitize(opencti_entity["observable_value"], True))
+    entity = transform.addEntity(
+        Ipv6Addr, sanitize(opencti_entity["observable_value"], True)
+    )
     entity.addProperty(fieldName="id", value=opencti_entity["id"])
     entity.addProperty(
         fieldName="created_by_ref",
@@ -566,7 +632,9 @@ def addIpv6Addr(transform, opencti_entity):
         else None,
     )
     entity.addProperty(
-        fieldName="description", displayName="description", value=sanitize(opencti_entity["description"], True)
+        fieldName="description",
+        displayName="description",
+        value=sanitize(opencti_entity["description"], True),
     )
     entity.addProperty(
         fieldName="object_marking_refs",
@@ -619,6 +687,7 @@ def addRelationship(transform, opencti_entity):
     formatMarkings(entity, opencti_entity["markingDefinitions"])
     return entity
 
+
 def searchAndAddEntity(
     opencti_api_client, transform, stix_id, stix_type, stix_name, output=None
 ):
@@ -664,22 +733,34 @@ def searchAndAddEntity(
 
     return {"opencti_entity": opencti_entity, "maltego_entity": maltego_entity}
 
+
 def searchAndAddObservable(opencti_api_client, transform, id, stix_name):
     opencti_entity = None
     maltego_entity = None
     if id is not None:
         opencti_entity = opencti_api_client.stix_observable.read(id=id)
     elif stix_name is not None:
-        opencti_entity = opencti_api_client.stix_observable.read(filters=[{"key": "observable_value", "values": [stix_name]}],)
+        opencti_entity = opencti_api_client.stix_observable.read(
+            filters=[{"key": "observable_value", "values": [stix_name]}],
+        )
 
     if opencti_entity is not None:
         # Don't trust input type as id is prioritary over (name, type)
-        if opencti_entity["entity_type"] == "ipv4-addr":
+        if opencti_entity["entity_type"] == "domain":
+            maltego_entity = addDomainName(transform, opencti_entity)
+        elif opencti_entity["entity_type"] == "directory":
+            maltego_entity = addDirectory(transform, opencti_entity)
+        elif opencti_entity["entity_type"].startswith("file"):
+            maltego_entity = addFile(transform, opencti_entity)
+        elif opencti_entity["entity_type"] == "email-addr":
+            maltego_entity = addEmailAddr(transform, opencti_entity)
+        elif opencti_entity["entity_type"] == "ipv4-addr":
             maltego_entity = addIpv4Addr(transform, opencti_entity)
         elif opencti_entity["entity_type"] == "ipv6-addr":
             maltego_entity = addIpv6Addr(transform, opencti_entity)
 
         return {"opencti_entity": opencti_entity, "maltego_entity": maltego_entity}
+
 
 def searchAndAddRelashionship(
     opencti_api_client, transform, stix_id, stix_type="relationship", output=None

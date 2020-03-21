@@ -54,6 +54,8 @@ def STIX2toOpenCTItype(stix2_type):
         return "Autonomous-System"
     if stix2_type == "domain-name":
         return "Domain-Name"
+    if stix2_type == "file":
+        return "File*"
     if stix2_type == "mac-addr":
         return "Mac-Addr"
     if stix2_type == "ipv4-addr":

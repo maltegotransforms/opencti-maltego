@@ -71,7 +71,9 @@ if __name__ == "__main__":
         if args.transformName.startswith("StixRelation"):
             entity = searchAndAddRelashionship(opencti_api_client, transform, input_id)
         elif args.transformName.startswith("StixObservable"):
-            entity = searchAndAddObservable(opencti_api_client, transform, input_id, input_name)
+            entity = searchAndAddObservable(
+                opencti_api_client, transform, input_id, input_name
+            )
         else:
             entity = searchAndAddEntity(
                 opencti_api_client, transform, input_id, input_type, input_name
@@ -132,6 +134,7 @@ if __name__ == "__main__":
                                 {
                                     "key": "toMainObservableType",
                                     "values": [opencti_type.lower()],
+                                    "operator": "match"
                                 }
                             ],
                             inferred=inferred,
@@ -209,7 +212,9 @@ if __name__ == "__main__":
             elif args.transformName == "StixDomainEntityToStixObservable":
                 if "observableRefs" in entity["opencti_entity"]:
                     for observable in entity["opencti_entity"]["observableRefs"]:
-                        searchAndAddObservable(opencti_api_client, transform, observable["id"], None)
+                        searchAndAddObservable(
+                            opencti_api_client, transform, observable["id"], None
+                        )
                 else:
                     stix_relations = opencti_api_client.stix_relation.list(
                         fromId=entity["opencti_entity"]["id"],

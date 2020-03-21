@@ -84,10 +84,22 @@ opencti.threat-actor.attack-pattern.StixDomainEntityToStixDomainEntity,OpenCTI: 
 opencti.threat-actor.attack-pattern.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Threat Actor to Attack Patterns Inferred,STIX2.threat-actor,OpenCTI implicit relations,attack-pattern
 opencti.threat-actor.attack-pattern.StixDomainEntityToRelations,OpenCTI: Threat Actor to Attack Pattern Relations,STIX2.threat-actor,OpenCTI explicit relations,attack-pattern
 opencti.threat-actor.attack-pattern.StixDomainEntityToRelationsInferred,OpenCTI: Threat Actor to Attack Pattern Relations Inferred,STIX2.threat-actor,OpenCTI explicit relations,attack-pattern
-opencti.threat-actor.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Indicators,STIX2.threat-actor,OpenCTI implicit relations,indicator
-opencti.threat-actor.indicator.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Threat Actor to Indicators Inferred,STIX2.threat-actor,OpenCTI implicit relations,indicator
-opencti.threat-actor.indicator.StixDomainEntityToRelations,OpenCTI: Threat Actor to Indicators Relations,STIX2.threat-actor,OpenCTI explicit relations,indicator
-opencti.threat-actor.indicator.StixDomainEntityToRelationsInferred,OpenCTI: Threat Actor to Indicators Relations Inferred,STIX2.threat-actor,OpenCTI explicit relations,indicator
+opencti.threat-actor.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to All Indicators,STIX2.threat-actor,OpenCTI indicators,indicator
+opencti.threat-actor.indicator.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Threat Actor to All Indicators Inferred,STIX2.threat-actor,OpenCTI indicators,indicator
+opencti.threat-actor.indicatorDomainName.StixDomainEntityToIndicator,OpenCTI: Threat Actor to Indicators Domain-Name,STIX2.threat-actor,OpenCTI indicators,domain-name
+opencti.threat-actor.indicatorDomainName.StixDomainEntityToIndicatorInferred,OpenCTI: Threat Actor to Indicators Domain-Name Inferred,STIX2.threat-actor,OpenCTI indicators,domain-name
+opencti.threat-actor.indicatorDirectory.StixDomainEntityToIndicator,OpenCTI: Threat Actor to Indicators Directory,STIX2.threat-actor,OpenCTI indicators,directory
+opencti.threat-actor.indicatorDirectory.StixDomainEntityToIndicatorInferred,OpenCTI: Threat Actor to Indicators Directory Inferred,STIX2.threat-actor,OpenCTI indicators,directory
+opencti.threat-actor.indicatorFile.StixDomainEntityToIndicator,OpenCTI: Threat Actor to Indicators File,STIX2.threat-actor,OpenCTI indicators,file
+opencti.threat-actor.indicatorFile.StixDomainEntityToIndicatorInferred,OpenCTI: Threat Actor to Indicators File Inferred,STIX2.threat-actor,OpenCTI indicators,file
+opencti.threat-actor.indicatorEmailAddr.StixDomainEntityToIndicator,OpenCTI: Threat Actor to Indicators Email-Addr,STIX2.threat-actor,OpenCTI indicators,email-addr
+opencti.threat-actor.indicatorEmailAddr.StixDomainEntityToIndicatorInferred,OpenCTI: Threat Actor to Indicators Email-Addr Inferred,STIX2.threat-actor,OpenCTI indicators,email-addr
+opencti.threat-actor.indicatorIPv4Addr.StixDomainEntityToIndicator,OpenCTI: Threat Actor to Indicators IPv4-Addr,STIX2.threat-actor,OpenCTI indicators,ipv4-addr
+opencti.threat-actor.indicatorIPv4Addr.StixDomainEntityToIndicatorInferred,OpenCTI: Threat Actor to Indicators IPv4-Addr Inferred,STIX2.threat-actor,OpenCTI indicators,ipv4-addr
+opencti.threat-actor.indicator.StixDomainEntityToIndicator,OpenCTI: Threat Actor to Indicators IPv6-Addr,STIX2.threat-actor,OpenCTI indicators,ipv6-addr
+opencti.threat-actor.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Threat Actor to Indicators IPv6-Addr Inferred,STIX2.threat-actor,OpenCTI indicators,ipv6-addr
+opencti.threat-actor.indicator.StixDomainEntityToIndicator,OpenCTI: Threat Actor to Indicators URL,STIX2.threat-actor,OpenCTI indicators,url
+opencti.threat-actor.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Threat Actor to Indicators URL Inferred,STIX2.threat-actor,OpenCTI indicators,url
 opencti.intrusion-set.StixDomainEntity.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to all Entities,STIX2.intrusion-set,OpenCTI implicit relations,
 opencti.intrusion-set.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Intrusion Set to all Entities Inferred,STIX2.intrusion-set,OpenCTI implicit relations,
 opencti.intrusion-set.StixDomainEntity.StixDomainEntityToRelations,OpenCTI: Intrusion Set to all Entity Relations,STIX2.intrusion-set,OpenCTI explicit relations,
@@ -130,18 +142,20 @@ opencti.intrusion-set.attack-pattern.StixDomainEntityToRelations,OpenCTI: Intrus
 opencti.intrusion-set.attack-pattern.StixDomainEntityToRelationsInferred,OpenCTI: Intrusion Set to Attack Pattern Relations Inferred,STIX2.intrusion-set,OpenCTI explicit relations,attack-pattern
 opencti.intrusion-set.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to All Indicators,STIX2.intrusion-set,OpenCTI indicators,indicator
 opencti.intrusion-set.indicator.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Intrusion Set to All Indicators Inferred,STIX2.intrusion-set,OpenCTI indicators,indicator
-opencti.intrusion-set.indicator.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators Inferred (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators (IPv6-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv6-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators Inferred (IPv6-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv6-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators Inferred (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators Inferred (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators Inferred (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
-opencti.intrusion-set.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators Inferred (IPv4-Addr),STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
+opencti.intrusion-set.indicatorDomainName.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators Domain-Name,STIX2.intrusion-set,OpenCTI indicators,domain-name
+opencti.intrusion-set.indicatorDomainName.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators Domain-Name Inferred,STIX2.intrusion-set,OpenCTI indicators,domain-name
+opencti.intrusion-set.indicatorDirectory.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators Directory,STIX2.intrusion-set,OpenCTI indicators,directory
+opencti.intrusion-set.indicatorDirectory.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators Directory Inferred,STIX2.intrusion-set,OpenCTI indicators,directory
+opencti.intrusion-set.indicatorFile.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators File,STIX2.intrusion-set,OpenCTI indicators,file
+opencti.intrusion-set.indicatorFile.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators File Inferred,STIX2.intrusion-set,OpenCTI indicators,file
+opencti.intrusion-set.indicatorEmailAddr.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators Email-Addr,STIX2.intrusion-set,OpenCTI indicators,email-addr
+opencti.intrusion-set.indicatorEmailAddr.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators Email-Addr Inferred,STIX2.intrusion-set,OpenCTI indicators,email-addr
+opencti.intrusion-set.indicatorIPv4Addr.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators IPv4-Addr,STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
+opencti.intrusion-set.indicatorIPv4Addr.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators IPv4-Addr Inferred,STIX2.intrusion-set,OpenCTI indicators,ipv4-addr
+opencti.intrusion-set.indicator.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators IPv6-Addr,STIX2.intrusion-set,OpenCTI indicators,ipv6-addr
+opencti.intrusion-set.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators IPv6-Addr Inferred,STIX2.intrusion-set,OpenCTI indicators,ipv6-addr
+opencti.intrusion-set.indicator.StixDomainEntityToIndicator,OpenCTI: Intrusion Set to Indicators URL,STIX2.intrusion-set,OpenCTI indicators,url
+opencti.intrusion-set.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Intrusion Set to Indicators URL Inferred,STIX2.intrusion-set,OpenCTI indicators,url
 opencti.campaign.StixDomainEntity.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to all Entities,STIX2.campaign,OpenCTI implicit relations,
 opencti.campaign.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Campaign to all Entities Inferred,STIX2.campaign,OpenCTI implicit relations,
 opencti.campaign.StixDomainEntity.StixDomainEntityToRelations,OpenCTI: Campaign to all Entity Relations,STIX2.campaign,OpenCTI explicit relations,
@@ -182,10 +196,22 @@ opencti.campaign.attack-pattern.StixDomainEntityToStixDomainEntity,OpenCTI: Camp
 opencti.campaign.attack-pattern.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Campaign to Attack Patterns Inferred,STIX2.campaign,OpenCTI implicit relations,attack-pattern
 opencti.campaign.attack-pattern.StixDomainEntityToRelations,OpenCTI: Campaign to Attack Pattern Relations,STIX2.campaign,OpenCTI explicit relations,attack-pattern
 opencti.campaign.attack-pattern.StixDomainEntityToRelationsInferred,OpenCTI: Campaign to Attack Pattern Relations Inferred,STIX2.campaign,OpenCTI explicit relations,attack-pattern
-opencti.campaign.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Indicators,STIX2.campaign,OpenCTI implicit relations,indicator
-opencti.campaign.indicator.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Campaign to Indicators Inferred,STIX2.campaign,OpenCTI implicit relations,indicator
-opencti.campaign.indicator.StixDomainEntityToRelations,OpenCTI: Campaign to Indicators Relations,STIX2.campaign,OpenCTI explicit relations,indicator
-opencti.campaign.indicator.StixDomainEntityToRelationsInferred,OpenCTI: Campaign to Indicators Relations Inferred,STIX2.campaign,OpenCTI explicit relations,indicator
+opencti.campaign.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to All Indicators,STIX2.campaign,OpenCTI indicators,indicator
+opencti.campaign.indicator.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Campaign to All Indicators Inferred,STIX2.campaign,OpenCTI indicators,indicator
+opencti.campaign.indicatorDomainName.StixDomainEntityToIndicator,OpenCTI: Campaign to Indicators Domain-Name,STIX2.campaign,OpenCTI indicators,domain-name
+opencti.campaign.indicatorDomainName.StixDomainEntityToIndicatorInferred,OpenCTI: Campaign to Indicators Domain-Name Inferred,STIX2.campaign,OpenCTI indicators,domain-name
+opencti.campaign.indicatorDirectory.StixDomainEntityToIndicator,OpenCTI: Campaign to Indicators Directory,STIX2.campaign,OpenCTI indicators,directory
+opencti.campaign.indicatorDirectory.StixDomainEntityToIndicatorInferred,OpenCTI: Campaign to Indicators Directory Inferred,STIX2.campaign,OpenCTI indicators,directory
+opencti.campaign.indicatorFile.StixDomainEntityToIndicator,OpenCTI: Campaign to Indicators File,STIX2.campaign,OpenCTI indicators,file
+opencti.campaign.indicatorFile.StixDomainEntityToIndicatorInferred,OpenCTI: Campaign to Indicators File Inferred,STIX2.campaign,OpenCTI indicators,file
+opencti.campaign.indicatorEmailAddr.StixDomainEntityToIndicator,OpenCTI: Campaign to Indicators Email-Addr,STIX2.campaign,OpenCTI indicators,email-addr
+opencti.campaign.indicatorEmailAddr.StixDomainEntityToIndicatorInferred,OpenCTI: Campaign to Indicators Email-Addr Inferred,STIX2.campaign,OpenCTI indicators,email-addr
+opencti.campaign.indicatorIPv4Addr.StixDomainEntityToIndicator,OpenCTI: Campaign to Indicators IPv4-Addr,STIX2.campaign,OpenCTI indicators,ipv4-addr
+opencti.campaign.indicatorIPv4Addr.StixDomainEntityToIndicatorInferred,OpenCTI: Campaign to Indicators IPv4-Addr Inferred,STIX2.campaign,OpenCTI indicators,ipv4-addr
+opencti.campaign.indicator.StixDomainEntityToIndicator,OpenCTI: Campaign to Indicators IPv6-Addr,STIX2.campaign,OpenCTI indicators,ipv6-addr
+opencti.campaign.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Campaign to Indicators IPv6-Addr Inferred,STIX2.campaign,OpenCTI indicators,ipv6-addr
+opencti.campaign.indicator.StixDomainEntityToIndicator,OpenCTI: Campaign to Indicators URL,STIX2.campaign,OpenCTI indicators,url
+opencti.campaign.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Campaign to Indicators URL Inferred,STIX2.campaign,OpenCTI indicators,url
 opencti.incident.StixDomainEntity.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to all Entities,STIX2.incident,OpenCTI implicit relations,
 opencti.incident.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Incident to all Entities Inferred,STIX2.incident,OpenCTI implicit relations,
 opencti.incident.StixDomainEntity.StixDomainEntityToRelations,OpenCTI: Incident to all Entity Relations,STIX2.incident,OpenCTI explicit relations,
@@ -266,10 +292,22 @@ opencti.malware.attack-pattern.StixDomainEntityToStixDomainEntity,OpenCTI: Malwa
 opencti.malware.attack-pattern.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Malware to Attack Patterns Inferred,STIX2.malware,OpenCTI implicit relations,attack-pattern
 opencti.malware.attack-pattern.StixDomainEntityToRelations,OpenCTI: Malware to Attack Pattern Relations,STIX2.malware,OpenCTI explicit relations,attack-pattern
 opencti.malware.attack-pattern.StixDomainEntityToRelationsInferred,OpenCTI: Malware to Attack Pattern Relations Inferred,STIX2.malware,OpenCTI explicit relations,attack-pattern
-opencti.malware.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to Indicators,STIX2.malware,OpenCTI implicit relations,indicator
-opencti.malware.indicator.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Malware to Indicators Inferred,STIX2.malware,OpenCTI implicit relations,indicator
-opencti.malware.indicator.StixDomainEntityToRelations,OpenCTI: Malware to Indicators Relations,STIX2.malware,OpenCTI explicit relations,indicator
-opencti.malware.indicator.StixDomainEntityToRelationsInferred,OpenCTI: Malware to Indicators Relations Inferred,STIX2.malware,OpenCTI explicit relations,indicator
+opencti.malware.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to All Indicators,STIX2.malware,OpenCTI indicators,indicator
+opencti.malware.indicator.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Malware to All Indicators Inferred,STIX2.malware,OpenCTI indicators,indicator
+opencti.malware.indicatorDomainName.StixDomainEntityToIndicator,OpenCTI: Malware to Indicators Domain-Name,STIX2.malware,OpenCTI indicators,domain-name
+opencti.malware.indicatorDomainName.StixDomainEntityToIndicatorInferred,OpenCTI: Malware to Indicators Domain-Name Inferred,STIX2.malware,OpenCTI indicators,domain-name
+opencti.malware.indicatorDirectory.StixDomainEntityToIndicator,OpenCTI: Malware to Indicators Directory,STIX2.malware,OpenCTI indicators,directory
+opencti.malware.indicatorDirectory.StixDomainEntityToIndicatorInferred,OpenCTI: Malware to Indicators Directory Inferred,STIX2.malware,OpenCTI indicators,directory
+opencti.malware.indicatorFile.StixDomainEntityToIndicator,OpenCTI: Malware to Indicators File,STIX2.malware,OpenCTI indicators,file
+opencti.malware.indicatorFile.StixDomainEntityToIndicatorInferred,OpenCTI: Malware to Indicators File Inferred,STIX2.malware,OpenCTI indicators,file
+opencti.malware.indicatorEmailAddr.StixDomainEntityToIndicator,OpenCTI: Malware to Indicators Email-Addr,STIX2.malware,OpenCTI indicators,email-addr
+opencti.malware.indicatorEmailAddr.StixDomainEntityToIndicatorInferred,OpenCTI: Malware to Indicators Email-Addr Inferred,STIX2.malware,OpenCTI indicators,email-addr
+opencti.malware.indicatorIPv4Addr.StixDomainEntityToIndicator,OpenCTI: Malware to Indicators IPv4-Addr,STIX2.malware,OpenCTI indicators,ipv4-addr
+opencti.malware.indicatorIPv4Addr.StixDomainEntityToIndicatorInferred,OpenCTI: Malware to Indicators IPv4-Addr Inferred,STIX2.malware,OpenCTI indicators,ipv4-addr
+opencti.malware.indicator.StixDomainEntityToIndicator,OpenCTI: Malware to Indicators IPv6-Addr,STIX2.malware,OpenCTI indicators,ipv6-addr
+opencti.malware.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Malware to Indicators IPv6-Addr Inferred,STIX2.malware,OpenCTI indicators,ipv6-addr
+opencti.malware.indicator.StixDomainEntityToIndicator,OpenCTI: Malware to Indicators URL,STIX2.malware,OpenCTI indicators,url
+opencti.malware.indicator.StixDomainEntityToIndicatorInferred,OpenCTI: Malware to Indicators URL Inferred,STIX2.malware,OpenCTI indicators,url
 opencti.tool.StixDomainEntity.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to all Entities,STIX2.tool,OpenCTI implicit relations,
 opencti.tool.StixDomainEntity.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Tool to all Entities Inferred,STIX2.tool,OpenCTI implicit relations,
 opencti.tool.StixDomainEntity.StixDomainEntityToRelations,OpenCTI: Tool to all Entity Relations,STIX2.tool,OpenCTI explicit relations,
