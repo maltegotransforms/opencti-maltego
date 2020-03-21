@@ -5,8 +5,8 @@ Use the OpenCTI platform in your Maltego application thanks to a set of transfor
 ## Installation
 
 ```
-$ git clone https://github.com/amr-cossi/OpenCTI-Maltego
-$ cd OpenCTI-Maltego
+$ git clone https://github.com/OpenCTI-Platform/opencti-maltego
+$ cd opencti-maltego
 ```
 
 ### Requirements
@@ -46,7 +46,7 @@ $ ./build.sh
 If you specified a different path for the `src` directory of thie repository, please copy the content in it:
 
 ```
-$ cp -a src /path/to/your/project/OpenCTI-Maltego/src
+$ cp -a src /path/to/your/project/opencti-maltego/src
 ```
 
 Finally just import the file `output/transforms.mtz` in Maltego using the "Import config" menu.
