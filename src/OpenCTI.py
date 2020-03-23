@@ -119,7 +119,7 @@ if __name__ == "__main__":
                 "StixDomainEntityToRelationsInferred",
                 "StixRelationToRelations",
                 "StixDomainEntityToIndicator",
-                "StixObservableToStixDomainEntity"
+                "StixObservableToStixDomainEntity",
             ]:
                 inferred = "Inferred" in args.transformName
                 stix_relations = []
@@ -135,7 +135,7 @@ if __name__ == "__main__":
                                 {
                                     "key": "toMainObservableType",
                                     "values": [opencti_type.lower()],
-                                    "operator": "match"
+                                    "operator": "match",
                                 }
                             ],
                             inferred=inferred,

@@ -542,12 +542,17 @@ def addFile(transform, opencti_entity):
         for mapping in heritage_config["file"]:
             entity.addProperty(fieldName=mapping[1], value=opencti_entity[mapping[0]])
 
-    if opencti_entity["entity_type"] == "file-md5" or opencti_entity["entity_type"] == "file-sha1" or opencti_entity["entity_type"] == "file-sha256":
+    if (
+        opencti_entity["entity_type"] == "file-md5"
+        or opencti_entity["entity_type"] == "file-sha1"
+        or opencti_entity["entity_type"] == "file-sha256"
+    ):
         entity.addProperty(
             fieldName="hashes", value=[opencti_entity["observable_value"]]
         )
 
     return entity
+
 
 def addEmailAddr(transform, opencti_entity):
     entity = transform.addEntity(
@@ -581,6 +586,7 @@ def addEmailAddr(transform, opencti_entity):
             entity.addProperty(fieldName=mapping[1], value=opencti_entity[mapping[0]])
 
     return entity
+
 
 def addIpv4Addr(transform, opencti_entity):
     entity = transform.addEntity(

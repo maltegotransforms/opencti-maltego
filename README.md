@@ -30,8 +30,6 @@ $ pip3 uninstall python-magic
 $ pip3 install python-magic-bin
 ```
 
-> Warning: you have to import Maltego STIX2 entities before installing these transforms.
-
 ### Installation
 
 The local OpenCTI transforms are leveraging the Maltego TRX library. The first step is to create the configuration file:
