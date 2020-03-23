@@ -35,13 +35,13 @@ $ pip3 install python-magic-bin
 The local OpenCTI transforms are leveraging the Maltego TRX library. The first step is to create the configuration file:
 
 ```
-$ cp config.yml.sample config.yml
+$ cp config.py.sample config.py
 ```
 
 Update the file according to your setup and then execute:
 
 ```
-$ ./build.sh
+$ ./build_transforms.sh
 ```
 
 If you specified a different path for the `src` directory of thie repository, please copy the content in it:
