@@ -119,6 +119,7 @@ if __name__ == "__main__":
                 "StixDomainEntityToRelationsInferred",
                 "StixRelationToRelations",
                 "StixDomainEntityToIndicator",
+                "StixObservableToStixDomainEntity"
             ]:
                 inferred = "Inferred" in args.transformName
                 stix_relations = []
@@ -181,32 +182,32 @@ if __name__ == "__main__":
                                 None,
                                 maltego_type,
                             )
-
-                            neighbour_entity["maltego_entity"].setLinkLabel(
-                                "Inferred\n"
-                                if "inferred" in relation and relation["inferred"]
-                                else ""
-                                + relation["relationship_type"]
-                                + "\n"
-                                + (
-                                    relation["first_seen"][0:10]
-                                    if "first_seen" in relation
-                                    and relation["first_seen"]
-                                    and len(relation["first_seen"]) > 9
+                            if neighbour_entity["maltego_entity"] is not None:
+                                neighbour_entity["maltego_entity"].setLinkLabel(
+                                    "Inferred\n"
+                                    if "inferred" in relation and relation["inferred"]
                                     else ""
+                                    + relation["relationship_type"]
+                                    + "\n"
+                                    + (
+                                        relation["first_seen"][0:10]
+                                        if "first_seen" in relation
+                                        and relation["first_seen"]
+                                        and len(relation["first_seen"]) > 9
+                                        else ""
+                                    )
+                                    + "\n"
+                                    + (
+                                        relation["last_seen"][0:10]
+                                        if "last_seen" in relation
+                                        and relation["last_seen"]
+                                        and len(relation["last_seen"]) > 9
+                                        else ""
+                                    )
                                 )
-                                + "\n"
-                                + (
-                                    relation["last_seen"][0:10]
-                                    if "last_seen" in relation
-                                    and relation["last_seen"]
-                                    and len(relation["last_seen"]) > 9
-                                    else ""
-                                )
-                            )
 
-                            if reverse_link:
-                                neighbour_entity["maltego_entity"].reverseLink()
+                                if reverse_link:
+                                    neighbour_entity["maltego_entity"].reverseLink()
 
             # StixDomainEntityToStixObservable: Return observables
             elif args.transformName == "StixDomainEntityToStixObservable":
@@ -301,6 +302,5 @@ if __name__ == "__main__":
                             None,
                             maltego_type,
                         )
-
         # Output Maltego XML result
         print(transform.returnOutput())
