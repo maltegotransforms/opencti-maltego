@@ -1,5 +1,5 @@
 # Absolute path to the src folder used to run transforms
-local_execution_path = "/path/to/your/project/OpenCTI-Maltego/src"
+local_execution_path = "/path/to/your/project/opencti-maltego/src"
 
 # Absolute path to a python3 executable used to run transforms
 python_path = "/usr/bin/python3"
