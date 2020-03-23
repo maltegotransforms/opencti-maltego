@@ -2,7 +2,7 @@
 
 echo "Clear old results"
 rm output/transforms.mtz 2> /dev/null
-rm -R mtz/Servers/* mtz/TransformSets/* mtz/TransformRepositories/Local/* 2> /dev/null
+rm -R mtz/Servers/ mtz/TransformSets/ mtz/TransformRepositories/ 2> /dev/null
 mkdir mtz/ 2> /dev/null
 mkdir mtz/Servers/
 mkdir mtz/TransformSets/
