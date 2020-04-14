@@ -765,7 +765,7 @@ def searchAndAddObservable(opencti_api_client, transform, id, stix_name):
         elif opencti_entity["entity_type"] == "ipv6-addr":
             maltego_entity = addIpv6Addr(transform, opencti_entity)
 
-        return {"opencti_entity": opencti_entity, "maltego_entity": maltego_entity}
+    return {"opencti_entity": opencti_entity, "maltego_entity": maltego_entity}
 
 
 def searchAndAddRelashionship(

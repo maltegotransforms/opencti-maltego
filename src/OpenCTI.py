@@ -53,6 +53,11 @@ if __name__ == "__main__":
         input_name = (
             client_msg.getProperty("name") if client_msg.getProperty("name") else None
         )
+        input_value = (
+            client_msg.getProperty("value") if client_msg.getProperty("value") else None
+        )
+        if input_value:
+            input_name = input_value
 
         # Setup OpenCTI client
         opencti_api_client = OpenCTIApiClient(
