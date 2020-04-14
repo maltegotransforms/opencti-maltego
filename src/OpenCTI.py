@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-## TODO
-# Support adding for all STIX2 entities
-# Orient relationship transforms with new 3.0.2 parameter
-# Handle errors and messages
-
 import argparse
 from pycti import OpenCTIApiClient
 from pycti.utils.constants import ObservableTypes

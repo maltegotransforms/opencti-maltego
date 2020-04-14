@@ -22,4 +22,4 @@ cd ../
 echo "Copy config.py in ./src"
 cp config.py ./src/config.py
 
-echo "All done"
+echo "All done. MTZ packages can be imported in Maltego and don't forget to copy ./src/ at the execution path provided in the configuration."

@@ -5,7 +5,7 @@ Use the OpenCTI platform in your Maltego application thanks to a set of transfor
 ## Installation
 
 ```
-$ git clone https://github.com/OpenCTI-Platform/opencti-maltego
+$ git clone https://github.com/amr-cossi/opencti-maltego
 $ cd opencti-maltego
 ```
 
@@ -52,8 +52,19 @@ $ cp -a src /path/to/your/project/opencti-maltego/src
 
 Finally just import the file `output/transforms.mtz` in Maltego using the "Import config" menu.
 
-## TODO
+## Contributing
 
-- Implement "explain inference" transform
+### Code of Conduct
+
+We follow a standard [Code of Conduct](CODE_OF_CONDUCT.md) that we expect project participants to adhere to. Please read the [full text](CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+
+### How to contribute
+
+This module is not a huge project with an intense roadmap. Feel free to contribute through issues linked to pull requests for new features and bug solving.
+
+### TODO: known wanted enhancements
+
+- Implement an "explain inference" transform
 - Handle sectors
-- Less strict sanitize on entity names (use TRX functions ?)
+- Use a less strict sanitize function on entity names (TRX functions ?)
+- Handle errors and display messages in Maltego
