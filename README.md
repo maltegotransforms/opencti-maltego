@@ -15,9 +15,9 @@ Please install the following requirements before generating the Maltego transfor
 
 - Python >= 3.6
 - Libraries in requirements.txt
-- Maltego [STIX2 entities](https://github.com/OpenCTI-Platform/maltego-stix2)
+- Maltego [STIX2 entities](https://github.com/amr-cossi/maltego-stix2)
 
-> Warning: you have to import [Maltego STIX2](https://github.com/OpenCTI-Platform/maltego-stix2) entities before installing these transforms.
+> Warning: you have to import [Maltego STIX2](https://github.com/amr-cossi/maltego-stix2) entities before installing these transforms.
 
 ```
 $ pip3 install -r requirements.txt
