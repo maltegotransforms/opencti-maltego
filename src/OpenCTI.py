@@ -56,8 +56,24 @@ if __name__ == "__main__":
         input_value = (
             client_msg.getProperty("value") if client_msg.getProperty("value") else None
         )
+        input_fqdn = (
+            client_msg.getProperty("fqdn") if client_msg.getProperty("fqdn") else None
+        )
+        input_ipv4 = (
+            client_msg.getProperty("ipv4-address") if client_msg.getProperty("ipv4-address") else None
+        )
+        input_ipv6 = (
+            client_msg.getProperty("ipv6-address") if client_msg.getProperty("ipv6-address") else None
+        )
+
         if input_value:
             input_name = input_value
+        elif input_fqdn:
+            input_name = input_fqdn
+        elif input_ipv4:
+            input_name = input_ipv4
+        elif input_ipv6:
+            input_name = input_ipv6
 
         # Setup OpenCTI client
         opencti_api_client = OpenCTIApiClient(
