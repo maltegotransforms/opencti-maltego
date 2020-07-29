@@ -520,7 +520,7 @@ opencti.indicator.threat-actor.StixDomainEntityToRelationsInferred,OpenCTI: Indi
 opencti.indicator.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Indicator to Intrusion Sets,STIX2.indicator,OpenCTI implicit relations,intrusion-set
 opencti.indicator.intrusion-set.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Indicator to Intrusion Sets Inferred,STIX2.indicator,OpenCTI implicit relations,intrusion-set
 opencti.indicator.intrusion-set.StixDomainEntityToRelations,OpenCTI: Indicator to Intrusion Set Relations,STIX2.indicator,OpenCTI explicit relations,intrusion-set
-opencti.indicator.intrusion-set.StixDomainEntityToRelationsInferred,Inferred,STIX2.indicator,OpenCTI explicit relations,intrusion-set
+opencti.indicator.intrusion-set.StixDomainEntityToRelationsInferred,OpenCTI: Indicator to Intrusion Set Relations Inferred,STIX2.indicator,OpenCTI explicit relations,intrusion-set
 opencti.indicator.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Indicator to Campaigns,STIX2.indicator,OpenCTI implicit relations,campaign
 opencti.indicator.campaign.StixDomainEntityToStixDomainEntityInferred,OpenCTI: Indicator to Campaigns Inferred,STIX2.indicator,OpenCTI implicit relations,campaign
 opencti.indicator.campaign.StixDomainEntityToRelations,OpenCTI: Indicator to Campaign Relations,STIX2.indicator,OpenCTI explicit relations,campaign
