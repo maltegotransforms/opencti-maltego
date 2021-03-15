@@ -5,3 +5,4 @@ mtz/*
 output/*
 *.mtz
 .idea
+trx/gunicorn/transforms/opencti*
