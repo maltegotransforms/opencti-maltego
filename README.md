@@ -30,6 +30,8 @@ $ pip3 uninstall python-magic
 $ pip3 install python-magic-bin
 ```
 
+Some bugs have been fixed in OpenCTI in order for this project to work well. Some features may not work if the OpenCTI platform queried has a version < 4.3.
+
 ### Installation
 
 The local OpenCTI transforms are leveraging the Maltego TRX library. The first step is to create the configuration file:
