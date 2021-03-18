@@ -6,7 +6,7 @@ from maltego_trx.entities import *
 from maltego_stix2.entities import *
 from maltego_stix2.util import stix2_to_maltego
 from opencti.config import format_config, opencti_config
-from opencti.utils import STIX2toOpenCTItype
+from opencti.utils import STIX2toOpenCTItype, addDisplayInfo
 import json, re
 
 
@@ -121,7 +121,9 @@ def addStixEntity(opencti_api_client, response, opencti_entity):
         ]
         del clean_opencti_entity["objectMarking"]
     if "objects" in clean_opencti_entity:
-        clean_opencti_entity["object_refs"] = [r["standard_id"] for r in clean_opencti_entity["objects"]]
+        clean_opencti_entity["object_refs"] = [
+            r["standard_id"] for r in clean_opencti_entity["objects"] if "standard_id" in r
+        ]
         del clean_opencti_entity["objects"]
     for k in list(clean_opencti_entity.keys()):
         if (
@@ -131,7 +133,24 @@ def addStixEntity(opencti_api_client, response, opencti_entity):
 
     maltego_entity = stix2_to_maltego(clean_opencti_entity)
     response.entities.append(maltego_entity)
+    addDisplayInfo(maltego_entity, opencti_api_client.api_url)
     return maltego_entity
+
+
+def plainSearchAndAddEntities(opencti_api_client, response, search_value, limit=500):
+    opencti_observable_entities = opencti_api_client.stix_cyber_observable.list(
+        search=search_value, first=limit
+    )
+    opencti_domain_entities = opencti_api_client.stix_domain_object.list(
+        search=search_value, first=limit
+    )
+    res = []
+    for opencti_entity in opencti_observable_entities + opencti_domain_entities:
+        maltego_entity = addStixEntity(opencti_api_client, response, opencti_entity)
+        res.append({"opencti_entity": opencti_entity, "maltego_entity": maltego_entity})
+
+    return res
+
 
 
 def searchAndAddEntity(opencti_api_client, response, stix_entity, output=None):
@@ -208,7 +227,7 @@ def searchAndAddObservable(opencti_api_client, response, stix_entity):
     return {"opencti_entity": opencti_entity, "maltego_entity": maltego_entity}
 
 
-def searchAndAddRelashionship(
+def searchAndAddRelationship(
     opencti_api_client, response, stix_entity, stix_type="Relationship", output=None
 ):
     stix_id = stix_entity["id"] if "id" in stix_entity else None

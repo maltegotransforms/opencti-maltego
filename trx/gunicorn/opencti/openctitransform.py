@@ -5,51 +5,65 @@ from pycti import OpenCTIApiClient
 from maltego_trx.maltego import *
 from maltego_stix2.util import maltego_to_stix2
 from opencti.config import local_execution_path, python_path, opencti_config
-from opencti.utils import STIX2toOpenCTItype, setLinkLabel
+from opencti.utils import STIX2toOpenCTItype, setLinkLabel, addDisplayInfo
 from opencti.addEntities import (
     searchAndAddEntity,
     searchAndAddObservable,
-    searchAndAddRelashionship,
+    searchAndAddRelationship,
     searchAndAddSighting,
     addStixEntity,
+    plainSearchAndAddEntities
 )
 
 
 def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
+    limit = client_msg.Slider if client_msg.Slider != 100 else 500  # TODO use this to limit results from the API
+    if getattr(client_msg, "Genealogy", None) is None:
+        client_msg.Genealogy = [{"Name": "maltego.STIX2." + client_msg.getProperty("type")}]
 
-    client_msg.Genealogy = [{"Name": "maltego.STIX2." + client_msg.getProperty("type")}]
+    opencti_url = client_msg.TransformSettings.get("OpenCTIURL", opencti_config["url"])
+    opencti_token = client_msg.TransformSettings.get("OpenCTIToken", opencti_config["token"])
 
-    stix2_entity = maltego_to_stix2(
-        client_msg,
-        transform=response,
-        allow_custom_types=True,
-        allow_custom_fields=True,
-        allow_skipping_stix2_coercion=True,
-    )
+    if "SSLVerify" in client_msg.TransformSettings:
+        ssl_verify = client_msg.TransformSettings["SSLVerify"] == "true"
+    else:
+        ssl_verify = opencti_config["ssl_verify"]
 
     # Setup OpenCTI client
     opencti_api_client = OpenCTIApiClient(
-        opencti_config["url"],
-        opencti_config["token"],
+        opencti_url,
+        opencti_token,
         log_level=opencti_config["log_level"],
-        ssl_verify=opencti_config["ssl_verify"],
+        ssl_verify=ssl_verify,
         proxies=opencti_config["proxies"]
     )
 
-    # Search and complete details for the input entity (StixRelation or StixEntity)
-    if transformName.startswith("StixRelation"):
-        entity = searchAndAddRelashionship(opencti_api_client, response, stix2_entity)
-    elif transformName.startswith("StixSighting"):
-        entity = searchAndAddSighting(opencti_api_client, response, stix2_entity)
-    elif transformName.startswith("StixObservable"):
-        entity = searchAndAddObservable(opencti_api_client, response, stix2_entity)
+    entity = None
+    if transformName == "PlainSearch":
+        plainSearchAndAddEntities(opencti_api_client, response, search_value=client_msg.Value, limit=limit)
     else:
-        entity = searchAndAddEntity(opencti_api_client, response, stix2_entity)
+        stix2_entity = maltego_to_stix2(
+            client_msg,
+            transform=response,
+            allow_custom_types=True,
+            allow_custom_fields=True,
+            allow_skipping_stix2_coercion=True,
+        )
+        # Search and complete details for the input entity (StixRelation or StixEntity)
+        # TODO can we detect already-populated entities and skip this step in that case?
+        if transformName.startswith("StixRelation"):
+            entity = searchAndAddRelationship(opencti_api_client, response, stix2_entity)
+        elif transformName.startswith("StixSighting"):
+            entity = searchAndAddSighting(opencti_api_client, response, stix2_entity)
+        elif transformName.startswith("StixObservable"):
+            entity = searchAndAddObservable(opencti_api_client, response, stix2_entity)
+        else:
+            entity = searchAndAddEntity(opencti_api_client, response, stix2_entity)
 
     # If input entity found in OpenCTI, proceed with the transform
-    if entity["opencti_entity"]:
-        # *ToDetails: Nothing else to do
-        if transformName.endswith("ToDetails"):
+    if entity is not None and entity["opencti_entity"]:
+        # *ToDetails or PlainObservableSearch: Nothing else to do
+        if transformName.endswith("ToDetails") or transformName == "PlainObservableSearch":
             pass
 
         # *ToReports: Find related reports
@@ -140,7 +154,7 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
             output = "stix-core-relationship"
             for object_ref in entity["opencti_entity"]["objects"]:
                 if "stix-core-relationship" in object_ref["parent_types"]:
-                    child_entity = searchAndAddRelashionship(
+                    child_entity = searchAndAddRelationship(
                         opencti_api_client,
                         response,
                         {"id": object_ref["standard_id"]},

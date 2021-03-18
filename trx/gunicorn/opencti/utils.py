@@ -1,8 +1,14 @@
+from maltego_trx.maltego import MaltegoEntity
+from markdown import markdown
+from maltego_stix2.config import _heritage_config
+
+
 def STIX2toOpenCTItype(stix2_type):
     if stix2_type.startswith("x-opencti-"):
         return "XOpenCTI" + stix2_type[10:].replace("-", " ").title().replace(" ", "")
     else:
         return stix2_type.title().replace(" ", "")
+
 
 def setLinkLabel(maltego_entity, relation, with_type=True):
     link_label = ""
@@ -36,3 +42,56 @@ def setLinkLabel(maltego_entity, relation, with_type=True):
 
     if link_label != "":
         maltego_entity.setLinkLabel(link_label)
+
+
+def get_display_name(fields):
+    stix2_type = fields.get("type")
+    heritage_conf = _heritage_config.get(stix2_type)
+
+    display_name_field = None
+    translation = {}
+    if heritage_conf:
+        display_name_field = heritage_conf.display_value_override
+        translation = heritage_conf.property_map
+
+    name_field_in_maltego = translation.get("name", "name")
+    value_field_in_maltego = translation.get("value", "value")
+    if display_name_field is None and name_field_in_maltego in fields:
+        display_name_field = name_field_in_maltego
+    elif display_name_field is None and value_field_in_maltego in fields:
+        display_name_field = value_field_in_maltego
+    else:
+        display_name_field = "id"
+
+    display = fields.get(display_name_field) or fields["id"]
+    return display
+
+
+def addDisplayInfo(maltego_entity: MaltegoEntity, opencti_url=None):
+    if not opencti_url:
+        return
+    if opencti_url.endswith("/graphql"):
+        opencti_url = opencti_url[:-len("/graphql")]
+    fields = {}
+    for fieldName, displayName, matchingRule, value in maltego_entity.additionalFields:
+        fields[fieldName] = value
+
+    stix2_id = fields.get("id")
+    description = fields.get("description") or ""
+    display = get_display_name(fields)
+
+    if not stix2_id:
+        return
+
+    if description:
+        description = f"<br/><br/>{markdown(description)}"
+
+    # TODO direct URL would be better, for now we just open the search
+    url = f"{opencti_url}/dashboard/search/{stix2_id}"
+
+    maltego_entity.addDisplayInformation(
+        f"<h2>{display}</h2><br/>"
+        f"<h4><a href=\"{url}\">View in OpenCTI</a></h4>"
+        f"{description}",
+        title="STIX 2 Description"
+    )

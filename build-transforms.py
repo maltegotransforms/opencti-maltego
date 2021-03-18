@@ -11,7 +11,7 @@ VERSION = "2.0"
 def row_to_itds_row(row, transform_function_name):
     description = row["description"]
     ui_name = description.split(":")[1].strip()
-    ui_name = f"{ui_name} [STIX2]"
+    ui_name = f"{ui_name} [OpenCTI]"
     input_type = row["input_type"]
     host = trx_server_host
     if host.endswith("/"):
@@ -28,7 +28,7 @@ def row_to_itds_row(row, transform_function_name):
         "URL": f"{host}/run/{transform_function_name}",
         "entityName": input_type,
         "oAuthSettingId": "",
-        "transformSettingIDs": "",
+        "transformSettingIDs": "OpenCTIURL,OpenCTIToken,SSLVerify",
         "seedIDs": itds_seed_name,
     }
 
@@ -143,6 +143,22 @@ for cset, ctransforms in transforms_sets.items():
         "w",
     ) as o:
         o.write(set_output)
+
+    tds_set_data = {
+        "transformSetName": cset,
+        "transforms": "\n".join(
+            list(map(lambda r: '      <Transform name="paterva.v2.' + r.replace(".","").replace("-","").replace("_","") + '"/>', ctransforms))
+        ),
+    }
+    tds_set_output = set_template.format(**tds_set_data)
+
+    with open(
+        "./mtz/TransformSetsTDS/"
+        + cset.lower().replace(" ", "").replace(":", "")
+        + ".set",
+        "w",
+    ) as o:
+        o.write(tds_set_output)
 
 if itds_transforms_rows:
     with open("output/importable_itds_config.csv", "w") as outf:
