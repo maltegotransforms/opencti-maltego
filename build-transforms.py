@@ -28,7 +28,7 @@ def row_to_itds_row(row, transform_function_name):
         "URL": f"{host}/run/{transform_function_name}",
         "entityName": input_type,
         "oAuthSettingId": "",
-        "transformSettingIDs": "OpenCTIURL,OpenCTIToken,SSLVerify",
+        "transformSettingIDs": "OpenCTIURL,OpenCTIToken,SSLVerify,HTTPProxies",
         "seedIDs": itds_seed_name,
     }
 
