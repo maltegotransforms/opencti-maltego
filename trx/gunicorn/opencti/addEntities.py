@@ -86,10 +86,18 @@ def addStixEntity(opencti_api_client, response, opencti_entity):
             clean_opencti_entity["is_defanged"] = clean_opencti_entity["defanged"]
             del clean_opencti_entity["defanged"]
         if (
-            "value" not in clean_opencti_entity
-            and "observable_value" in clean_opencti_entity
+           "value" not in clean_opencti_entity
+           and "observable_value" in clean_opencti_entity
+           and clean_opencti_entity["type"] in ["x-opencti-hostname"]
         ):
             clean_opencti_entity["value"] = clean_opencti_entity["observable_value"]
+        if (
+            "name" in opencti_entity
+            and opencti_entity["name"] is None
+            and "observable_value" in clean_opencti_entity
+        ):
+
+            clean_opencti_entity["name"] = clean_opencti_entity["observable_value"]
         to_be_removed = [
             "indicators",
             "indicatorsIds",
@@ -105,7 +113,13 @@ def addStixEntity(opencti_api_client, response, opencti_entity):
                 clean_opencti_entity.pop(k)
 
     # Handle general refs
-    to_be_removed = ["createdById", "objectMarkingIds", "objectsIds", "importFiles", "importFilesIds"]
+    to_be_removed = [
+        "createdById",
+        "objectMarkingIds",
+        "objectsIds",
+        "importFiles",
+        "importFilesIds",
+    ]
     if "objectMarking" in opencti_entity:
         (color, text) = formatMarkings(opencti_entity["objectMarking"])
         clean_opencti_entity["x_maltego_marking_color"] = color
@@ -122,7 +136,9 @@ def addStixEntity(opencti_api_client, response, opencti_entity):
         del clean_opencti_entity["objectMarking"]
     if "objects" in clean_opencti_entity:
         clean_opencti_entity["object_refs"] = [
-            r["standard_id"] for r in clean_opencti_entity["objects"] if "standard_id" in r
+            r["standard_id"]
+            for r in clean_opencti_entity["objects"]
+            if "standard_id" in r
         ]
         del clean_opencti_entity["objects"]
     for k in list(clean_opencti_entity.keys()):
@@ -152,7 +168,6 @@ def plainSearchAndAddEntities(opencti_api_client, response, search_value, limit=
     return res
 
 
-
 def searchAndAddEntity(opencti_api_client, response, stix_entity, output=None):
     types = [STIX2toOpenCTItype(stix_entity["type"]) if "type" in stix_entity else None]
     stix_id = stix_entity["id"] if "id" in stix_entity else None
@@ -165,7 +180,7 @@ def searchAndAddEntity(opencti_api_client, response, stix_entity, output=None):
     custom_attributes = re.sub(
         r"\.\.\. on Basic(Object|Relationship) {\n(\s+)id\n(\s+)}",
         r"... on Basic\g<1> {\n\g<2>id\n\g<2>standard_id\n\g<2>entity_type\n\g<2>parent_types\n\g<3>}",
-        opencti_api_client.stix_domain_object.properties
+        opencti_api_client.stix_domain_object.properties,
     )
 
     if (
@@ -202,7 +217,11 @@ def searchAndAddObservable(opencti_api_client, response, stix_entity):
     maltego_entity = None
 
     stix_id = stix_entity["id"] if "id" in stix_entity else None
-    stix_value = stix_entity["value"] if "value" in stix_entity else None
+    stix_value = (
+        stix_entity["value"]
+        if "value" in stix_entity
+        else (stix_entity["name"] if "name" in stix_entity else None)
+    )
 
     if stix_id is not None:
         opencti_entity = opencti_api_client.stix_cyber_observable.read(id=stix_id)

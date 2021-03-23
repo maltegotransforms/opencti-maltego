@@ -12,17 +12,19 @@ from opencti.addEntities import (
     searchAndAddRelationship,
     searchAndAddSighting,
     addStixEntity,
-    plainSearchAndAddEntities
+    plainSearchAndAddEntities,
 )
 
 
 def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
-    limit = client_msg.Slider if client_msg.Slider != 100 else 500  # TODO use this to limit results from the API
-    if getattr(client_msg, "Genealogy", None) is None:
-        client_msg.Genealogy = [{"Name": "maltego.STIX2." + client_msg.getProperty("type")}]
-
+    limit = client_msg.Slider if client_msg.Slider != 100 else opencti_config["limit"]
     opencti_url = client_msg.TransformSettings.get("OpenCTIURL", opencti_config["url"])
-    opencti_token = client_msg.TransformSettings.get("OpenCTIToken", opencti_config["token"])
+    opencti_token = client_msg.TransformSettings.get(
+        "OpenCTIToken", opencti_config["token"]
+    )
+    http_proxies = client_msg.TransformSettings.get(
+        "HTTPProxies", opencti_config["proxies"]
+    )
 
     if "SSLVerify" in client_msg.TransformSettings:
         ssl_verify = client_msg.TransformSettings["SSLVerify"] == "true"
@@ -35,13 +37,19 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
         opencti_token,
         log_level=opencti_config["log_level"],
         ssl_verify=ssl_verify,
-        proxies=opencti_config["proxies"]
+        proxies=http_proxies,
     )
 
     entity = None
     if transformName == "PlainSearch":
-        plainSearchAndAddEntities(opencti_api_client, response, search_value=client_msg.Value, limit=limit)
+        plainSearchAndAddEntities(
+            opencti_api_client, response, search_value=client_msg.Value, limit=limit
+        )
     else:
+        if getattr(client_msg, "Genealogy", None) is None:
+            client_msg.Genealogy = [
+                {"Name": "maltego.STIX2." + client_msg.getProperty("type")}
+            ]
         stix2_entity = maltego_to_stix2(
             client_msg,
             transform=response,
@@ -50,9 +58,10 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
             allow_skipping_stix2_coercion=True,
         )
         # Search and complete details for the input entity (StixRelation or StixEntity)
-        # TODO can we detect already-populated entities and skip this step in that case?
         if transformName.startswith("StixRelation"):
-            entity = searchAndAddRelationship(opencti_api_client, response, stix2_entity)
+            entity = searchAndAddRelationship(
+                opencti_api_client, response, stix2_entity
+            )
         elif transformName.startswith("StixSighting"):
             entity = searchAndAddSighting(opencti_api_client, response, stix2_entity)
         elif transformName.startswith("StixObservable"):
@@ -63,7 +72,7 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
     # If input entity found in OpenCTI, proceed with the transform
     if entity is not None and entity["opencti_entity"]:
         # *ToDetails or PlainObservableSearch: Nothing else to do
-        if transformName.endswith("ToDetails") or transformName == "PlainObservableSearch":
+        if transformName.endswith("ToDetails"):
             pass
 
         # *ToReports: Find related reports
@@ -293,70 +302,88 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                             if reverse_link:
                                 neighbour_entity["maltego_entity"].reverseLink()
 
-        # StixRelationToStixDomainEntity: Find and add from and to entities
+        # Stix(Relation|Sighting)ToStixDomainEntity(From|To): Find and add entities
         elif transformName in [
+            "StixRelationToStixDomainEntityFrom",
+            "StixSightingToStixDomainEntityFrom",
+            "StixRelationToStixDomainEntityTo",
+            "StixSightingToStixDomainEntityTo",
             "StixRelationToStixDomainEntity",
             "StixSightingToStixDomainEntity",
         ]:
-            if (
-                "Stix-Cyber-Observable" in entity["opencti_entity"]["from"]["parent_types"]
-                or "stix-cyber-observable" in entity["opencti_entity"]["from"]["parent_types"]
-            ):
-                from_entity = searchAndAddObservable(
-                    opencti_api_client,
-                    response,
-                    {
-                        "id": entity["opencti_entity"]["from"]["standard_id"],
-                        "type": entity["opencti_entity"]["from"]["entity_type"],
-                    },
-                )
-            else:
-                from_entity = searchAndAddEntity(
-                    opencti_api_client,
-                    response,
-                    {
-                        "id": entity["opencti_entity"]["from"]["standard_id"],
-                        "type": entity["opencti_entity"]["from"]["entity_type"],
-                    },
-                    output,
-                )
-
-            if from_entity["maltego_entity"]:
-                from_entity["maltego_entity"].reverseLink()
-                setLinkLabel(
-                    from_entity["maltego_entity"],
-                    entity["opencti_entity"],
-                    False,
-                )
-
-            if (
-                "Stix-Cyber-Observable" in entity["opencti_entity"]["to"]["parent_types"]
-                or "stix-cyber-observable" in entity["opencti_entity"]["to"]["parent_types"]
-            ):
-                to_entity = searchAndAddObservable(
-                    opencti_api_client,
-                    response,
-                    {
-                        "id": entity["opencti_entity"]["to"]["standard_id"],
-                        "type": entity["opencti_entity"]["to"]["entity_type"],
-                    },
-                )
-            else:
-                to_entity = searchAndAddEntity(
-                    opencti_api_client,
-                    response,
-                    {
-                        "id": entity["opencti_entity"]["to"]["standard_id"],
-                        "type": entity["opencti_entity"]["to"]["entity_type"],
-                    },
-                    output,
-                )
-            if to_entity["maltego_entity"]:
-                setLinkLabel(
-                    to_entity["maltego_entity"],
-                    entity["opencti_entity"],
-                    False,
-                )
+            if transformName in [
+                "StixRelationToStixDomainEntityFrom",
+                "StixSightingToStixDomainEntityFrom",
+                "StixRelationToStixDomainEntity",
+                "StixSightingToStixDomainEntity",
+            ]:
+                if (
+                    "Stix-Cyber-Observable"
+                    in entity["opencti_entity"]["from"]["parent_types"]
+                    or "stix-cyber-observable"
+                    in entity["opencti_entity"]["from"]["parent_types"]
+                ):
+                    from_entity = searchAndAddObservable(
+                        opencti_api_client,
+                        response,
+                        {
+                            "id": entity["opencti_entity"]["from"]["standard_id"],
+                            "type": entity["opencti_entity"]["from"]["entity_type"],
+                        },
+                    )
+                else:
+                    from_entity = searchAndAddEntity(
+                        opencti_api_client,
+                        response,
+                        {
+                            "id": entity["opencti_entity"]["from"]["standard_id"],
+                            "type": entity["opencti_entity"]["from"]["entity_type"],
+                        },
+                        output,
+                    )
+                if from_entity["maltego_entity"]:
+                    from_entity["maltego_entity"].reverseLink()
+                    setLinkLabel(
+                        from_entity["maltego_entity"],
+                        entity["opencti_entity"],
+                        False,
+                    )
+            if transformName in [
+                "StixRelationToStixDomainEntityTo",
+                "StixSightingToStixDomainEntityTo",
+                "StixRelationToStixDomainEntity",
+                "StixSightingToStixDomainEntity",
+            ]:
+                if (
+                    "Stix-Cyber-Observable"
+                    in entity["opencti_entity"]["to"]["parent_types"]
+                    or "stix-cyber-observable"
+                    in entity["opencti_entity"]["to"]["parent_types"]
+                ):
+                    to_entity = searchAndAddObservable(
+                        opencti_api_client,
+                        response,
+                        {
+                            "id": entity["opencti_entity"]["to"]["standard_id"],
+                            "type": entity["opencti_entity"]["to"]["entity_type"],
+                        },
+                    )
+                else:
+                    to_entity = searchAndAddEntity(
+                        opencti_api_client,
+                        response,
+                        {
+                            "id": entity["opencti_entity"]["to"]["standard_id"],
+                            "type": entity["opencti_entity"]["to"]["entity_type"],
+                        },
+                        output,
+                    )
+                if to_entity["maltego_entity"]:
+                    setLinkLabel(
+                        to_entity["maltego_entity"],
+                        entity["opencti_entity"],
+                        False,
+                    )
 
         # StixObservableToIndicators: Return indicators
         elif transformName == "StixObservableToIndicators":
