@@ -3,4 +3,8 @@ stix2==2.1.0
 six>=1.4.0
 markdown==3.3.4
 pycti>=4.3.0
+<<<<<<< HEAD
 maltego-stix2>=2.0.3
+=======
+maltego-stix2>=2.1
+>>>>>>> ce17866ff1b2741b2aa43a71870c5540e047d81a

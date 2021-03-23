@@ -3,7 +3,7 @@ opencti.identity.StixDomainEntityToDetails,OpenCTI: Identity to Details,maltego.
 opencti.threat-actor.StixDomainEntityToDetails,OpenCTI: Threat Actor to Details,maltego.STIX2.threat-actor,To Details [OpenCTI],
 opencti.intrusion-set.StixDomainEntityToDetails,OpenCTI: Intrusion Set to Details,maltego.STIX2.intrusion-set,To Details [OpenCTI],
 opencti.campaign.StixDomainEntityToDetails,OpenCTI: Campaign to Details,maltego.STIX2.campaign,To Details [OpenCTI],
-opencti.x-opencti-incident.StixDomainEntityToDetails,OpenCTI: Incident to Details,maltego.STIX2.x-opencti-incident,To Details [OpenCTI],
+opencti.incident.StixDomainEntityToDetails,OpenCTI: Incident to Details,maltego.STIX2.incident,To Details [OpenCTI],
 opencti.malware.StixDomainEntityToDetails,OpenCTI: Malware to Details,maltego.STIX2.malware,To Details [OpenCTI],
 opencti.tool.StixDomainEntityToDetails,OpenCTI: Tool to Details,maltego.STIX2.tool,To Details [OpenCTI],
 opencti.vulnerability.StixDomainEntityToDetails,OpenCTI: Vulnerability to Details,maltego.STIX2.vulnerability,To Details [OpenCTI],
@@ -22,7 +22,7 @@ opencti.identity.StixDomainEntityToReports,OpenCTI: Identity to Reports,maltego.
 opencti.threat-actor.StixDomainEntityToReports,OpenCTI: Threat Actor to Reports,maltego.STIX2.threat-actor,To Reports [OpenCTI],
 opencti.intrusion-set.StixDomainEntityToReports,OpenCTI: Intrusion Set to Reports,maltego.STIX2.intrusion-set,To Reports [OpenCTI],
 opencti.campaign.StixDomainEntityToReports,OpenCTI: Campaign to Reports,maltego.STIX2.campaign,To Reports [OpenCTI],
-opencti.x-opencti-incident.StixDomainEntityToReports,OpenCTI: Incident to Reports,maltego.STIX2.x-opencti-incident,To Reports [OpenCTI],
+opencti.incident.StixDomainEntityToReports,OpenCTI: Incident to Reports,maltego.STIX2.incident,To Reports [OpenCTI],
 opencti.malware.StixDomainEntityToReports,OpenCTI: Malware to Reports,maltego.STIX2.malware,To Reports [OpenCTI],
 opencti.tool.StixDomainEntityToReports,OpenCTI: Tool to Reports,maltego.STIX2.tool,To Reports [OpenCTI],
 opencti.vulnerability.StixDomainEntityToReports,OpenCTI: Vulnerability to Reports,maltego.STIX2.vulnerability,To Reports [OpenCTI],
@@ -38,7 +38,7 @@ opencti.identity.StixDomainEntityToNotes,OpenCTI: Identity to Notes,maltego.STIX
 opencti.threat-actor.StixDomainEntityToNotes,OpenCTI: Threat Actor to Notes,maltego.STIX2.threat-actor,To Notes [OpenCTI],
 opencti.intrusion-set.StixDomainEntityToNotes,OpenCTI: Intrusion Set to Notes,maltego.STIX2.intrusion-set,To Notes [OpenCTI],
 opencti.campaign.StixDomainEntityToNotes,OpenCTI: Campaign to Notes,maltego.STIX2.campaign,To Notes [OpenCTI],
-opencti.x-opencti-incident.StixDomainEntityToNotes,OpenCTI: Incident to Notes,maltego.STIX2.x-opencti-incident,To Notes [OpenCTI],
+opencti.incident.StixDomainEntityToNotes,OpenCTI: Incident to Notes,maltego.STIX2.incident,To Notes [OpenCTI],
 opencti.malware.StixDomainEntityToNotes,OpenCTI: Malware to Notes,maltego.STIX2.malware,To Notes [OpenCTI],
 opencti.tool.StixDomainEntityToNotes,OpenCTI: Tool to Notes,maltego.STIX2.tool,To Notes [OpenCTI],
 opencti.vulnerability.StixDomainEntityToNotes,OpenCTI: Vulnerability to Notes,maltego.STIX2.vulnerability,To Notes [OpenCTI],
@@ -53,7 +53,7 @@ opencti.identity.StixDomainEntityToOpinions,OpenCTI: Identity to Opinions,malteg
 opencti.threat-actor.StixDomainEntityToOpinions,OpenCTI: Threat Actor to Opinions,maltego.STIX2.threat-actor,To Opinions [OpenCTI],
 opencti.intrusion-set.StixDomainEntityToOpinions,OpenCTI: Intrusion Set to Opinions,maltego.STIX2.intrusion-set,To Opinions [OpenCTI],
 opencti.campaign.StixDomainEntityToOpinions,OpenCTI: Campaign to Opinions,maltego.STIX2.campaign,To Opinions [OpenCTI],
-opencti.x-opencti-incident.StixDomainEntityToOpinions,OpenCTI: Incident to Opinions,maltego.STIX2.x-opencti-incident,To Opinions [OpenCTI],
+opencti.incident.StixDomainEntityToOpinions,OpenCTI: Incident to Opinions,maltego.STIX2.incident,To Opinions [OpenCTI],
 opencti.malware.StixDomainEntityToOpinions,OpenCTI: Malware to Opinions,maltego.STIX2.malware,To Opinions [OpenCTI],
 opencti.tool.StixDomainEntityToOpinions,OpenCTI: Tool to Opinions,maltego.STIX2.tool,To Opinions [OpenCTI],
 opencti.vulnerability.StixDomainEntityToOpinions,OpenCTI: Vulnerability to Opinions,maltego.STIX2.vulnerability,To Opinions [OpenCTI],
@@ -71,7 +71,7 @@ opencti.report.identity.ReportToStixDomainEntities,OpenCTI: Report to Identities
 opencti.report.threat-actor.ReportToStixDomainEntities,OpenCTI: Report to Threat Actors,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],threat-actor
 opencti.report.intrusion-set.ReportToStixDomainEntities,OpenCTI: Report to Intrusion Sets,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],intrusion-set
 opencti.report.campaign.ReportToStixDomainEntities,OpenCTI: Report to Campaigns,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],campaign
-opencti.report.x-opencti-incident.ReportToStixDomainEntities,OpenCTI: Report to Incidents,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],x-opencti-incident
+opencti.report.incident.ReportToStixDomainEntities,OpenCTI: Report to Incidents,maltego.STIX2.report,OpenCTI,incident
 opencti.report.malware.ReportToStixDomainEntities,OpenCTI: Report to Malware,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],malware
 opencti.report.tool.ReportToStixDomainEntities,OpenCTI: Report to Tools,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],tool
 opencti.report.vulnerability.ReportToStixDomainEntities,OpenCTI: Report to Vulnerabilities,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],vulnerability
@@ -104,8 +104,8 @@ opencti.identity.threat-actor.StixDomainEntityToStixDomainEntity,OpenCTI: Identi
 opencti.identity.threat-actor.StixDomainEntityToRelations,OpenCTI: Identity to Threat Actor Relations,maltego.STIX2.identity,To Relationships (explicit) [OpenCTI],threat-actor
 opencti.identity.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Identity to Intrusion Sets,maltego.STIX2.identity,To Relationships (implicit) [OpenCTI],intrusion-set
 opencti.identity.intrusion-set.StixDomainEntityToRelations,OpenCTI: Identity to Intrusion Set Relations,maltego.STIX2.identity,To Relationships (explicit) [OpenCTI],intrusion-set
-opencti.identity.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Identity to Incidents,maltego.STIX2.identity,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.identity.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Identity to Incident Relations,maltego.STIX2.identity,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.identity.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Identity to Incidents,maltego.STIX2.identity,To Relationships (implicit) [OpenCTI],incident
+opencti.identity.incident.StixDomainEntityToRelations,OpenCTI: Identity to Incident Relations,maltego.STIX2.identity,To Relationships (explicit) [OpenCTI],incident
 opencti.identity.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Identity to Malware,maltego.STIX2.identity,To Relationships (implicit) [OpenCTI],malware
 opencti.identity.malware.StixDomainEntityToRelations,OpenCTI: Identity to Malware Relations,maltego.STIX2.identity,To Relationships (explicit) [OpenCTI],malware
 opencti.identity.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Identity to Tools,maltego.STIX2.identity,To Relationships (implicit) [OpenCTI],tool
@@ -132,8 +132,8 @@ opencti.threat-actor.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: T
 opencti.threat-actor.intrusion-set.StixDomainEntityToRelations,OpenCTI: Threat Actor to Intrusion Set Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.threat-actor.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Campaigns,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],campaign
 opencti.threat-actor.campaign.StixDomainEntityToRelations,OpenCTI: Threat Actor to Campaign Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],campaign
-opencti.threat-actor.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Incidents,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.threat-actor.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Threat Actor to Incident Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.threat-actor.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Incidents,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],incident
+opencti.threat-actor.incident.StixDomainEntityToRelations,OpenCTI: Threat Actor to Incident Relations,maltego.STIX2.threat-actor,OTo Relationships (explicit) [OpenCTI],incident
 opencti.threat-actor.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Malware,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],malware
 opencti.threat-actor.malware.StixDomainEntityToRelations,OpenCTI: Threat Actor to Malware Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],malware
 opencti.threat-actor.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Tools,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],tool
@@ -160,8 +160,8 @@ opencti.intrusion-set.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: 
 opencti.intrusion-set.intrusion-set.StixDomainEntityToRelations,OpenCTI: Intrusion Set to Intrusion Set Relations,maltego.STIX2.intrusion-set,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.intrusion-set.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to Campaigns,maltego.STIX2.intrusion-set,To Relationships (implicit) [OpenCTI],campaign
 opencti.intrusion-set.campaign.StixDomainEntityToRelations,OpenCTI: Intrusion Set to Campaign Relations,maltego.STIX2.intrusion-set,To Relationships (explicit) [OpenCTI],campaign
-opencti.intrusion-set.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to Incidents,maltego.STIX2.intrusion-set,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.intrusion-set.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Intrusion Set to Incident Relations,maltego.STIX2.intrusion-set,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.intrusion-set.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to Incidents,maltego.STIX2.intrusion-set,To Relationships (implicit) [OpenCTI],incident
+opencti.intrusion-set.incident.StixDomainEntityToRelations,OpenCTI: Intrusion Set to Incident Relations,maltego.STIX2.intrusion-set,To Relationships (explicit) [OpenCTI],incident
 opencti.intrusion-set.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to Malware,maltego.STIX2.intrusion-set,To Relationships (implicit) [OpenCTI],malware
 opencti.intrusion-set.malware.StixDomainEntityToRelations,OpenCTI: Intrusion Set to Malware Relations,maltego.STIX2.intrusion-set,To Relationships (explicit) [OpenCTI],malware
 opencti.intrusion-set.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to Tools,maltego.STIX2.intrusion-set,To Relationships (implicit) [OpenCTI],tool
@@ -188,8 +188,8 @@ opencti.campaign.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Campa
 opencti.campaign.intrusion-set.StixDomainEntityToRelations,OpenCTI: Campaign to Intrusion Set Relations,maltego.STIX2.campaign,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.campaign.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Campaigns,maltego.STIX2.campaign,To Relationships (implicit) [OpenCTI],campaign
 opencti.campaign.campaign.StixDomainEntityToRelations,OpenCTI: Campaign to Campaign Relations,maltego.STIX2.campaign,To Relationships (explicit) [OpenCTI],campaign
-opencti.campaign.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Incidents,maltego.STIX2.campaign,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.campaign.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Campaign to Incident Relations,maltego.STIX2.campaign,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.campaign.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Incidents,maltego.STIX2.campaign,To Relationships (implicit) [OpenCTI],incident
+opencti.campaign.incident.StixDomainEntityToRelations,OpenCTI: Campaign to Incident Relations,maltego.STIX2.campaign,To Relationships (explicit) [OpenCTI],incident
 opencti.campaign.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Malware,maltego.STIX2.campaign,To Relationships (implicit) [OpenCTI],malware
 opencti.campaign.malware.StixDomainEntityToRelations,OpenCTI: Campaign to Malware Relations,maltego.STIX2.campaign,To Relationships (explicit) [OpenCTI],malware
 opencti.campaign.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Tools,maltego.STIX2.campaign,To Relationships (implicit) [OpenCTI],tool
@@ -204,34 +204,34 @@ opencti.campaign.infrastructure.StixDomainEntityToStixDomainEntity,OpenCTI: Camp
 opencti.campaign.infrastructure.StixDomainEntityToRelations,OpenCTI: Campaign to Infrastructure Relations,maltego.STIX2.campaign,To Relationships (explicit) [OpenCTI],infrastructure
 opencti.campaign.location.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Location,maltego.STIX2.campaign,To Relationships (implicit) [OpenCTI],location
 opencti.campaign.location.StixDomainEntityToRelations,OpenCTI: Campaign to Location Relations,maltego.STIX2.campaign,To Relationships (explicit) [OpenCTI],location
-opencti.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to all Entities,maltego.STIX2.x-opencti-incident,To all Relationships (implicit) [OpenCTI],
-opencti.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Incident to all Entity Relations,maltego.STIX2.x-opencti-incident,To all Relationships (explicit) [OpenCTI],
-opencti.x-opencti-incident.StixDomainEntityToSightings,OpenCTI: Incident to Sightings,maltego.STIX2.x-opencti-incident,To Sightings [OpenCTI],
-opencti.x-opencti-incident.StixDomainEntityToStixObservable,OpenCTI: Incident to all Observables,maltego.STIX2.x-opencti-incident,To Observables [OpenCTI],stix-cyber-observable
-opencti.x-opencti-incident.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Identities,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],identity
-opencti.x-opencti-incident.identity.StixDomainEntityToRelations,OpenCTI: Incident to Identity Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],identity
-opencti.x-opencti-incident.threat-actor.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Threat Actors,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],threat-actor
-opencti.x-opencti-incident.threat-actor.StixDomainEntityToRelations,OpenCTI: Incident to Threat Actor Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],threat-actor
-opencti.x-opencti-incident.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Intrusion Sets,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],intrusion-set
-opencti.x-opencti-incident.intrusion-set.StixDomainEntityToRelations,OpenCTI: Incident to Intrusion Set Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],intrusion-set
-opencti.x-opencti-incident.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Campaigns,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],campaign
-opencti.x-opencti-incident.campaign.StixDomainEntityToRelations,OpenCTI: Incident to Campaign Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],campaign
-opencti.x-opencti-incident.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Incidents,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.x-opencti-incident.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Incident to Incident Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],x-opencti-incident
-opencti.x-opencti-incident.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Malware,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],malware
-opencti.x-opencti-incident.malware.StixDomainEntityToRelations,OpenCTI: Incident to Malware Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],malware
-opencti.x-opencti-incident.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Tools,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],tool
-opencti.x-opencti-incident.tool.StixDomainEntityToRelations,OpenCTI: Incident to Tool Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],tool
-opencti.x-opencti-incident.vulnerability.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Vulnerabilities,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],vulnerability
-opencti.x-opencti-incident.vulnerability.StixDomainEntityToRelations,OpenCTI: Incident to Vulnerability Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],vulnerability
-opencti.x-opencti-incident.attack-pattern.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Attack Patterns,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],attack-pattern
-opencti.x-opencti-incident.attack-pattern.StixDomainEntityToRelations,OpenCTI: Incident to Attack Pattern Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],attack-pattern
-opencti.x-opencti-incident.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Indicators,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],indicator
-opencti.x-opencti-incident.indicator.StixDomainEntityToRelations,OpenCTI: Incident to Indicators Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],indicator
-opencti.x-opencti-incident.infrastructure.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Infrastructure,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],infrastructure
-opencti.x-opencti-incident.infrastructure.StixDomainEntityToRelations,OpenCTI: Incident to Infrastructure Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],infrastructure
-opencti.x-opencti-incident.location.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Location,maltego.STIX2.x-opencti-incident,To Relationships (implicit) [OpenCTI],location
-opencti.x-opencti-incident.location.StixDomainEntityToRelations,OpenCTI: Incident to Location Relations,maltego.STIX2.x-opencti-incident,To Relationships (explicit) [OpenCTI],location
+opencti.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to all Entities,maltego.STIX2.incident,To all Relationships (implicit) [OpenCTI],
+opencti.incident.StixDomainEntityToRelations,OpenCTI: Incident to all Entity Relations,maltego.STIX2.incident,To all Relationships (explicit) [OpenCTI],
+opencti.incident.StixDomainEntityToSightings,OpenCTI: Incident to Sightings,maltego.STIX2.incident,To Sightings [OpenCTI],
+opencti.incident.StixDomainEntityToStixObservable,OpenCTI: Incident to all Observables,maltego.STIX2.incident,To Observables [OpenCTI],stix-cyber-observable
+opencti.incident.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Identities,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],identity
+opencti.incident.identity.StixDomainEntityToRelations,OpenCTI: Incident to Identity Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],identity
+opencti.incident.threat-actor.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Threat Actors,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],threat-actor
+opencti.incident.threat-actor.StixDomainEntityToRelations,OpenCTI: Incident to Threat Actor Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],threat-actor
+opencti.incident.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Intrusion Sets,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],intrusion-set
+opencti.incident.intrusion-set.StixDomainEntityToRelations,OpenCTI: Incident to Intrusion Set Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],intrusion-set
+opencti.incident.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Campaigns,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],campaign
+opencti.incident.campaign.StixDomainEntityToRelations,OpenCTI: Incident to Campaign Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],campaign
+opencti.incident.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Incidents,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],incident
+opencti.incident.incident.StixDomainEntityToRelations,OpenCTI: Incident to Incident Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],incident
+opencti.incident.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Malware,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],malware
+opencti.incident.malware.StixDomainEntityToRelations,OpenCTI: Incident to Malware Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],malware
+opencti.incident.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Tools,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],tool
+opencti.incident.tool.StixDomainEntityToRelations,OpenCTI: Incident to Tool Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],tool
+opencti.incident.vulnerability.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Vulnerabilities,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],vulnerability
+opencti.incident.vulnerability.StixDomainEntityToRelations,OpenCTI: Incident to Vulnerability Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],vulnerability
+opencti.incident.attack-pattern.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Attack Patterns,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],attack-pattern
+opencti.incident.attack-pattern.StixDomainEntityToRelations,OpenCTI: Incident to Attack Pattern Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],attack-pattern
+opencti.incident.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Indicators,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],indicator
+opencti.incident.indicator.StixDomainEntityToRelations,OpenCTI: Incident to Indicators Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],indicator
+opencti.incident.infrastructure.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Infrastructure,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],infrastructure
+opencti.incident.infrastructure.StixDomainEntityToRelations,OpenCTI: Incident to Infrastructure Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],infrastructure
+opencti.incident.location.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Location,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],location
+opencti.incident.location.StixDomainEntityToRelations,OpenCTI: Incident to Location Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],location
 opencti.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to all Entities,maltego.STIX2.malware,To all Relationships (implicit) [OpenCTI],
 opencti.malware.StixDomainEntityToRelations,OpenCTI: Malware to all Entity Relations,maltego.STIX2.malware,To all Relationships (explicit) [OpenCTI],
 opencti.malware.StixDomainEntityToSightings,OpenCTI: Malware to Sightings,maltego.STIX2.malware,To Sightings [OpenCTI],
@@ -244,8 +244,8 @@ opencti.malware.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Malwar
 opencti.malware.intrusion-set.StixDomainEntityToRelations,OpenCTI: Malware to Intrusion Set Relations,maltego.STIX2.malware,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.malware.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to Campaigns,maltego.STIX2.malware,To Relationships (implicit) [OpenCTI],campaign
 opencti.malware.campaign.StixDomainEntityToRelations,OpenCTI: Malware to Campaign Relations,maltego.STIX2.malware,To Relationships (explicit) [OpenCTI],campaign
-opencti.malware.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to Incidents,maltego.STIX2.malware,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.malware.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Malware to Incident Relations,maltego.STIX2.malware,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.malware.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to Incidents,maltego.STIX2.malware,To Relationships (implicit) [OpenCTI],incident
+opencti.malware.incident.StixDomainEntityToRelations,OpenCTI: Malware to Incident Relations,maltego.STIX2.malware,To Relationships (explicit) [OpenCTI],incident
 opencti.malware.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to Malware,maltego.STIX2.malware,To Relationships (implicit) [OpenCTI],malware
 opencti.malware.malware.StixDomainEntityToRelations,OpenCTI: Malware to Malware Relations,maltego.STIX2.malware,To Relationships (explicit) [OpenCTI],malware
 opencti.malware.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to Tools,maltego.STIX2.malware,To Relationships (implicit) [OpenCTI],tool
@@ -272,8 +272,8 @@ opencti.tool.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to I
 opencti.tool.intrusion-set.StixDomainEntityToRelations,OpenCTI: Tool to Intrusion Set Relations,maltego.STIX2.tool,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.tool.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to Campaigns,maltego.STIX2.tool,To Relationships (implicit) [OpenCTI],campaign
 opencti.tool.campaign.StixDomainEntityToRelations,OpenCTI: Tool to Campaign Relations,maltego.STIX2.tool,To Relationships (explicit) [OpenCTI],campaign
-opencti.tool.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to Incidents,maltego.STIX2.tool,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.tool.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Tool to Incident Relations,maltego.STIX2.tool,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.tool.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to Incidents,maltego.STIX2.tool,To Relationships (implicit) [OpenCTI],incident
+opencti.tool.incident.StixDomainEntityToRelations,OpenCTI: Tool to Incident Relations,maltego.STIX2.tool,To Relationships (explicit) [OpenCTI],incident
 opencti.tool.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to Malware,maltego.STIX2.tool,To Relationships (implicit) [OpenCTI],malware
 opencti.tool.malware.StixDomainEntityToRelations,OpenCTI: Tool to Malware Relations,maltego.STIX2.tool,To Relationships (explicit) [OpenCTI],malware
 opencti.tool.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to Tools,maltego.STIX2.tool,To Relationships (implicit) [OpenCTI],tool
@@ -300,8 +300,8 @@ opencti.vulnerability.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: 
 opencti.vulnerability.intrusion-set.StixDomainEntityToRelations,OpenCTI: Vulnerability to Intrusion Set Relations,maltego.STIX2.vulnerability,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.vulnerability.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Vulnerability to Campaigns,maltego.STIX2.vulnerability,To Relationships (implicit) [OpenCTI],campaign
 opencti.vulnerability.campaign.StixDomainEntityToRelations,OpenCTI: Vulnerability to Campaign Relations,maltego.STIX2.vulnerability,To Relationships (explicit) [OpenCTI],campaign
-opencti.vulnerability.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Vulnerability to Incidents,maltego.STIX2.vulnerability,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.vulnerability.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Vulnerability to Incident Relations,maltego.STIX2.vulnerability,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.vulnerability.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Vulnerability to Incidents,maltego.STIX2.vulnerability,To Relationships (implicit) [OpenCTI],incident
+opencti.vulnerability.incident.StixDomainEntityToRelations,OpenCTI: Vulnerability to Incident Relations,maltego.STIX2.vulnerability,To Relationships (explicit) [OpenCTI],incident
 opencti.vulnerability.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Vulnerability to Malware,maltego.STIX2.vulnerability,To Relationships (implicit) [OpenCTI],malware
 opencti.vulnerability.malware.StixDomainEntityToRelations,OpenCTI: Vulnerability to Malware Relations,maltego.STIX2.vulnerability,To Relationships (explicit) [OpenCTI],malware
 opencti.vulnerability.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Vulnerability to Tools,maltego.STIX2.vulnerability,To Relationships (implicit) [OpenCTI],tool
@@ -328,8 +328,8 @@ opencti.attack-pattern.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI:
 opencti.attack-pattern.intrusion-set.StixDomainEntityToRelations,OpenCTI: Attack Pattern to Intrusion Set Relations,maltego.STIX2.attack-pattern,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.attack-pattern.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Attack Pattern to Campaigns,maltego.STIX2.attack-pattern,To Relationships (implicit) [OpenCTI],campaign
 opencti.attack-pattern.campaign.StixDomainEntityToRelations,OpenCTI: Attack Pattern to Campaign Relations,maltego.STIX2.attack-pattern,To Relationships (explicit) [OpenCTI],campaign
-opencti.attack-pattern.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Attack Pattern to Incidents,maltego.STIX2.attack-pattern,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.attack-pattern.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Attack Pattern to Incident Relations,maltego.STIX2.attack-pattern,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.attack-pattern.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Attack Pattern to Incidents,maltego.STIX2.attack-pattern,To Relationships (implicit) [OpenCTI],incident
+opencti.attack-pattern.incident.StixDomainEntityToRelations,OpenCTI: Attack Pattern to Incident Relations,maltego.STIX2.attack-pattern,To Relationships (explicit) [OpenCTI],incident
 opencti.attack-pattern.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Attack Pattern to Malware,maltego.STIX2.attack-pattern,To Relationships (implicit) [OpenCTI],malware
 opencti.attack-pattern.malware.StixDomainEntityToRelations,OpenCTI: Attack Pattern to Malware Relations,maltego.STIX2.attack-pattern,To Relationships (explicit) [OpenCTI],malware
 opencti.attack-pattern.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Attack Pattern to Tools,maltego.STIX2.attack-pattern,To Relationships (implicit) [OpenCTI],tool
@@ -358,8 +358,8 @@ opencti.course-of-action.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCT
 opencti.course-of-action.intrusion-set.StixDomainEntityToRelations,OpenCTI: Course Of Action to Intrusion Set Relations,maltego.STIX2.course-of-action,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.course-of-action.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Course Of Action to Campaigns,maltego.STIX2.course-of-action,To Relationships (implicit) [OpenCTI],campaign
 opencti.course-of-action.campaign.StixDomainEntityToRelations,OpenCTI: Course Of Action to Campaign Relations,maltego.STIX2.course-of-action,To Relationships (explicit) [OpenCTI],campaign
-opencti.course-of-action.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Course Of Action to Incidents,maltego.STIX2.course-of-action,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.course-of-action.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Course Of Action to Incident Relations,maltego.STIX2.course-of-action,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.course-of-action.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Course Of Action to Incidents,maltego.STIX2.course-of-action,To Relationships (implicit) [OpenCTI],incident
+opencti.course-of-action.incident.StixDomainEntityToRelations,OpenCTI: Course Of Action to Incident Relations,maltego.STIX2.course-of-action,To Relationships (explicit) [OpenCTI],incident
 opencti.course-of-action.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Course Of Action to Malware,maltego.STIX2.course-of-action,To Relationships (implicit) [OpenCTI],malware
 opencti.course-of-action.malware.StixDomainEntityToRelations,OpenCTI: Course Of Action to Malware Relations,maltego.STIX2.course-of-action,To Relationships (explicit) [OpenCTI],malware
 opencti.course-of-action.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Course Of Action to Tools,maltego.STIX2.course-of-action,To Relationships (implicit) [OpenCTI],tool
@@ -388,8 +388,8 @@ opencti.infrastructure.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI:
 opencti.infrastructure.intrusion-set.StixDomainEntityToRelations,OpenCTI: Infrastructure to Intrusion Set Relations,maltego.STIX2.infrastructure,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.infrastructure.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Infrastructure to Campaigns,maltego.STIX2.infrastructure,To Relationships (implicit) [OpenCTI],campaign
 opencti.infrastructure.campaign.StixDomainEntityToRelations,OpenCTI: Infrastructure to Campaign Relations,maltego.STIX2.infrastructure,To Relationships (explicit) [OpenCTI],campaign
-opencti.infrastructure.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Infrastructure to Incidents,maltego.STIX2.infrastructure,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.infrastructure.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Infrastructure to Incident Relations,maltego.STIX2.infrastructure,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.infrastructure.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Infrastructure to Incidents,maltego.STIX2.infrastructure,To Relationships (implicit) [OpenCTI],incident
+opencti.infrastructure.incident.StixDomainEntityToRelations,OpenCTI: Infrastructure to Incident Relations,maltego.STIX2.infrastructure,To Relationships (explicit) [OpenCTI],incident
 opencti.infrastructure.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Infrastructure to Malware,maltego.STIX2.infrastructure,To Relationships (implicit) [OpenCTI],malware
 opencti.infrastructure.malware.StixDomainEntityToRelations,OpenCTI: Infrastructure to Malware Relations,maltego.STIX2.infrastructure,To Relationships (explicit) [OpenCTI],malware
 opencti.infrastructure.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Infrastructure to Tools,maltego.STIX2.infrastructure,To Relationships (implicit) [OpenCTI],tool
@@ -414,8 +414,8 @@ opencti.location.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Locat
 opencti.location.intrusion-set.StixDomainEntityToRelations,OpenCTI: Location to Intrusion Set Relations,maltego.STIX2.location,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.location.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Location to Campaigns,maltego.STIX2.location,To Relationships (implicit) [OpenCTI],campaign
 opencti.location.campaign.StixDomainEntityToRelations,OpenCTI: Location to Campaign Relations,maltego.STIX2.location,To Relationships (explicit) [OpenCTI],campaign
-opencti.location.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Location to Incidents,maltego.STIX2.location,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.location.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Location to Incident Relations,maltego.STIX2.location,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.location.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Location to Incidents,maltego.STIX2.location,To Relationships (implicit) [OpenCTI],incident
+opencti.location.incident.StixDomainEntityToRelations,OpenCTI: Location to Incident Relations,maltego.STIX2.location,To Relationships (explicit) [OpenCTI],incident
 opencti.location.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Location to Malware,maltego.STIX2.location,To Relationships (implicit) [OpenCTI],malware
 opencti.location.malware.StixDomainEntityToRelations,OpenCTI: Location to Malware Relations,maltego.STIX2.location,To Relationships (explicit) [OpenCTI],malware
 opencti.location.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Location to Tools,maltego.STIX2.location,To Relationships (implicit) [OpenCTI],tool
@@ -442,8 +442,8 @@ opencti.indicator.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Indi
 opencti.indicator.intrusion-set.StixDomainEntityToRelations,OpenCTI: Indicator to Intrusion Set Relations,maltego.STIX2.indicator,To Relationships (explicit) [OpenCTI],intrusion-set
 opencti.indicator.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Indicator to Campaigns,maltego.STIX2.indicator,To Relationships (implicit) [OpenCTI],campaign
 opencti.indicator.campaign.StixDomainEntityToRelations,OpenCTI: Indicator to Campaign Relations,maltego.STIX2.indicator,To Relationships (explicit) [OpenCTI],campaign
-opencti.indicator.x-opencti-incident.StixDomainEntityToStixDomainEntity,OpenCTI: Indicator to Incidents,maltego.STIX2.indicator,To Relationships (implicit) [OpenCTI],x-opencti-incident
-opencti.indicator.x-opencti-incident.StixDomainEntityToRelations,OpenCTI: Indicator to Incident Relations,maltego.STIX2.indicator,To Relationships (explicit) [OpenCTI],x-opencti-incident
+opencti.indicator.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Indicator to Incidents,maltego.STIX2.indicator,To Relationships (implicit) [OpenCTI],incident
+opencti.indicator.incident.StixDomainEntityToRelations,OpenCTI: Indicator to Incident Relations,maltego.STIX2.indicator,To Relationships (explicit) [OpenCTI],incident
 opencti.indicator.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Indicator to Malware,maltego.STIX2.indicator,To Relationships (implicit) [OpenCTI],malware
 opencti.indicator.malware.StixDomainEntityToRelations,OpenCTI: Indicator to Malware Relations,maltego.STIX2.indicator,To Relationships (explicit) [OpenCTI],malware
 opencti.indicator.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Indicator to Tools,maltego.STIX2.indicator,To Relationships (implicit) [OpenCTI],tool
