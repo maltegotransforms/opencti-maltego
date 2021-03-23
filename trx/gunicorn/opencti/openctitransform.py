@@ -71,6 +71,10 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
 
     # If input entity found in OpenCTI, proceed with the transform
     if entity is not None and entity["opencti_entity"]:
+        # To be removed after OpenCTI migrate to new STIX schema
+        if output and output == "incident":
+            output = "x-opencti-incident"
+
         # *ToDetails or PlainObservableSearch: Nothing else to do
         if transformName.endswith("ToDetails"):
             pass

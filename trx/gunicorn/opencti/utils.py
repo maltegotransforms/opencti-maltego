@@ -71,17 +71,22 @@ def addDisplayInfo(maltego_entity: MaltegoEntity, opencti_url=None):
     if not opencti_url:
         return
     if opencti_url.endswith("/graphql"):
-        opencti_url = opencti_url[:-len("/graphql")]
+        opencti_url = opencti_url[: -len("/graphql")]
     fields = {}
     for fieldName, displayName, matchingRule, value in maltego_entity.additionalFields:
         fields[fieldName] = value
 
     stix2_id = fields.get("id")
     description = fields.get("description") or ""
-    display = get_display_name(fields)
 
     if not stix2_id:
         return
+
+    # To be removed after OpenCTI migrate to new STIX schema
+    if stix2_id.startswith("incident--"):
+        stix2_id = stix2_id.replace("incident--", "x-opencti-incident--")
+
+    display = get_display_name(fields)
 
     if description:
         description = f"<br/><br/>{markdown(description)}"
@@ -91,7 +96,7 @@ def addDisplayInfo(maltego_entity: MaltegoEntity, opencti_url=None):
 
     maltego_entity.addDisplayInformation(
         f"<h2>{display}</h2><br/>"
-        f"<h4><a href=\"{url}\">View in OpenCTI</a></h4>"
+        f'<h4><a href="{url}">View in OpenCTI</a></h4>'
         f"{description}",
-        title="STIX 2 Description"
+        title="STIX 2 Description",
     )

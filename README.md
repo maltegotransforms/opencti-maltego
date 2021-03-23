@@ -64,4 +64,3 @@ This module is not a huge project with an intense roadmap. Feel free to contribu
 
 - Handle errors and display messages in Maltego
 - Add a Maltego machine to generate a knowledge graph from one report
-- Add compatibility with Incident entity added in official STIX2 schemas
