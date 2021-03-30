@@ -50,6 +50,14 @@ To run the transforms locally, make sure the path to TRX `project.py` is set up 
 
 Finally just import the file `output/transforms.mtz` in Maltego using the "Import config" menu.
 
+If you use an iTDS, make sure to configure its URL in [./config.py](./config.py), generate specific configuration files:
+
+```
+$ ./build_itds_config.sh
+```
+
+And import the file `output/importable_itds_config.csv` in your iTDS management platform as well as the `output/itds-config.mtz`.
+
 ## Contributing
 
 ### Code of Conduct

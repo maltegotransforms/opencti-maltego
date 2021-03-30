@@ -22,9 +22,12 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
     opencti_token = client_msg.TransformSettings.get(
         "OpenCTIToken", opencti_config["token"]
     )
-    http_proxies = client_msg.TransformSettings.get(
-        "HTTPProxies", opencti_config["proxies"]
-    )
+    http_proxies = {}
+    # TODO: handle proxies as a parameter for server execution
+    if "proxies" in opencti_config and opencti_config["proxies"]:
+        http_proxies = opencti_config["proxies"]
+
+
 
     if "SSLVerify" in client_msg.TransformSettings:
         ssl_verify = client_msg.TransformSettings["SSLVerify"] == "true"

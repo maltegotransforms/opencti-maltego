@@ -103,7 +103,6 @@ def addStixEntity(opencti_api_client, response, opencti_entity):
             and opencti_entity["name"] is None
             and "observable_value" in clean_opencti_entity
         ):
-
             clean_opencti_entity["name"] = clean_opencti_entity["observable_value"]
         to_be_removed = [
             "indicators",
