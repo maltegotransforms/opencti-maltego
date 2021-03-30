@@ -1,6 +1,6 @@
 # Maltego OpenCTI Transforms
 
-Use the OpenCTI platform in your Maltego application thanks to a set of transforms allowing you to explore the OpenCTI data.
+Use the OpenCTI platform in your Maltego application thanks to a set of transforms allowing you to explore the OpenCTI v4 data.
 
 ## Installation
 
@@ -15,7 +15,7 @@ Please install the following requirements before generating the Maltego transfor
 
 - Python >= 3.6
 - Libraries in requirements.txt
-- Maltego [STIX2 entities](https://github.com/amr-cossi/maltego-stix2)
+- Maltego [STIX2 entities](https://github.com/amr-cossi/maltego-stix2) and python package maltego_stix2
 
 > Warning: you have to import [Maltego STIX2](https://github.com/amr-cossi/maltego-stix2) entities before installing these transforms.
 
@@ -29,6 +29,8 @@ On Windows, please execute the following after installing the requirements:
 $ pip3 uninstall python-magic
 $ pip3 install python-magic-bin
 ```
+
+Some bugs have been fixed in OpenCTI in order for this project to work well. Some features may not work if the OpenCTI platform queried has a version < 4.3.
 
 ### Installation
 
@@ -44,13 +46,17 @@ Update the file according to your setup and then execute:
 $ ./build_transforms.sh
 ```
 
-If you specified a different path for the `src` directory of thie repository, please copy the content in it:
-
-```
-$ cp -a src /path/to/your/project/opencti-maltego/src
-```
+To run the transforms locally, make sure the path to TRX `project.py` is set up in [./config.py](./config.py)
 
 Finally just import the file `output/transforms.mtz` in Maltego using the "Import config" menu.
+
+If you use an iTDS, make sure to configure its URL in [./config.py](./config.py), generate specific configuration files:
+
+```
+$ ./build_itds_config.sh
+```
+
+And import the file `output/importable_itds_config.csv` in your iTDS management platform as well as the `output/itds-config.mtz`.
 
 ## Contributing
 
@@ -64,7 +70,5 @@ This module is not a huge project with an intense roadmap. Feel free to contribu
 
 ### TODO: known wanted enhancements
 
-- Implement an "explain inference" transform
-- Handle sectors
-- Use a less strict sanitize function on entity names (TRX functions ?)
 - Handle errors and display messages in Maltego
+- Add a Maltego machine to generate a knowledge graph from one report

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  maltego_opencti_python:
+    build: .
+    command: "gunicorn --bind=0.0.0.0:8080 --threads=25 --workers=4 project:app"
+    ports:
+       - "8080:8080"
