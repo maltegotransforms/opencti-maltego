@@ -93,10 +93,10 @@ def addDisplayInfo(maltego_entity: MaltegoEntity, opencti_url=None):
 
     # TODO direct URL would be better, for now we just open the search
     url = f"{opencti_url}/dashboard/search/{stix2_id}"
-
+    maltego_entity.setIconURL()
     maltego_entity.addDisplayInformation(
-        f"<h2>{display}</h2><br/>"
-        f'<h4><a href="{url}">View in OpenCTI</a></h4>'
+        f"<h2>{display}</h2>"
+        f"<h4><a href=\"{url}\">View in OpenCTI</a></h4>"
         f"{description}",
         title="STIX 2 Description",
     )

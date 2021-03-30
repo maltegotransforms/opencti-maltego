@@ -3,7 +3,7 @@
 echo "Clear old results"
 rm output/transforms.mtz 2> /dev/null
 find ./trx/gunicorn/transforms -name 'opencti*' -exec rm -f {} \; 2> /dev/null
-rm -R mtz/Servers/ mtz/TransformSets/ mtz/TransformRepositories/ 2> /dev/null
+rm -R mtz/Servers/ mtz/TransformSets/ mtz/TransformSetsTDS/ mtz/TransformRepositories/ 2> /dev/null
 mkdir mtz/ 2> /dev/null
 mkdir mtz/Servers/
 mkdir mtz/TransformSets/

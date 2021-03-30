@@ -2,6 +2,6 @@ version: '3'
 services:
   maltego_opencti_python:
     build: .
-    command: "gunicorn --certfile=server.crt --keyfile=server.key --bind=0.0.0.0:8443 --threads=25 --workers=4 project:app"
+    command: "gunicorn --certfile=server.crt --keyfile=server.key --bind=0.0.0.0:8443 --threads=8 --workers=8 project:app"
     ports:
        - "8473:8443"
