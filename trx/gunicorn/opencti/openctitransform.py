@@ -14,6 +14,7 @@ from opencti.addEntities import (
     addStixEntity,
     plainSearchAndAddEntities,
 )
+import re
 
 
 def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
@@ -192,17 +193,47 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
 
         # StixDomainEntityTo(Relations|StixDomainEntity)(Inferred)?: Return relations|entities when a relation is found
         elif transformName in [
-            "StixDomainEntityToStixDomainEntity",
-            # "StixDomainEntityToStixDomainEntityInferred",
             "StixDomainEntityToRelations",
             "StixDomainEntityToSightings",
-            # "StixDomainEntityToRelationsInferred",
             "StixRelationToRelations",
-            "StixDomainEntityToStixObservable",
             "StixObservableToRelations",
+            # "StixDomainEntityToRelationsInferred",
+            "StixDomainEntityToStixDomainEntity",
+            "StixDomainEntityToStixObservable",
+            # "StixDomainEntityToStixDomainEntityInferred",
+            "StixObservableToIndicators"
         ]:
             # inferred = "Inferred" in transformName
             stix_relations = []
+            custom_attributes_from = None
+            custom_attributes_to = None
+            if "ToStixDomainEntity" in transformName or "ToIndicators" in transformName:
+                custom_attributes_from = re.sub(
+                    r"from {.*}\s+to {",
+                    r"from {  ... on StixDomainObject {" + opencti_api_client.stix_domain_object.properties + "} } to {",
+                    opencti_api_client.stix_core_relationship.properties,
+                    flags=re.DOTALL,
+                )
+                custom_attributes_to = re.sub(
+                    r"}\s+to {.*}",
+                    r"} to { ... on StixDomainObject {" + opencti_api_client.stix_domain_object.properties + "} }",
+                    opencti_api_client.stix_core_relationship.properties,
+                    flags=re.DOTALL,
+                )
+            elif "ToStixObservable" in transformName:
+                custom_attributes_from = re.sub(
+                    r"from {.*}\s+to {",
+                    r"from {  ... on StixCyberObservable {" + opencti_api_client.stix_cyber_observable.properties + "} } to {",
+                    opencti_api_client.stix_core_relationship.properties,
+                    flags=re.DOTALL,
+                )
+                custom_attributes_to = re.sub(
+                    r"}\s+to {.*}",
+                    r"} to { ... on StixCyberObservable {" + opencti_api_client.stix_cyber_observable.properties + "}",
+                    opencti_api_client.stix_core_relationship.properties,
+                    flags=re.DOTALL,
+                )
+            
             if output:
                 maltego_type = output
                 opencti_type = STIX2toOpenCTItype(output)
@@ -212,12 +243,14 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                         toTypes=[opencti_type],
                         # inferred=inferred,
                         first=opencti_config["limit"],
+                        customAttributes=custom_attributes_to,
                     )
                     stix_relations += opencti_api_client.stix_sighting_relationship.list(
                         toId=entity["opencti_entity"]["x_opencti_id"],
                         fromTypes=[opencti_type],
                         # inferred=inferred,
                         first=opencti_config["limit"],
+                        customAttributes=custom_attributes_from,
                     )
                 else:
                     stix_relations = opencti_api_client.stix_core_relationship.list(
@@ -225,12 +258,14 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                         toTypes=[opencti_type],
                         # inferred=inferred,
                         first=opencti_config["limit"],
+                        customAttributes=custom_attributes_to,
                     )
                     stix_relations += opencti_api_client.stix_core_relationship.list(
                         toId=entity["opencti_entity"]["x_opencti_id"],
                         fromTypes=[opencti_type],
                         # inferred=inferred,
                         first=opencti_config["limit"],
+                        customAttributes=custom_attributes_from,
                     )
             else:
                 maltego_type = None
@@ -239,23 +274,28 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                         fromId=entity["opencti_entity"]["x_opencti_id"],
                         # inferred=inferred,
                         first=opencti_config["limit"],
+                        customAttributes=custom_attributes_to,
                     )
                     stix_relations += opencti_api_client.stix_sighting_relationship.list(
                         toId=entity["opencti_entity"]["x_opencti_id"],
                         # inferred=inferred,
                         first=opencti_config["limit"],
+                        customAttributes=custom_attributes_from,
                     )
                 else:
                     stix_relations = opencti_api_client.stix_core_relationship.list(
                         fromId=entity["opencti_entity"]["x_opencti_id"],
                         # inferred=inferred,
                         first=opencti_config["limit"],
+                        customAttributes=custom_attributes_to,
                     )
                     stix_relations += opencti_api_client.stix_core_relationship.list(
                         toId=entity["opencti_entity"]["x_opencti_id"],
                         # inferred=inferred,
                         first=opencti_config["limit"],
+                        customAttributes=custom_attributes_from,
                     )
+
             if len(stix_relations) > 0:
                 if "ToRelations" in transformName or "ToSightings" in transformName:
                     for relation in stix_relations:
@@ -278,36 +318,18 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                             relation["to"]["standard_id"]
                             == entity["opencti_entity"]["id"]
                         ):
-                            reverse_link = True
-                            neighbour_data = relation["from"]
+                            neighbour_entity = addStixEntity(
+                                opencti_api_client, response, opencti_api_client.process_multiple_fields(relation["from"])
+                            )
+                            neighbour_entity.reverseLink()
                         else:
-                            reverse_link = False
-                            neighbour_data = relation["to"]
-                        if "ToStixObservable" in transformName:
-                            neighbour_entity = searchAndAddObservable(
-                                opencti_api_client,
-                                response,
-                                {
-                                    "id": neighbour_data["standard_id"],
-                                    "type": neighbour_data["entity_type"],
-                                },
+                            #print(relation["to"])
+                            neighbour_entity = addStixEntity(
+                                opencti_api_client, response, opencti_api_client.process_multiple_fields(relation["to"])
                             )
-                        else:
-                            neighbour_entity = searchAndAddEntity(
-                                opencti_api_client,
-                                response,
-                                {
-                                    "id": neighbour_data["standard_id"],
-                                    "type": neighbour_data["entity_type"],
-                                },
-                                maltego_type,
-                            )
-                        if neighbour_entity["maltego_entity"] is not None:
-                            setLinkLabel(
-                                neighbour_entity["maltego_entity"], relation, True
-                            )
-                            if reverse_link:
-                                neighbour_entity["maltego_entity"].reverseLink()
+                        setLinkLabel(
+                            neighbour_entity, relation, True
+                        )
 
         # Stix(Relation|Sighting)ToStixDomainEntity(From|To): Find and add entities
         elif transformName in [
@@ -391,17 +413,3 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                         entity["opencti_entity"],
                         False,
                     )
-
-        # StixObservableToIndicators: Return indicators
-        elif transformName == "StixObservableToIndicators":
-            if "indicators" in entity["opencti_entity"]:
-                for indicator in entity["opencti_entity"]["indicators"]:
-                    neighbour_entity = searchAndAddEntity(
-                        opencti_api_client,
-                        response,
-                        {
-                            "id": indicator["id"],
-                        },
-                        None,
-                    )
-                    neighbour_entity["maltego_entity"].reverseLink()
