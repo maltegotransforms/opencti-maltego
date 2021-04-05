@@ -5,7 +5,7 @@ from maltego_stix2.config import _heritage_config
 
 def STIX2toOpenCTItype(stix2_type):
     if stix2_type.startswith("x-opencti-"):
-        return "XOpenCTI" + stix2_type[10:].replace("-", " ").title().replace(" ", "")
+        return "X-OpenCTI-" + stix2_type[10:].title().replace(" ", "")
     else:
         return stix2_type.title().replace(" ", "")
 

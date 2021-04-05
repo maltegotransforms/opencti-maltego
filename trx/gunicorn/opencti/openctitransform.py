@@ -28,8 +28,6 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
     if "proxies" in opencti_config and opencti_config["proxies"]:
         http_proxies = opencti_config["proxies"]
 
-
-
     if "SSLVerify" in client_msg.TransformSettings:
         ssl_verify = client_msg.TransformSettings["SSLVerify"] == "true"
     else:
@@ -83,113 +81,59 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
         if transformName.endswith("ToDetails"):
             pass
 
-        # *ToReports: Find related reports
-        elif transformName.endswith("ToReports"):
-            reports = opencti_api_client.report.list(
+        # *ToContainer
+        elif transformName.endswith("ToReports") or transformName.endswith("ToNotes") or transformName.endswith("ToOpinions") or transformName.endswith("ToAuthoredReports"):
+            opencti_class = None
+            if transformName.endswith("Reports"):
+                opencti_class = opencti_api_client.report
+            elif transformName.endswith("Notes"):
+                opencti_class = opencti_api_client.note
+            elif transformName.endswith("Opinions"):
+                opencti_class = opencti_api_client.opinion
+            containers = opencti_class.list(
                 filters=[
                     {
-                        "key": "objectContains",
+                        "key": "createdBy" if "Authored" in transformName else "objectContains",
                         "values": [entity["opencti_entity"]["x_opencti_id"]],
                     }
                 ],
                 first=opencti_config["limit"],
             )
-            for report in reports:
-                child_entity = addStixEntity(opencti_api_client, response, report)
+            for container in containers:
+                child_entity = addStixEntity(opencti_api_client, response, container)
                 child_entity.reverseLink()
 
-        # *ToAuthoredReports: Find reports with a specific author
-        elif transformName.endswith("ToAuthoredReports"):
-            reports = opencti_api_client.report.list(
-                filters=[
-                    {
-                        "key": "createdBy",
-                        "values": [entity["opencti_entity"]["x_opencti_id"]],
-                    }
-                ],
-                first=opencti_config["limit"],
+        # ContainerTo*
+        elif transformName.startswith("ReportTo") or transformName.startswith("NoteTo") or transformName.startswith("OpinionTo"):
+            opencti_class = None
+            if transformName.startswith("ReportTo"):
+                opencti_class = opencti_api_client.report
+            elif transformName.startswith("NoteTo"):
+                opencti_class = opencti_api_client.note
+            elif transformName.startswith("OpinionTo"):
+                opencti_class = opencti_api_client.opinion
+
+            custom_attributes = None
+            if "ToRelations" in transformName:
+                custom_attributes = "objects(types: [\"stix-core-relationship\"]) { edges { node { ... on StixCoreRelationship {" + opencti_api_client.stix_core_relationship.properties + " } } } }"
+            elif "ToStixObservable" in transformName:
+                custom_attributes = "objects(types: [\"stix-cyber-observable\"]) { edges { node { ... on StixCyberObservable {" + opencti_api_client.stix_cyber_observable.properties + " } } } }"
+            else:
+                # ToStixDomainEntities
+                if output:
+                    custom_attributes = "objects(types: [\""+STIX2toOpenCTItype(output)+"\"]) { edges { node { ... on StixDomainObject {" + opencti_api_client.stix_domain_object.properties + " } } } }"
+                else:
+                    custom_attributes = "objects(types: [\"Stix-Domain-Object\"]) { edges { node { ... on StixDomainObject {" + opencti_api_client.stix_domain_object.properties + " } } } }"
+
+            container = opencti_class.read(
+                id=entity["opencti_entity"]["id"],
+                customAttributes=custom_attributes
             )
-            for report in reports:
-                child_entity = addStixEntity(opencti_api_client, response, report)
-                child_entity.reverseLink()
 
-        # *ToNotes: Find related notes
-        elif transformName.endswith("ToNotes"):
-            notes = opencti_api_client.note.list(
-                filters=[
-                    {
-                        "key": "objectContains",
-                        "values": [entity["opencti_entity"]["x_opencti_id"]],
-                    }
-                ],
-                first=opencti_config["limit"],
-            )
-            for note in notes:
-                child_entity = addStixEntity(opencti_api_client, response, note)
-                child_entity.reverseLink()
-
-        # *ToOpinions: Find related opinions
-        elif transformName.endswith("ToOpinions"):
-            opinions = opencti_api_client.opinion.list(
-                filters=[
-                    {
-                        "key": "objectContains",
-                        "values": [entity["opencti_entity"]["x_opencti_id"]],
-                    }
-                ],
-                first=opencti_config["limit"],
-            )
-            for opinion in opinions:
-                child_entity = addStixEntity(opencti_api_client, response, opinion)
-                child_entity.reverseLink()
-
-        # ContainerToStixDomainEntities: Find and add all entities
-        elif transformName in [
-            "ReportToStixDomainEntities",
-            "NoteToStixDomainEntities",
-            "OpinionToStixDomainEntities",
-        ]:
-            for object_ref in entity["opencti_entity"]["objects"]:
-                if "Stix-Domain-Object" in object_ref["parent_types"]:
-                    if (
-                        not output
-                        or STIX2toOpenCTItype(output) == object_ref["entity_type"]
-                        or STIX2toOpenCTItype(output) in object_ref["parent_types"]
-                        or output.lower() == object_ref["entity_type"].lower()
-                    ):
-                        child_entity = searchAndAddEntity(
-                            opencti_api_client,
-                            response,
-                            {"id": object_ref["standard_id"]},
-                        )
-        # ContainerToRelations: Find and add all relations
-        elif transformName in [
-            "ReportToRelations",
-            "NoteToRelations",
-            "OpinionToRelations",
-        ]:
-            output = "stix-core-relationship"
-            for object_ref in entity["opencti_entity"]["objects"]:
-                if "stix-core-relationship" in object_ref["parent_types"]:
-                    child_entity = searchAndAddRelationship(
-                        opencti_api_client,
-                        response,
-                        {"id": object_ref["standard_id"]},
-                    )
-        # ContainerToObservable: Find and add all observables
-        elif transformName in [
-            "ReportToStixObservable",
-            "NoteToStixObservable",
-            "OpinionToStixObservable",
-        ]:
-            output = "stix-cyber-observable"
-            for object_ref in entity["opencti_entity"]["objects"]:
-                if "Stix-Cyber-Observable" in object_ref["parent_types"]:
-                    child_entity = searchAndAddObservable(
-                        opencti_api_client,
-                        response,
-                        {"id": object_ref["standard_id"]},
-                    )
+            for obj in container["objects"]:
+                addStixEntity(
+                    opencti_api_client, response, obj
+                )
 
         # StixDomainEntityTo(Relations|StixDomainEntity)(Inferred)?: Return relations|entities when a relation is found
         elif transformName in [
@@ -201,7 +145,7 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
             "StixDomainEntityToStixDomainEntity",
             "StixDomainEntityToStixObservable",
             # "StixDomainEntityToStixDomainEntityInferred",
-            "StixObservableToIndicators"
+            "StixObservableToIndicators",
         ]:
             # inferred = "Inferred" in transformName
             stix_relations = []
@@ -210,30 +154,38 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
             if "ToStixDomainEntity" in transformName or "ToIndicators" in transformName:
                 custom_attributes_from = re.sub(
                     r"from {.*}\s+to {",
-                    r"from {  ... on StixDomainObject {" + opencti_api_client.stix_domain_object.properties + "} } to {",
+                    r"from {  ... on StixDomainObject {"
+                    + opencti_api_client.stix_domain_object.properties
+                    + "} } to {",
                     opencti_api_client.stix_core_relationship.properties,
                     flags=re.DOTALL,
                 )
                 custom_attributes_to = re.sub(
                     r"}\s+to {.*}",
-                    r"} to { ... on StixDomainObject {" + opencti_api_client.stix_domain_object.properties + "} }",
+                    r"} to { ... on StixDomainObject {"
+                    + opencti_api_client.stix_domain_object.properties
+                    + "} }",
                     opencti_api_client.stix_core_relationship.properties,
                     flags=re.DOTALL,
                 )
             elif "ToStixObservable" in transformName:
                 custom_attributes_from = re.sub(
                     r"from {.*}\s+to {",
-                    r"from {  ... on StixCyberObservable {" + opencti_api_client.stix_cyber_observable.properties + "} } to {",
+                    r"from {  ... on StixCyberObservable {"
+                    + opencti_api_client.stix_cyber_observable.properties
+                    + "} } to {",
                     opencti_api_client.stix_core_relationship.properties,
                     flags=re.DOTALL,
                 )
                 custom_attributes_to = re.sub(
                     r"}\s+to {.*}",
-                    r"} to { ... on StixCyberObservable {" + opencti_api_client.stix_cyber_observable.properties + "}",
+                    r"} to { ... on StixCyberObservable {"
+                    + opencti_api_client.stix_cyber_observable.properties
+                    + "}",
                     opencti_api_client.stix_core_relationship.properties,
                     flags=re.DOTALL,
                 )
-            
+
             if output:
                 maltego_type = output
                 opencti_type = STIX2toOpenCTItype(output)
@@ -319,17 +271,23 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                             == entity["opencti_entity"]["id"]
                         ):
                             neighbour_entity = addStixEntity(
-                                opencti_api_client, response, opencti_api_client.process_multiple_fields(relation["from"])
+                                opencti_api_client,
+                                response,
+                                opencti_api_client.process_multiple_fields(
+                                    relation["from"]
+                                ),
                             )
                             neighbour_entity.reverseLink()
                         else:
-                            #print(relation["to"])
+                            # print(relation["to"])
                             neighbour_entity = addStixEntity(
-                                opencti_api_client, response, opencti_api_client.process_multiple_fields(relation["to"])
+                                opencti_api_client,
+                                response,
+                                opencti_api_client.process_multiple_fields(
+                                    relation["to"]
+                                ),
                             )
-                        setLinkLabel(
-                            neighbour_entity, relation, True
-                        )
+                        setLinkLabel(neighbour_entity, relation, True)
 
         # Stix(Relation|Sighting)ToStixDomainEntity(From|To): Find and add entities
         elif transformName in [

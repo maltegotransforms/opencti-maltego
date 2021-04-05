@@ -9,7 +9,7 @@ Release of a first stable version
 Release of a new version fully compatible with OpenCTI v4.3 and the revamped STIX2.1 Maltego entities available in the official Maltego Transform Hub.
 Depends on maltego-trx and maltego-stix2 python packages.
 
-## Version 2.1 (XX/04/2020)
+## Version 2.1 (05/04/2020)
 
 Reduce number of API calls per transform in several cases.
 Depends on a specific fix in pycti 4.3.5.
