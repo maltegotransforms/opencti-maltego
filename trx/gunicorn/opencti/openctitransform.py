@@ -19,6 +19,9 @@ import re
 
 def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
     limit = client_msg.Slider if client_msg.Slider != 100 else opencti_config["limit"]
+    limit = (
+        5000 if limit > 5000 else limit
+    )  # Max number of results in API without pagination
     opencti_url = client_msg.TransformSettings.get("OpenCTIURL", opencti_config["url"])
     opencti_token = client_msg.TransformSettings.get(
         "OpenCTIToken", opencti_config["token"]
@@ -82,7 +85,12 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
             pass
 
         # *ToContainer
-        elif transformName.endswith("ToReports") or transformName.endswith("ToNotes") or transformName.endswith("ToOpinions") or transformName.endswith("ToAuthoredReports"):
+        elif (
+            transformName.endswith("ToReports")
+            or transformName.endswith("ToNotes")
+            or transformName.endswith("ToOpinions")
+            or transformName.endswith("ToAuthoredReports")
+        ):
             opencti_class = None
             if transformName.endswith("Reports"):
                 opencti_class = opencti_api_client.report
@@ -93,7 +101,9 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
             containers = opencti_class.list(
                 filters=[
                     {
-                        "key": "createdBy" if "Authored" in transformName else "objectContains",
+                        "key": "createdBy"
+                        if "Authored" in transformName
+                        else "objectContains",
                         "values": [entity["opencti_entity"]["x_opencti_id"]],
                     }
                 ],
@@ -104,7 +114,11 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                 child_entity.reverseLink()
 
         # ContainerTo*
-        elif transformName.startswith("ReportTo") or transformName.startswith("NoteTo") or transformName.startswith("OpinionTo"):
+        elif (
+            transformName.startswith("ReportTo")
+            or transformName.startswith("NoteTo")
+            or transformName.startswith("OpinionTo")
+        ):
             opencti_class = None
             if transformName.startswith("ReportTo"):
                 opencti_class = opencti_api_client.report
@@ -115,25 +129,40 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
 
             custom_attributes = None
             if "ToRelations" in transformName:
-                custom_attributes = "objects(types: [\"stix-core-relationship\"]) { edges { node { ... on StixCoreRelationship {" + opencti_api_client.stix_core_relationship.properties + " } } } }"
+                custom_attributes = (
+                    'objects(types: ["stix-core-relationship"]) { edges { node { ... on StixCoreRelationship {'
+                    + opencti_api_client.stix_core_relationship.properties
+                    + " } } } }"
+                )
             elif "ToStixObservable" in transformName:
-                custom_attributes = "objects(types: [\"stix-cyber-observable\"]) { edges { node { ... on StixCyberObservable {" + opencti_api_client.stix_cyber_observable.properties + " } } } }"
+                custom_attributes = (
+                    'objects(types: ["stix-cyber-observable"]) { edges { node { ... on StixCyberObservable {'
+                    + opencti_api_client.stix_cyber_observable.properties
+                    + " } } } }"
+                )
             else:
                 # ToStixDomainEntities
                 if output:
-                    custom_attributes = "objects(types: [\""+STIX2toOpenCTItype(output)+"\"]) { edges { node { ... on StixDomainObject {" + opencti_api_client.stix_domain_object.properties + " } } } }"
+                    custom_attributes = (
+                        'objects(types: ["'
+                        + STIX2toOpenCTItype(output)
+                        + '"]) { edges { node { ... on StixDomainObject {'
+                        + opencti_api_client.stix_domain_object.properties
+                        + " } } } }"
+                    )
                 else:
-                    custom_attributes = "objects(types: [\"Stix-Domain-Object\"]) { edges { node { ... on StixDomainObject {" + opencti_api_client.stix_domain_object.properties + " } } } }"
+                    custom_attributes = (
+                        'objects(types: ["Stix-Domain-Object"]) { edges { node { ... on StixDomainObject {'
+                        + opencti_api_client.stix_domain_object.properties
+                        + " } } } }"
+                    )
 
             container = opencti_class.read(
-                id=entity["opencti_entity"]["id"],
-                customAttributes=custom_attributes
+                id=entity["opencti_entity"]["id"], customAttributes=custom_attributes
             )
 
             for obj in container["objects"]:
-                addStixEntity(
-                    opencti_api_client, response, obj
-                )
+                addStixEntity(opencti_api_client, response, obj)
 
         # StixDomainEntityTo(Relations|StixDomainEntity)(Inferred)?: Return relations|entities when a relation is found
         elif transformName in [
@@ -144,14 +173,18 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
             # "StixDomainEntityToRelationsInferred",
             "StixDomainEntityToStixDomainEntity",
             "StixDomainEntityToStixObservable",
+            "StixObservableToStixDomainEntity"
             # "StixDomainEntityToStixDomainEntityInferred",
-            "StixObservableToIndicators",
         ]:
             # inferred = "Inferred" in transformName
             stix_relations = []
             custom_attributes_from = None
             custom_attributes_to = None
-            if "ToStixDomainEntity" in transformName or "ToIndicators" in transformName:
+
+            if not output and "ToStixDomainEntity" in transformName:
+                output = "stix-domain-object"
+
+            if "ToStixDomainEntity" in transformName:
                 custom_attributes_from = re.sub(
                     r"from {.*}\s+to {",
                     r"from {  ... on StixDomainObject {"
@@ -181,7 +214,7 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                     r"}\s+to {.*}",
                     r"} to { ... on StixCyberObservable {"
                     + opencti_api_client.stix_cyber_observable.properties
-                    + "}",
+                    + "} }",
                     opencti_api_client.stix_core_relationship.properties,
                     flags=re.DOTALL,
                 )
@@ -266,9 +299,15 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                             child_entity.reverseLink()
                 else:
                     for relation in stix_relations:
+                        # To prevent errors linked to OpenCTI filtering bug on Stix-Domain-Object,
+                        # test if to and from are not empty before adding the relation
                         if (
-                            relation["to"]["standard_id"]
+                            relation["to"]
+                            and relation["to"]["standard_id"]
                             == entity["opencti_entity"]["id"]
+                            and relation[
+                                "from"
+                            ]
                         ):
                             neighbour_entity = addStixEntity(
                                 opencti_api_client,
@@ -278,8 +317,7 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                                 ),
                             )
                             neighbour_entity.reverseLink()
-                        else:
-                            # print(relation["to"])
+                        elif relation["to"]:
                             neighbour_entity = addStixEntity(
                                 opencti_api_client,
                                 response,

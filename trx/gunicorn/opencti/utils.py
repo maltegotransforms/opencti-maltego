@@ -95,7 +95,7 @@ def addDisplayInfo(maltego_entity: MaltegoEntity, opencti_url=None):
     maltego_entity.setIconURL()
     maltego_entity.addDisplayInformation(
         f"<h2>{display}</h2>"
-        f"<h4><a href=\"{url}\">View in OpenCTI</a></h4>"
+        f'<h4><a href="{url}">View in OpenCTI</a></h4>'
         f"{description}",
         title="STIX 2 Description",
     )

@@ -82,10 +82,10 @@ opencti.report.indicator.ReportToStixDomainEntities,OpenCTI: Report to Indicator
 opencti.report.infrastructure.ReportToStixDomainEntities,OpenCTI: Report to Infrastructures,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],infrastructure
 opencti.report.location.ReportToStixDomainEntities,OpenCTI: Report to Locations,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],location
 opencti.note.NoteToStixDomainEntity,OpenCTI: Note to all Entities,maltego.STIX2.note,To all Relationships (implicit) [OpenCTI],
-opencti.note.NoteToRelations,OpenCTI: Note to all Entity Relations,maltego.STIX2.note,To all Relationships (explicit) [OpenCTI],
+opencti.note.NoteToRelations,OpenCTI: Note to all Relations,maltego.STIX2.note,To all Relationships (explicit) [OpenCTI],
 opencti.note.NoteToStixObservable,OpenCTI: Note to all Observables,maltego.STIX2.note,To Observables [OpenCTI],
 opencti.opinion.OpinionToStixDomainEntity,OpenCTI: Opinion to all Entities,maltego.STIX2.opinion,To all Relationships (implicit) [OpenCTI],
-opencti.opinion.OpinionToRelations,OpenCTI: Opinion to all Entity Relations,maltego.STIX2.opinion,To all Relationships (explicit) [OpenCTI],
+opencti.opinion.OpinionToRelations,OpenCTI: Opinion to all Relations,maltego.STIX2.opinion,To all Relationships (explicit) [OpenCTI],
 opencti.opinion.OpinionToStixObservable,OpenCTI: Opinion to all Observables,maltego.STIX2.opinion,To Observables [OpenCTI],
 opencti.relationship.StixRelationToStixDomainEntity,OpenCTI: Relationship to All Entities/Observables,maltego.STIX2.relationship,To Relationships (explicit) [OpenCTI],
 opencti.relationship.StixRelationToStixDomainEntityFrom,OpenCTI: Relationship to Source Entities/Observables,maltego.STIX2.relationship,To Relationships Source [OpenCTI],
@@ -95,7 +95,7 @@ opencti.sighting.StixSightingToStixDomainEntity,OpenCTI: Sighting to All Entitie
 opencti.sighting.StixSightingToStixDomainEntityFrom,OpenCTI: Sighting to Source Entities,maltego.STIX2.sighting,To Relationships Source [OpenCTI],
 opencti.sighting.StixSightingToStixDomainEntityTo,OpenCTI: Sighting to Target Entities,maltego.STIX2.sighting,To Relationships Target [OpenCTI],
 opencti.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Identity to all Entities,maltego.STIX2.identity,To all Relationships (implicit) [OpenCTI],
-opencti.identity.StixDomainEntityToRelations,OpenCTI: Identity to all Entity Relations,maltego.STIX2.identity,To all Relationships (explicit) [OpenCTI],
+opencti.identity.StixDomainEntityToRelations,OpenCTI: Identity to all Relations,maltego.STIX2.identity,To all Relationships (explicit) [OpenCTI],
 opencti.identity.StixDomainEntityToSightings,OpenCTI: Identity to Sightings,maltego.STIX2.identity,To Sightings [OpenCTI],
 opencti.identity.StixDomainEntityToStixObservable,OpenCTI: Identity to all Observables,maltego.STIX2.identity,To Observables [OpenCTI],stix-cyber-observable
 opencti.identity.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Identity to Identities,maltego.STIX2.identity,To Relationships (implicit) [OpenCTI],identity
@@ -121,7 +121,7 @@ opencti.identity.infrastructure.StixDomainEntityToRelations,OpenCTI: Identity to
 opencti.identity.location.StixDomainEntityToStixDomainEntity,OpenCTI: Identity to Location,maltego.STIX2.identity,To Relationships (implicit) [OpenCTI],location
 opencti.identity.location.StixDomainEntityToRelations,OpenCTI: Identity to Location Relations,maltego.STIX2.identity,To Relationships (explicit) [OpenCTI],location
 opencti.threat-actor.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to all Entities,maltego.STIX2.threat-actor,To all Relationships (implicit) [OpenCTI],
-opencti.threat-actor.StixDomainEntityToRelations,OpenCTI: Threat Actor to all Entity Relations,maltego.STIX2.threat-actor,To all Relationships (explicit) [OpenCTI],
+opencti.threat-actor.StixDomainEntityToRelations,OpenCTI: Threat Actor to all Relations,maltego.STIX2.threat-actor,To all Relationships (explicit) [OpenCTI],
 opencti.threat-actor.StixDomainEntityToSightings,OpenCTI: Threat Actor to Sightings,maltego.STIX2.threat-actor,To Sightings [OpenCTI],
 opencti.threat-actor.StixDomainEntityToStixObservable,OpenCTI: Threat Actor to all Observables,maltego.STIX2.threat-actor,To Observables [OpenCTI],stix-cyber-observable
 opencti.threat-actor.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Identities,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],identity
@@ -149,7 +149,7 @@ opencti.threat-actor.infrastructure.StixDomainEntityToRelations,OpenCTI: Threat 
 opencti.threat-actor.location.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Location,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],location
 opencti.threat-actor.location.StixDomainEntityToRelations,OpenCTI: Threat Actor to Location Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],location
 opencti.intrusion-set.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to all Entities,maltego.STIX2.intrusion-set,To all Relationships (implicit) [OpenCTI],
-opencti.intrusion-set.StixDomainEntityToRelations,OpenCTI: Intrusion Set to all Entity Relations,maltego.STIX2.intrusion-set,To all Relationships (explicit) [OpenCTI],
+opencti.intrusion-set.StixDomainEntityToRelations,OpenCTI: Intrusion Set to all Relations,maltego.STIX2.intrusion-set,To all Relationships (explicit) [OpenCTI],
 opencti.intrusion-set.StixDomainEntityToSightings,OpenCTI: Intrusion Set to Sightings,maltego.STIX2.intrusion-set,To Sightings [OpenCTI],
 opencti.intrusion-set.StixDomainEntityToStixObservable,OpenCTI: Intrusion Set to all Observables,maltego.STIX2.intrusion-set,To Observables [OpenCTI],stix-cyber-observable
 opencti.intrusion-set.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to Identities,maltego.STIX2.intrusion-set,To Relationships (implicit) [OpenCTI],identity
@@ -177,7 +177,7 @@ opencti.intrusion-set.infrastructure.StixDomainEntityToRelations,OpenCTI: Intrus
 opencti.intrusion-set.location.StixDomainEntityToStixDomainEntity,OpenCTI: Intrusion Set to Location,maltego.STIX2.intrusion-set,To Relationships (implicit) [OpenCTI],location
 opencti.intrusion-set.location.StixDomainEntityToRelations,OpenCTI: Intrusion Set to Location Relations,maltego.STIX2.intrusion-set,To Relationships (explicit) [OpenCTI],location
 opencti.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to all Entities,maltego.STIX2.campaign,To all Relationships (implicit) [OpenCTI],
-opencti.campaign.StixDomainEntityToRelations,OpenCTI: Campaign to all Entity Relations,maltego.STIX2.campaign,To all Relationships (explicit) [OpenCTI],
+opencti.campaign.StixDomainEntityToRelations,OpenCTI: Campaign to all Relations,maltego.STIX2.campaign,To all Relationships (explicit) [OpenCTI],
 opencti.campaign.StixDomainEntityToSightings,OpenCTI: Campaign to Sightings,maltego.STIX2.campaign,To Sightings [OpenCTI],
 opencti.campaign.StixDomainEntityToStixObservable,OpenCTI: Campaign to all Observables,maltego.STIX2.campaign,To Observables [OpenCTI],stix-cyber-observable
 opencti.campaign.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Identities,maltego.STIX2.campaign,To Relationships (implicit) [OpenCTI],identity
@@ -205,7 +205,7 @@ opencti.campaign.infrastructure.StixDomainEntityToRelations,OpenCTI: Campaign to
 opencti.campaign.location.StixDomainEntityToStixDomainEntity,OpenCTI: Campaign to Location,maltego.STIX2.campaign,To Relationships (implicit) [OpenCTI],location
 opencti.campaign.location.StixDomainEntityToRelations,OpenCTI: Campaign to Location Relations,maltego.STIX2.campaign,To Relationships (explicit) [OpenCTI],location
 opencti.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to all Entities,maltego.STIX2.incident,To all Relationships (implicit) [OpenCTI],
-opencti.incident.StixDomainEntityToRelations,OpenCTI: Incident to all Entity Relations,maltego.STIX2.incident,To all Relationships (explicit) [OpenCTI],
+opencti.incident.StixDomainEntityToRelations,OpenCTI: Incident to all Relations,maltego.STIX2.incident,To all Relationships (explicit) [OpenCTI],
 opencti.incident.StixDomainEntityToSightings,OpenCTI: Incident to Sightings,maltego.STIX2.incident,To Sightings [OpenCTI],
 opencti.incident.StixDomainEntityToStixObservable,OpenCTI: Incident to all Observables,maltego.STIX2.incident,To Observables [OpenCTI],stix-cyber-observable
 opencti.incident.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Identities,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],identity
@@ -233,7 +233,7 @@ opencti.incident.infrastructure.StixDomainEntityToRelations,OpenCTI: Incident to
 opencti.incident.location.StixDomainEntityToStixDomainEntity,OpenCTI: Incident to Location,maltego.STIX2.incident,To Relationships (implicit) [OpenCTI],location
 opencti.incident.location.StixDomainEntityToRelations,OpenCTI: Incident to Location Relations,maltego.STIX2.incident,To Relationships (explicit) [OpenCTI],location
 opencti.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to all Entities,maltego.STIX2.malware,To all Relationships (implicit) [OpenCTI],
-opencti.malware.StixDomainEntityToRelations,OpenCTI: Malware to all Entity Relations,maltego.STIX2.malware,To all Relationships (explicit) [OpenCTI],
+opencti.malware.StixDomainEntityToRelations,OpenCTI: Malware to all Relations,maltego.STIX2.malware,To all Relationships (explicit) [OpenCTI],
 opencti.malware.StixDomainEntityToSightings,OpenCTI: Malware to Sightings,maltego.STIX2.malware,To Sightings [OpenCTI],
 opencti.malware.StixDomainEntityToStixObservable,OpenCTI: Malware to all Observables,maltego.STIX2.malware,To Observables [OpenCTI],stix-cyber-observable
 opencti.malware.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to Identities,maltego.STIX2.malware,To Relationships (implicit) [OpenCTI],identity
@@ -261,7 +261,7 @@ opencti.malware.infrastructure.StixDomainEntityToRelations,OpenCTI: Malware to I
 opencti.malware.location.StixDomainEntityToStixDomainEntity,OpenCTI: Malware to Location,maltego.STIX2.malware,To Relationships (implicit) [OpenCTI],location
 opencti.malware.location.StixDomainEntityToRelations,OpenCTI: Malware to Location Relations,maltego.STIX2.malware,To Relationships (explicit) [OpenCTI],location
 opencti.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to all Entities,maltego.STIX2.tool,To all Relationships (implicit) [OpenCTI],
-opencti.tool.StixDomainEntityToRelations,OpenCTI: Tool to all Entity Relations,maltego.STIX2.tool,To all Relationships (explicit) [OpenCTI],
+opencti.tool.StixDomainEntityToRelations,OpenCTI: Tool to all Relations,maltego.STIX2.tool,To all Relationships (explicit) [OpenCTI],
 opencti.tool.StixDomainEntityToSightings,OpenCTI: Tool to Sightings,maltego.STIX2.tool,To Sightings [OpenCTI],
 opencti.tool.StixDomainEntityToStixObservable,OpenCTI: Tool to all Observables,maltego.STIX2.tool,To Observables [OpenCTI],stix-cyber-observable
 opencti.tool.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to Identities,maltego.STIX2.tool,To Relationships (implicit) [OpenCTI],identity
@@ -289,7 +289,7 @@ opencti.tool.infrastructure.StixDomainEntityToRelations,OpenCTI: Tool to Infrast
 opencti.tool.location.StixDomainEntityToStixDomainEntity,OpenCTI: Tool to Location,maltego.STIX2.tool,To Relationships (implicit) [OpenCTI],location
 opencti.tool.location.StixDomainEntityToRelations,OpenCTI: Tool to Location Relations,maltego.STIX2.tool,To Relationships (explicit) [OpenCTI],location
 opencti.vulnerability.StixDomainEntityToStixDomainEntity,OpenCTI: Vulnerability to all Entities,maltego.STIX2.vulnerability,To all Relationships (implicit) [OpenCTI],
-opencti.vulnerability.StixDomainEntityToRelations,OpenCTI: Vulnerability to all Entity Relations,maltego.STIX2.vulnerability,To all Relationships (explicit) [OpenCTI],
+opencti.vulnerability.StixDomainEntityToRelations,OpenCTI: Vulnerability to all Relations,maltego.STIX2.vulnerability,To all Relationships (explicit) [OpenCTI],
 opencti.vulnerability.StixDomainEntityToSightings,OpenCTI: Vulnerability to Sightings,maltego.STIX2.vulnerability,To Sightings [OpenCTI],
 opencti.vulnerability.StixDomainEntityToStixObservable,OpenCTI: Vulnerability to all Observables,maltego.STIX2.vulnerability,To Observables [OpenCTI],stix-cyber-observable
 opencti.vulnerability.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Vulnerability to Identities,maltego.STIX2.vulnerability,To Relationships (implicit) [OpenCTI],identity
@@ -317,7 +317,7 @@ opencti.vulnerability.infrastructure.StixDomainEntityToRelations,OpenCTI: Vulner
 opencti.vulnerability.location.StixDomainEntityToStixDomainEntity,OpenCTI: Vulnerability to Location,maltego.STIX2.vulnerability,To Relationships (implicit) [OpenCTI],location
 opencti.vulnerability.location.StixDomainEntityToRelations,OpenCTI: Vulnerability to Location Relations,maltego.STIX2.vulnerability,To Relationships (explicit) [OpenCTI],location
 opencti.attack-pattern.StixDomainEntityToStixDomainEntity,OpenCTI: Attack Pattern to all Entities,maltego.STIX2.attack-pattern,To all Relationships (implicit) [OpenCTI],
-opencti.attack-pattern.StixDomainEntityToRelations,OpenCTI: Attack Pattern to all Entity Relations,maltego.STIX2.attack-pattern,To all Relationships (explicit) [OpenCTI],
+opencti.attack-pattern.StixDomainEntityToRelations,OpenCTI: Attack Pattern to all Relations,maltego.STIX2.attack-pattern,To all Relationships (explicit) [OpenCTI],
 opencti.attack-pattern.StixDomainEntityToSightings,OpenCTI: Attack Pattern to Sightings,maltego.STIX2.attack-pattern,To Sightings [OpenCTI],
 opencti.attack-pattern.StixDomainEntityToStixObservable,OpenCTI: Attack Pattern to all Observables,maltego.STIX2.attack-pattern,To Observables [OpenCTI],stix-cyber-observable
 opencti.attack-pattern.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Attack Pattern to Identities,maltego.STIX2.attack-pattern,To Relationships (implicit) [OpenCTI],identity
@@ -347,7 +347,7 @@ opencti.attack-pattern.infrastructure.StixDomainEntityToRelations,OpenCTI: Attac
 opencti.attack-pattern.location.StixDomainEntityToStixDomainEntity,OpenCTI: Attack Pattern to Location,maltego.STIX2.attack-pattern,To Relationships (implicit) [OpenCTI],location
 opencti.attack-pattern.location.StixDomainEntityToRelations,OpenCTI: Attack Pattern to Location Relations,maltego.STIX2.attack-pattern,To Relationships (explicit) [OpenCTI],location
 opencti.course-of-action.StixDomainEntityToStixDomainEntity,OpenCTI: Course Of Action to all Entities,maltego.STIX2.course-of-action,To all Relationships (implicit) [OpenCTI],
-opencti.course-of-action.StixDomainEntityToRelations,OpenCTI: Course Of Action to all Entity Relations,maltego.STIX2.course-of-action,To all Relationships (explicit) [OpenCTI],
+opencti.course-of-action.StixDomainEntityToRelations,OpenCTI: Course Of Action to all Relations,maltego.STIX2.course-of-action,To all Relationships (explicit) [OpenCTI],
 opencti.course-of-action.StixDomainEntityToSightings,OpenCTI: Course Of Action to Sightings,maltego.STIX2.course-of-action,To Sightings [OpenCTI],
 opencti.course-of-action.StixDomainEntityToStixObservable,OpenCTI: Course Of Action to all Observables,maltego.STIX2.course-of-action,To Observables [OpenCTI],stix-cyber-observable
 opencti.course-of-action.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Course Of Action to Identities,maltego.STIX2.course-of-action,To Relationships (implicit) [OpenCTI],identity
@@ -377,7 +377,7 @@ opencti.course-of-action.infrastructure.StixDomainEntityToRelations,OpenCTI: Cou
 opencti.course-of-action.location.StixDomainEntityToStixDomainEntity,OpenCTI: Course Of Action to Location,maltego.STIX2.course-of-action,To Relationships (implicit) [OpenCTI],location
 opencti.course-of-action.location.StixDomainEntityToRelations,OpenCTI: Course Of Action to Location Relations,maltego.STIX2.course-of-action,To Relationships (explicit) [OpenCTI],location
 opencti.infrastructure.StixDomainEntityToStixDomainEntity,OpenCTI: Infrastructure to all Entities,maltego.STIX2.infrastructure,To all Relationships (implicit) [OpenCTI],
-opencti.infrastructure.StixDomainEntityToRelations,OpenCTI: Infrastructure to all Entity Relations,maltego.STIX2.infrastructure,To all Relationships (explicit) [OpenCTI],
+opencti.infrastructure.StixDomainEntityToRelations,OpenCTI: Infrastructure to all Relations,maltego.STIX2.infrastructure,To all Relationships (explicit) [OpenCTI],
 opencti.infrastructure.StixDomainEntityToSightings,OpenCTI: Infrastructure to Sightings,maltego.STIX2.infrastructure,To Sightings [OpenCTI],
 opencti.infrastructure.StixDomainEntityToStixObservable,OpenCTI: Infrastructure to all Observables,maltego.STIX2.infrastructure-pattern,To Observables [OpenCTI],stix-cyber-observable
 opencti.infrastructure.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Infrastructure to Identities,maltego.STIX2.infrastructure,To Relationships (implicit) [OpenCTI],identity
@@ -403,7 +403,7 @@ opencti.infrastructure.indicator.StixDomainEntityToRelations,OpenCTI: Infrastruc
 opencti.infrastructure.infrastructure.StixDomainEntityToStixDomainEntity,OpenCTI: Infrastructure to Infrastructure,maltego.STIX2.infrastructure,To Relationships (implicit) [OpenCTI],infrastructure
 opencti.infrastructure.infrastructure.StixDomainEntityToRelations,OpenCTI: Infrastructure to Infrastructure Relations,maltego.STIX2.infrastructure,To Relationships (explicit) [OpenCTI],infrastructure
 opencti.location.StixDomainEntityToStixDomainEntity,OpenCTI: Location to all Entities,maltego.STIX2.location,To all Relationships (implicit) [OpenCTI],
-opencti.location.StixDomainEntityToRelations,OpenCTI: Location to all Entity Relations,maltego.STIX2.location,To all Relationships (explicit) [OpenCTI],
+opencti.location.StixDomainEntityToRelations,OpenCTI: Location to all Relations,maltego.STIX2.location,To all Relationships (explicit) [OpenCTI],
 opencti.location.StixDomainEntityToSightings,OpenCTI: Location to Sightings,maltego.STIX2.location,To Sightings [OpenCTI],
 opencti.location.StixDomainEntityToStixObservable,OpenCTI: Location to all Observables,maltego.STIX2.location,To Observables [OpenCTI],stix-cyber-observable
 opencti.location.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Location to Identities,maltego.STIX2.location,To Relationships (implicit) [OpenCTI],identity
@@ -431,7 +431,7 @@ opencti.location.infrastructure.StixDomainEntityToRelations,OpenCTI: Location to
 opencti.location.location.StixDomainEntityToStixDomainEntity,OpenCTI: Location to Location,maltego.STIX2.location,To Relationships (implicit) [OpenCTI],location
 opencti.location.location.StixDomainEntityToRelations,OpenCTI: Location to Location Relations,maltego.STIX2.location,To Relationships (explicit) [OpenCTI],location
 opencti.indicator.StixDomainEntityToStixDomainEntity,OpenCTI: Indicator to all Entities,maltego.STIX2.indicator,To all Relationships (implicit) [OpenCTI],
-opencti.indicator.StixDomainEntityToRelations,OpenCTI: Indicator to all Entity Relations,maltego.STIX2.indicator,To all Relationships (explicit) [OpenCTI],
+opencti.indicator.StixDomainEntityToRelations,OpenCTI: Indicator to all Relations,maltego.STIX2.indicator,To all Relationships (explicit) [OpenCTI],
 opencti.indicator.StixDomainEntityToSightings,OpenCTI: Indicator to Sightings,maltego.STIX2.indicator,To Sightings [OpenCTI],
 opencti.indicator.StixDomainEntityToStixObservable,OpenCTI: Indicator to all Observables,maltego.STIX2.indicator,To Observables [OpenCTI],stix-cyber-observable
 opencti.indicator.identity.StixDomainEntityToStixDomainEntity,OpenCTI: Indicator to Identities,maltego.STIX2.indicator,To Relationships (implicit) [OpenCTI],identity
@@ -481,29 +481,52 @@ opencti.x-opencti-text.StixObservableToDetails,OpenCTI: Text to Details,maltego.
 opencti.x-opencti-cryptographic-key.StixObservableToDetails,OpenCTI: Cryptographic Key to Details,maltego.STIX2.x-opencti-cryptographic-key,To Details [OpenCTI],
 opencti.x-opencti-cryptocurrency-wallet.StixObservableToDetails,OpenCTI: Cryptocurrency Wallet to Details,maltego.STIX2.x-opencti-cryptocurrency-wallet,To Details [OpenCTI],
 opencti.x-opencti-user-agent.StixObservableToDetails,OpenCTI: User-Agent to Details,maltego.STIX2.x-opencti-user-agent,To Details [OpenCTI],
-opencti.process.StixObservableToIndicators,OpenCTI: Process To Indicators,maltego.STIX2.process,To Indicators [OpenCTI],
-opencti.file.StixObservableToIndicators,OpenCTI: File To Indicators,maltego.STIX2.file,To Indicators [OpenCTI],
-opencti.url.StixObservableToIndicators,OpenCTI: Url To Indicators,maltego.STIX2.url,To Indicators [OpenCTI],
-opencti.software.StixObservableToIndicators,OpenCTI: Software To Indicators,maltego.STIX2.software,To Indicators [OpenCTI],
-opencti.mutex.StixObservableToIndicators,OpenCTI: Mutex To Indicators,maltego.STIX2.mutex,To Indicators [OpenCTI],
-opencti.x509-certificate.StixObservableToIndicators,OpenCTI: X509Certificate To Indicators,maltego.STIX2.x509-certificate,To Indicators [OpenCTI],
-opencti.artifact.StixObservableToIndicators,OpenCTI: Artifact To Indicators,maltego.STIX2.artifact,To Indicators [OpenCTI],
-opencti.network-traffic.StixObservableToIndicators,OpenCTI: NetworkTraffic To Indicators,maltego.STIX2.network-traffic,To Indicators [OpenCTI],
-opencti.user-account.StixObservableToIndicators,OpenCTI: UserAccount To Indicators,maltego.STIX2.user-account,To Indicators [OpenCTI],
-opencti.windows-registry-key.StixObservableToIndicators,OpenCTI: WindowsRegistryKey To Indicators,maltego.STIX2.windows-registry-key,To Indicators [OpenCTI],
-opencti.ipv6-addr.StixObservableToIndicators,OpenCTI: Ipv6Addr To Indicators,maltego.STIX2.ipv6-addr,To Indicators [OpenCTI],
-opencti.ipv4-addr.StixObservableToIndicators,OpenCTI: Ipv4Addr To Indicators,maltego.STIX2.ipv4-addr,To Indicators [OpenCTI],
-opencti.mac-addr.StixObservableToIndicators,OpenCTI: MacAddr To Indicators,maltego.STIX2.mac-addr,To Indicators [OpenCTI],
-opencti.domain-name.StixObservableToIndicators,OpenCTI: DomainName To Indicators,maltego.STIX2.domain-name,To Indicators [OpenCTI],
-opencti.autonomous-system.StixObservableToIndicators,OpenCTI: AutonomousSystem To Indicators,maltego.STIX2.autonomous-system,To Indicators [OpenCTI],
-opencti.email-addr.StixObservableToIndicators,OpenCTI: EmailAddr To Indicators,maltego.STIX2.email-addr,To Indicators [OpenCTI],
-opencti.email-message.StixObservableToIndicators,OpenCTI: EmailMessage To Indicators,maltego.STIX2.email-message,To Indicators [OpenCTI],
-opencti.directory.StixObservableToIndicators,OpenCTI: Directory To Indicators,maltego.STIX2.directory,To Indicators [OpenCTI],
-opencti.x-opencti-hostname.StixObservableToIndicators,OpenCTI: Hostname to Indicators,maltego.STIX2.x-opencti-hostname,To Indicators [OpenCTI],
-opencti.x-opencti-text.StixObservableToIndicators,OpenCTI: Text to Indicators,maltego.STIX2.x-opencti-text,To Indicators [OpenCTI],
-opencti.x-opencti-cryptographic-key.StixObservableToIndicators,OpenCTI: Cryptographic Key to Indicators,maltego.STIX2.x-opencti-cryptographic-key,To Indicators [OpenCTI],
-opencti.x-opencti-cryptocurrency-wallet.StixObservableToIndicators,OpenCTI: Cryptocurrency Wallet to Indicators,maltego.STIX2.x-opencti-cryptocurrency-wallet,To Indicators [OpenCTI],
-opencti.x-opencti-user-agent.StixObservableToIndicators,OpenCTI: User-Agent to Indicators,maltego.STIX2.x-opencti-user-agent,To Indicators [OpenCTI],
+opencti.process.indicator.StixObservableToStixDomainEntity,OpenCTI: Process to Indicators,maltego.STIX2.process,To Indicators [OpenCTI],indicator
+opencti.file.indicator.StixObservableToStixDomainEntity,OpenCTI: File to Indicators,maltego.STIX2.file,To Indicators [OpenCTI],indicator
+opencti.url.indicator.StixObservableToStixDomainEntity,OpenCTI: Url to Indicators,maltego.STIX2.url,To Indicators [OpenCTI],indicator
+opencti.software.indicator.StixObservableToStixDomainEntity,OpenCTI: Software to Indicators,maltego.STIX2.software,To Indicators [OpenCTI],indicator
+opencti.mutex.indicator.StixObservableToStixDomainEntity,OpenCTI: Mutex to Indicators,maltego.STIX2.mutex,To Indicators [OpenCTI],indicator
+opencti.x509-certificate.indicator.StixObservableToStixDomainEntity,OpenCTI: X509Certificate to Indicators,maltego.STIX2.x509-certificate,To Indicators [OpenCTI],indicator
+opencti.artifact.indicator.StixObservableToStixDomainEntity,OpenCTI: Artifact to Indicators,maltego.STIX2.artifact,To Indicators [OpenCTI],indicator
+opencti.network-traffic.indicator.StixObservableToStixDomainEntity,OpenCTI: NetworkTraffic to Indicators,maltego.STIX2.network-traffic,To Indicators [OpenCTI],indicator
+opencti.user-account.indicator.StixObservableToStixDomainEntity,OpenCTI: UserAccount to Indicators,maltego.STIX2.user-account,To Indicators [OpenCTI],indicator
+opencti.windows-registry-key.indicator.StixObservableToStixDomainEntity,OpenCTI: WindowsRegistryKey to Indicators,maltego.STIX2.windows-registry-key,To Indicators [OpenCTI],indicator
+opencti.ipv6-addr.indicator.StixObservableToStixDomainEntity,OpenCTI: Ipv6Addr to Indicators,maltego.STIX2.ipv6-addr,To Indicators [OpenCTI],indicator
+opencti.ipv4-addr.indicator.StixObservableToStixDomainEntity,OpenCTI: Ipv4Addr to Indicators,maltego.STIX2.ipv4-addr,To Indicators [OpenCTI],indicator
+opencti.mac-addr.indicator.StixObservableToStixDomainEntity,OpenCTI: MacAddr to Indicators,maltego.STIX2.mac-addr,To Indicators [OpenCTI],indicator
+opencti.domain-name.indicator.StixObservableToStixDomainEntity,OpenCTI: DomainName to Indicators,maltego.STIX2.domain-name,To Indicators [OpenCTI],indicator
+opencti.autonomous-system.indicator.StixObservableToStixDomainEntity,OpenCTI: AutonomousSystem to Indicators,maltego.STIX2.autonomous-system,To Indicators [OpenCTI],indicator
+opencti.email-addr.indicator.StixObservableToStixDomainEntity,OpenCTI: EmailAddr to Indicators,maltego.STIX2.email-addr,To Indicators [OpenCTI],indicator
+opencti.email-message.indicator.StixObservableToStixDomainEntity,OpenCTI: EmailMessage to Indicators,maltego.STIX2.email-message,To Indicators [OpenCTI],indicator
+opencti.directory.indicator.StixObservableToStixDomainEntity,OpenCTI: Directory to Indicators,maltego.STIX2.directory,To Indicators [OpenCTI],indicator
+opencti.x-opencti-hostname.indicator.StixObservableToStixDomainEntity,OpenCTI: Hostname to Indicators,maltego.STIX2.x-opencti-hostname,To Indicators [OpenCTI],indicator
+opencti.x-opencti-text.indicator.StixObservableToStixDomainEntity,OpenCTI: Text to Indicators,maltego.STIX2.x-opencti-text,To Indicators [OpenCTI],indicator
+opencti.x-opencti-cryptographic-key.indicator.StixObservableToStixDomainEntity,OpenCTI: Cryptographic Key to Indicators,maltego.STIX2.x-opencti-cryptographic-key,To Indicators [OpenCTI],indicator
+opencti.x-opencti-cryptocurrency-wallet.indicator.StixObservableToStixDomainEntity,OpenCTI: Cryptocurrency Wallet to Indicators,maltego.STIX2.x-opencti-cryptocurrency-wallet,To Indicators [OpenCTI],indicator
+opencti.x-opencti-user-agent.indicator.StixObservableToStixDomainEntity,OpenCTI: User-Agent to Indicators,maltego.STIX2.x-opencti-user-agent,To Indicators [OpenCTI],indicator
+opencti.process.StixObservableToStixDomainEntity,OpenCTI: Process to all Entities,maltego.STIX2.process,To Relationships (implicit) [OpenCTI],
+opencti.file.StixObservableToStixDomainEntity,OpenCTI: File to all Entities,maltego.STIX2.file,To Relationships (implicit) [OpenCTI],
+opencti.url.StixObservableToStixDomainEntity,OpenCTI: Url to all Entities,maltego.STIX2.url,To Relationships (implicit) [OpenCTI],
+opencti.software.StixObservableToStixDomainEntity,OpenCTI: Software to all Entities,maltego.STIX2.software,To Relationships (implicit) [OpenCTI],
+opencti.mutex.StixObservableToStixDomainEntity,OpenCTI: Mutex to all Entities,maltego.STIX2.mutex,To Relationships (implicit) [OpenCTI],
+opencti.x509-certificate.StixObservableToStixDomainEntity,OpenCTI: X509Certificate to all Entities,maltego.STIX2.x509-certificate,To Relationships (implicit) [OpenCTI],
+opencti.artifact.StixObservableToStixDomainEntity,OpenCTI: Artifact to all Entities,maltego.STIX2.artifact,To Relationships (implicit) [OpenCTI],
+opencti.network-traffic.StixObservableToStixDomainEntity,OpenCTI: NetworkTraffic to all Entities,maltego.STIX2.network-traffic,To Relationships (implicit) [OpenCTI],
+opencti.user-account.StixObservableToStixDomainEntity,OpenCTI: UserAccount to all Entities,maltego.STIX2.user-account,To Relationships (implicit) [OpenCTI],
+opencti.windows-registry-key.StixObservableToStixDomainEntity,OpenCTI: WindowsRegistryKey to all Entities,maltego.STIX2.windows-registry-key,To Relationships (implicit) [OpenCTI],
+opencti.ipv6-addr.StixObservableToStixDomainEntity,OpenCTI: Ipv6Addr to all Entities,maltego.STIX2.ipv6-addr,To Relationships (implicit) [OpenCTI],
+opencti.ipv4-addr.StixObservableToStixDomainEntity,OpenCTI: Ipv4Addr to all Entities,maltego.STIX2.ipv4-addr,To Relationships (implicit) [OpenCTI],
+opencti.mac-addr.StixObservableToStixDomainEntity,OpenCTI: MacAddr to all Entities,maltego.STIX2.mac-addr,To Relationships (implicit) [OpenCTI],
+opencti.domain-name.StixObservableToStixDomainEntity,OpenCTI: DomainName to all Entities,maltego.STIX2.domain-name,To Relationships (implicit) [OpenCTI],
+opencti.autonomous-system.StixObservableToStixDomainEntity,OpenCTI: AutonomousSystem to all Entities,maltego.STIX2.autonomous-system,To Relationships (implicit) [OpenCTI],
+opencti.email-addr.StixObservableToStixDomainEntity,OpenCTI: EmailAddr to all Entities,maltego.STIX2.email-addr,To Relationships (implicit) [OpenCTI],
+opencti.email-message.StixObservableToStixDomainEntity,OpenCTI: EmailMessage to all Entities,maltego.STIX2.email-message,To Relationships (implicit) [OpenCTI],
+opencti.directory.StixObservableToStixDomainEntity,OpenCTI: Directory to all Entities,maltego.STIX2.directory,To Relationships (implicit) [OpenCTI],
+opencti.x-opencti-hostname.StixObservableToStixDomainEntity,OpenCTI: Hostname to all Entities,maltego.STIX2.x-opencti-hostname,To Relationships (implicit) [OpenCTI],
+opencti.x-opencti-text.StixObservableToStixDomainEntity,OpenCTI: Text to all Entities,maltego.STIX2.x-opencti-text,To Relationships (implicit) [OpenCTI],
+opencti.x-opencti-cryptographic-key.StixObservableToStixDomainEntity,OpenCTI: Cryptographic Key to all Entities,maltego.STIX2.x-opencti-cryptographic-key,To Relationships (implicit) [OpenCTI],
+opencti.x-opencti-cryptocurrency-wallet.StixObservableToStixDomainEntity,OpenCTI: Cryptocurrency Wallet to all Entities,maltego.STIX2.x-opencti-cryptocurrency-wallet,To Relationships (implicit) [OpenCTI],
+opencti.x-opencti-user-agent.StixObservableToStixDomainEntity,OpenCTI: User-Agent to all Entities,maltego.STIX2.x-opencti-user-agent,To Relationships (implicit) [OpenCTI],
 opencti.process.StixObservableToRelations,OpenCTI: Process to all Relations,maltego.STIX2.process,To all Relationships (explicit) [OpenCTI],
 opencti.file.StixObservableToRelations,OpenCTI: File to all Relations,maltego.STIX2.file,To all Relationships (explicit) [OpenCTI],
 opencti.url.StixObservableToRelations,OpenCTI: Url to all Relations,maltego.STIX2.url,To all Relationships (explicit) [OpenCTI],
