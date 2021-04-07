@@ -12,7 +12,7 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 # Install Gunicorn for running production server
-RUN pip3 install gunicorn
+RUN pip3 install gunicorn gevent
 
 COPY . /var/www/TRX/
 
