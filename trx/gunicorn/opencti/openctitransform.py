@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from functools import lru_cache
 
 from pycti import OpenCTIApiClient
 from maltego_trx.maltego import *
@@ -15,6 +16,23 @@ from opencti.addEntities import (
     plainSearchAndAddEntities,
 )
 import re
+
+
+@lru_cache(maxsize=250)
+def get_client(opencti_url, opencti_token, ssl_verify, http_proxies):
+    client = OpenCTIApiClient(
+        opencti_url,
+        opencti_token,
+        log_level=opencti_config["log_level"],
+        ssl_verify=ssl_verify,
+        proxies=http_proxies,
+    )
+    return client
+
+
+class hashabledict(dict):  # Thanks https://stackoverflow.com/a/1151705
+    def __hash__(self):
+        return hash(tuple(sorted(self.items())))
 
 
 def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
@@ -37,13 +55,7 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
         ssl_verify = opencti_config["ssl_verify"]
 
     # Setup OpenCTI client
-    opencti_api_client = OpenCTIApiClient(
-        opencti_url,
-        opencti_token,
-        log_level=opencti_config["log_level"],
-        ssl_verify=ssl_verify,
-        proxies=http_proxies,
-    )
+    opencti_api_client = get_client(opencti_url, opencti_token, ssl_verify, hashabledict(http_proxies))
 
     entity = None
     if transformName == "PlainSearch":
