@@ -5,7 +5,7 @@ from functools import lru_cache
 from pycti import OpenCTIApiClient
 from maltego_trx.maltego import *
 from maltego_stix2.util import maltego_to_stix2
-from opencti.config import local_execution_path, python_path, opencti_config
+from opencti.config import local_execution_path, python_path, opencti_config, max_client_sessions
 from opencti.utils import STIX2toOpenCTItype, setLinkLabel, addDisplayInfo
 from opencti.addEntities import (
     searchAndAddEntity,
@@ -18,7 +18,7 @@ from opencti.addEntities import (
 import re
 
 
-@lru_cache(maxsize=250)
+@lru_cache(maxsize=max_client_sessions)
 def get_client(opencti_url, opencti_token, ssl_verify, http_proxies):
     client = OpenCTIApiClient(
         opencti_url,
