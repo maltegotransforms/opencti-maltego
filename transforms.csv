@@ -71,7 +71,7 @@ opencti.report.identity.ReportToStixDomainEntities,OpenCTI: Report to Identities
 opencti.report.threat-actor.ReportToStixDomainEntities,OpenCTI: Report to Threat Actors,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],threat-actor
 opencti.report.intrusion-set.ReportToStixDomainEntities,OpenCTI: Report to Intrusion Sets,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],intrusion-set
 opencti.report.campaign.ReportToStixDomainEntities,OpenCTI: Report to Campaigns,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],campaign
-opencti.report.incident.ReportToStixDomainEntities,OpenCTI: Report to Incidents,maltego.STIX2.report,OpenCTI,incident
+opencti.report.incident.ReportToStixDomainEntities,OpenCTI: Report to Incidents,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],incident
 opencti.report.malware.ReportToStixDomainEntities,OpenCTI: Report to Malware,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],malware
 opencti.report.tool.ReportToStixDomainEntities,OpenCTI: Report to Tools,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],tool
 opencti.report.vulnerability.ReportToStixDomainEntities,OpenCTI: Report to Vulnerabilities,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],vulnerability
