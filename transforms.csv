@@ -133,7 +133,7 @@ opencti.threat-actor.intrusion-set.StixDomainEntityToRelations,OpenCTI: Threat A
 opencti.threat-actor.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Campaigns,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],campaign
 opencti.threat-actor.campaign.StixDomainEntityToRelations,OpenCTI: Threat Actor to Campaign Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],campaign
 opencti.threat-actor.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Incidents,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],incident
-opencti.threat-actor.incident.StixDomainEntityToRelations,OpenCTI: Threat Actor to Incident Relations,maltego.STIX2.threat-actor,OTo Relationships (explicit) [OpenCTI],incident
+opencti.threat-actor.incident.StixDomainEntityToRelations,OpenCTI: Threat Actor to Incident Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],incident
 opencti.threat-actor.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Malware,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],malware
 opencti.threat-actor.malware.StixDomainEntityToRelations,OpenCTI: Threat Actor to Malware Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],malware
 opencti.threat-actor.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Tools,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],tool
