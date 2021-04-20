@@ -28,7 +28,7 @@ def row_to_itds_row(row, transform_function_name):
         "URL": f"{host}/run/{transform_function_name}",
         "entityName": input_type,
         "oAuthSettingId": "",
-        "transformSettingIDs": "OpenCTIURL,OpenCTIToken,SSLVerify,HTTPProxies",
+        "transformSettingIDs": "OpenCTIURL;OpenCTIToken;SSLVerify;HTTPProxies",
         "seedIDs": itds_seed_name,
     }
 
@@ -163,7 +163,7 @@ for cset, ctransforms in transforms_sets.items():
 if itds_transforms_rows:
     with open("output/importable_itds_config.csv", "w") as outf:
         writer = csv.DictWriter(
-            outf, fieldnames=list(itds_transforms_rows[0].keys()), delimiter=";", quoting=csv.QUOTE_ALL
+            outf, fieldnames=list(itds_transforms_rows[0].keys()), delimiter=",", quoting=csv.QUOTE_ALL
         )
         writer.writeheader()
         for data in itds_transforms_rows:

@@ -58,6 +58,16 @@ $ ./build_itds_config.sh
 
 And import the file `output/importable_itds_config.csv` in your iTDS management platform as well as the `output/itds-config.mtz`.
 
+You can also optionally build this config including the STIX 2 Entities. A version of these, current as of April 20, 2021, 
+is included in the stix2_entities.mtz.sample file. You may want to refer the [Maltego STIX2 entities](https://github.com/amr-cossi/maltego-stix2)
+repository and rebuild them to make sure you are including the latest version (replace the included sample file with your new build).
+
+To build the iTDS config including the STIX Entities:
+
+```
+$ ./build_itds_config_with_stix2.sh
+```
+
 ## Contributing
 
 ### Code of Conduct

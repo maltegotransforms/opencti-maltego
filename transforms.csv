@@ -71,7 +71,7 @@ opencti.report.identity.ReportToStixDomainEntities,OpenCTI: Report to Identities
 opencti.report.threat-actor.ReportToStixDomainEntities,OpenCTI: Report to Threat Actors,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],threat-actor
 opencti.report.intrusion-set.ReportToStixDomainEntities,OpenCTI: Report to Intrusion Sets,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],intrusion-set
 opencti.report.campaign.ReportToStixDomainEntities,OpenCTI: Report to Campaigns,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],campaign
-opencti.report.incident.ReportToStixDomainEntities,OpenCTI: Report to Incidents,maltego.STIX2.report,OpenCTI,incident
+opencti.report.incident.ReportToStixDomainEntities,OpenCTI: Report to Incidents,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],incident
 opencti.report.malware.ReportToStixDomainEntities,OpenCTI: Report to Malware,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],malware
 opencti.report.tool.ReportToStixDomainEntities,OpenCTI: Report to Tools,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],tool
 opencti.report.vulnerability.ReportToStixDomainEntities,OpenCTI: Report to Vulnerabilities,maltego.STIX2.report,To Relationships (implicit) [OpenCTI],vulnerability
@@ -133,7 +133,7 @@ opencti.threat-actor.intrusion-set.StixDomainEntityToRelations,OpenCTI: Threat A
 opencti.threat-actor.campaign.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Campaigns,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],campaign
 opencti.threat-actor.campaign.StixDomainEntityToRelations,OpenCTI: Threat Actor to Campaign Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],campaign
 opencti.threat-actor.incident.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Incidents,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],incident
-opencti.threat-actor.incident.StixDomainEntityToRelations,OpenCTI: Threat Actor to Incident Relations,maltego.STIX2.threat-actor,OTo Relationships (explicit) [OpenCTI],incident
+opencti.threat-actor.incident.StixDomainEntityToRelations,OpenCTI: Threat Actor to Incident Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],incident
 opencti.threat-actor.malware.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Malware,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],malware
 opencti.threat-actor.malware.StixDomainEntityToRelations,OpenCTI: Threat Actor to Malware Relations,maltego.STIX2.threat-actor,To Relationships (explicit) [OpenCTI],malware
 opencti.threat-actor.tool.StixDomainEntityToStixDomainEntity,OpenCTI: Threat Actor to Tools,maltego.STIX2.threat-actor,To Relationships (implicit) [OpenCTI],tool
@@ -582,3 +582,7 @@ opencti.maltego-cve.PlainSearch,OpenCTI: Search for CVE,maltego.CVE,Search for E
 opencti.maltego-dnsname.PlainSearch,OpenCTI: Search for DNS Name,maltego.DNSName,Search for Entities [OpenCTI],
 opencti.maltego-emailaddress.PlainSearch,OpenCTI: Search for Email Address,maltego.EmailAddress,Search for Entities [OpenCTI],
 opencti.maltego-phrase.PlainSearch,OpenCTI: Search by Phrase,maltego.Phrase,Search for Entities [OpenCTI],
+opencti.maltego-organization.PlainSearch,OpenCTI: Search by Organization,maltego.Organization,Search for Entities [OpenCTI],
+opencti.maltego-alias.PlainSearch,OpenCTI: Search by Alias,maltego.Alias,Search for Entities [OpenCTI],
+opencti.maltego-person.PlainSearch,OpenCTI: Search by Person,maltego.Person,Search for Entities [OpenCTI],
+opencti.maltego-cryptocurrencyaddress.PlainSearch,OpenCTI: Search by Cryptocurrency Address,maltego.CryptocurrencyAddress,Search for Entities [OpenCTI],

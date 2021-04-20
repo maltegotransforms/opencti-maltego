@@ -20,6 +20,10 @@ format_config = {
 	"marking_text": None
 }
 
+# When running in server mode, this caps the cache size on OpenCTI clients / sessions.
+# You can safely lower this, it might lead to lower client sessions reuse, but usually it shouldn't be an issue.
+max_client_sessions = 2048
+
 # These values will be used to generate an importable CSV config for the iTDS. Local transform users can ignore these.
 trx_server_host = "https://localhost:443"
 itds_seed_name = "OpenCTI"
