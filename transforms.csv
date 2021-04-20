@@ -585,4 +585,4 @@ opencti.maltego-phrase.PlainSearch,OpenCTI: Search by Phrase,maltego.Phrase,Sear
 opencti.maltego-organization.PlainSearch,OpenCTI: Search by Phrase,maltego.Organization,Search for Entities [OpenCTI],
 opencti.maltego-alias.PlainSearch,OpenCTI: Search by Phrase,maltego.Alias,Search for Entities [OpenCTI],
 opencti.maltego-person.PlainSearch,OpenCTI: Search by Phrase,maltego.Person,Search for Entities [OpenCTI],
-opencti.maltego-cryptocurrency.PlainSearch,OpenCTI: Search by Phrase,maltego.CryptocurrencyAddress,Search for Entities [OpenCTI],
+opencti.maltego-cryptocurrencyaddress.PlainSearch,OpenCTI: Search by Phrase,maltego.CryptocurrencyAddress,Search for Entities [OpenCTI],
