@@ -73,13 +73,6 @@ def addStixEntity(opencti_api_client, response, opencti_entity):
     if clean_opencti_entity["id"].startswith("identity--"):
         clean_opencti_entity["identity_class"] = identity_class
 
-    # Handle incidents: To be removed after OpenCTI migrate to new STIX schema
-    if clean_opencti_entity["id"].startswith("x-opencti-incident--"):
-        clean_opencti_entity["type"] = "incident"
-        clean_opencti_entity["id"] = clean_opencti_entity["id"].replace(
-            "x-opencti-", ""
-        )
-
     # Handle notes
     if clean_opencti_entity["id"].startswith("note--"):
         clean_opencti_entity["abstract"] = clean_opencti_entity["attribute_abstract"]
@@ -175,13 +168,6 @@ def plainSearchAndAddEntities(opencti_api_client, response, search_value, limit=
 
 
 def searchAndAddEntity(opencti_api_client, response, stix_entity, output=None):
-    # To be removed after OpenCTI migrate to new STIX schema
-    if "type" in stix_entity and stix_entity["type"] == "incident":
-        stix_entity["type"] = "x-opencti-incident"
-        stix_entity["id"] = stix_entity["id"].replace(
-            "incident--", "x-opencti-incident--"
-        )
-
     types = [STIX2toOpenCTItype(stix_entity["type"]) if "type" in stix_entity else None]
     stix_id = stix_entity["id"] if "id" in stix_entity else None
     stix_name = stix_entity["name"] if "name" in stix_entity else None
