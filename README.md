@@ -30,7 +30,13 @@ $ pip3 uninstall python-magic
 $ pip3 install python-magic-bin
 ```
 
-Some bugs have been fixed in OpenCTI in order for this project to work well. Some features may not work if the OpenCTI platform queried has a version < 4.3.
+#### OpenCTI versions
+
+Even if some compatibility exists, each OpenCTI version should be queried with the corresponding pycti version. The Python requirements need to be adapted accordingly.  
+
+This repository tries to remain compatible with the lastest version of OpenCTI.  You can use the tags to run an older version of this integration against an older version of OpenCTI. Some features and bugs are solved in both projects regularly so these older versions may not work entirely.  
+
+Please open an issue for any compatibility problem you may have.  
 
 ### Installation
 

@@ -5,7 +5,12 @@ from functools import lru_cache
 from pycti import OpenCTIApiClient
 from maltego_trx.maltego import *
 from maltego_stix2.util import maltego_to_stix2
-from opencti.config import local_execution_path, python_path, opencti_config, max_client_sessions
+from opencti.config import (
+    local_execution_path,
+    python_path,
+    opencti_config,
+    max_client_sessions,
+)
 from opencti.utils import STIX2toOpenCTItype, setLinkLabel, addDisplayInfo
 from opencti.addEntities import (
     searchAndAddEntity,
@@ -55,7 +60,9 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
         ssl_verify = opencti_config["ssl_verify"]
 
     # Setup OpenCTI client
-    opencti_api_client = get_client(opencti_url, opencti_token, ssl_verify, hashabledict(http_proxies))
+    opencti_api_client = get_client(
+        opencti_url, opencti_token, ssl_verify, hashabledict(http_proxies)
+    )
 
     entity = None
     if transformName == "PlainSearch":
@@ -88,9 +95,6 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
 
     # If input entity found in OpenCTI, proceed with the transform
     if entity is not None and entity["opencti_entity"]:
-        # To be removed after OpenCTI migrate to new STIX schema
-        if output and output == "incident":
-            output = "x-opencti-incident"
 
         # *ToDetails or PlainObservableSearch: Nothing else to do
         if transformName.endswith("ToDetails"):
@@ -317,9 +321,7 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                             relation["to"]
                             and relation["to"]["standard_id"]
                             == entity["opencti_entity"]["id"]
-                            and relation[
-                                "from"
-                            ]
+                            and relation["from"]
                         ):
                             neighbour_entity = addStixEntity(
                                 opencti_api_client,

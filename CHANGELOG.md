@@ -13,3 +13,7 @@ Depends on maltego-trx and maltego-stix2 python packages.
 
 Reduce number of API calls per transform in several cases.
 Depends on a specific fix in pycti 4.3.5.
+
+## Version 2.2 (28/04/2020)
+
+Add compatibility with OpenCTI v4.5.0 which now supports the new official Incident STIX entity.

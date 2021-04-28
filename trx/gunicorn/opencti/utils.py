@@ -82,10 +82,6 @@ def addDisplayInfo(maltego_entity: MaltegoEntity, opencti_url=None):
     if not stix2_id:
         return
 
-    # To be removed after OpenCTI migrate to new STIX schema
-    if stix2_id.startswith("incident--"):
-        stix2_id = stix2_id.replace("incident--", "x-opencti-incident--")
-
     display = get_display_name(fields)
 
     if description:
