@@ -5,7 +5,7 @@ Use the OpenCTI platform in your Maltego application thanks to a set of transfor
 ## Installation
 
 ```
-$ git clone https://github.com/amr-cossi/opencti-maltego
+$ git clone https://github.com/maltegotransforms/opencti-maltego
 $ cd opencti-maltego
 ```
 
@@ -15,9 +15,9 @@ Please install the following requirements before generating the Maltego transfor
 
 - Python >= 3.6
 - Libraries in requirements.txt
-- Maltego [STIX2 entities](https://github.com/amr-cossi/maltego-stix2) and python package maltego_stix2
+- Maltego [STIX2 entities](https://github.com/maltegotransforms/maltego-stix2) and python package maltego_stix2
 
-> Warning: you have to import [Maltego STIX2](https://github.com/amr-cossi/maltego-stix2) entities before installing these transforms.
+> Warning: you have to import [Maltego STIX2](https://github.com/maltegotransforms/maltego-stix2) entities before installing these transforms.
 
 ```
 $ pip3 install -r requirements.txt
@@ -65,7 +65,7 @@ $ ./build_itds_config.sh
 And import the file `output/importable_itds_config.csv` in your iTDS management platform as well as the `output/itds-config.mtz`.
 
 You can also optionally build this config including the STIX 2 Entities. A version of these, current as of April 20, 2021, 
-is included in the stix2_entities.mtz.sample file. You may want to refer the [Maltego STIX2 entities](https://github.com/amr-cossi/maltego-stix2)
+is included in the stix2_entities.mtz.sample file. You may want to refer the [Maltego STIX2 entities](https://github.com/maltegotransforms/maltego-stix2)
 repository and rebuild them to make sure you are including the latest version (replace the included sample file with your new build).
 
 To build the iTDS config including the STIX Entities:
