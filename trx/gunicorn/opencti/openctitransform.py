@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import logging
 from functools import lru_cache
 
 from pycti import OpenCTIApiClient
@@ -22,6 +23,8 @@ from opencti.addEntities import (
 )
 import re
 
+logging.basicConfig(level=logging.DEBUG)
+log = logging.getLogger(__name__)
 
 @lru_cache(maxsize=max_client_sessions)
 def get_client(opencti_url, opencti_token, ssl_verify, http_proxies):
@@ -60,9 +63,18 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
         ssl_verify = opencti_config["ssl_verify"]
 
     # Setup OpenCTI client
-    opencti_api_client = get_client(
-        opencti_url, opencti_token, ssl_verify, hashabledict(http_proxies)
-    )
+    opencti_api_client: OpenCTIApiClient
+    try:
+        opencti_api_client = get_client(opencti_url, opencti_token, ssl_verify, hashabledict(http_proxies))
+    except ValueError as error:
+        message = f"OpenCTI API Client Error: {error}"
+        if str(error) == "OpenCTI API is not reachable. Waiting for OpenCTI API to start or check your configuration...":
+            message = f"[{opencti_url}] - {error}"
+        log.error(message,exc_info=message)
+        response.addUIMessage(message, UIM_FATAL)
+        return
+
+
 
     entity = None
     if transformName == "PlainSearch":
