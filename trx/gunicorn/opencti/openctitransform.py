@@ -49,9 +49,18 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
         5000 if limit > 5000 else limit
     )  # Max number of results in API without pagination
     opencti_url = client_msg.TransformSettings.get("OpenCTIURL", opencti_config["url"])
+    if opencti_url:
+        opencti_url = opencti_url.rstrip('/')
+    else:
+        response.addUIMessage("Please enter a valid API URL", UIM_PARTIAL)
+        return
+
     opencti_token = client_msg.TransformSettings.get(
         "OpenCTIToken", opencti_config["token"]
     )
+    if not opencti_token:
+        response.addUIMessage("Please enter a valid token", UIM_PARTIAL)
+        return
     http_proxies = {}
     # TODO: handle proxies as a parameter for server execution
     if "proxies" in opencti_config and opencti_config["proxies"]:
@@ -71,7 +80,7 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
         if str(error) == "OpenCTI API is not reachable. Waiting for OpenCTI API to start or check your configuration...":
             message = f"[{opencti_url}] - {error}"
         log.error(message,exc_info=message)
-        response.addUIMessage(message, UIM_FATAL)
+        response.addUIMessage(message, UIM_PARTIAL)
         return
 
 
