@@ -2,5 +2,5 @@ maltego-trx>=1.6.0
 stix2==3.0.1
 six>=1.4.0
 markdown==3.3.4
-pycti>=5.3.17
+pycti==5.3.6
 maltego-stix2>=2.1.5
