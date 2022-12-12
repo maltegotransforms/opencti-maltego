@@ -4,3 +4,5 @@ six==1.4.0
 markdown==3.3.4
 pycti==5.4.1
 maltego-stix2==2.1.5
+pycti==5.4.1
+maltego-stix2==2.1.6
