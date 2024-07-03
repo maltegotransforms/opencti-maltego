@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import logging
+import os
 from functools import lru_cache
 
 from pycti import OpenCTIApiClient
 from maltego_trx.maltego import *
 from maltego_stix2.util import maltego_to_stix2
-from opencti.config import (
+from trx.gunicorn.opencti.config import (
     local_execution_path,
     python_path,
     opencti_config,
     max_client_sessions,
 )
-from opencti.utils import STIX2toOpenCTItype, setLinkLabel, addDisplayInfo
-from opencti.addEntities import (
+from trx.gunicorn.opencti.utils import STIX2toOpenCTItype, setLinkLabel, addDisplayInfo
+from trx.gunicorn.opencti.addEntities import (
     searchAndAddEntity,
     searchAndAddObservable,
     searchAndAddRelationship,
@@ -22,6 +24,10 @@ from opencti.addEntities import (
 )
 import re
 
+from trx.gunicorn.extensions import opencti_token_setting, opencti_url_setting, ssl_verify_setting, http_proxies_setting
+
+logging.basicConfig(level=logging.DEBUG)
+log = logging.getLogger(__name__)
 
 @lru_cache(maxsize=max_client_sessions)
 def get_client(opencti_url, opencti_token, ssl_verify, http_proxies):
@@ -45,24 +51,43 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
     limit = (
         5000 if limit > 5000 else limit
     )  # Max number of results in API without pagination
-    opencti_url = client_msg.TransformSettings.get("OpenCTIURL", opencti_config["url"])
-    opencti_token = client_msg.TransformSettings.get(
-        "OpenCTIToken", opencti_config["token"]
-    )
-    http_proxies = {}
-    # TODO: handle proxies as a parameter for server execution
-    if "proxies" in opencti_config and opencti_config["proxies"]:
+
+    opencti_url = client_msg.TransformSettings.get(opencti_url_setting.name) or opencti_config["url"]
+    opencti_token = client_msg.TransformSettings.get(opencti_token_setting.name) or opencti_config["token"]
+    ssl_verify = False
+
+    http_proxies = client_msg.TransformSettings.get(http_proxies_setting.name)
+
+    if not http_proxies and "proxies" in opencti_config and opencti_config["proxies"]:
         http_proxies = opencti_config["proxies"]
 
     if "SSLVerify" in client_msg.TransformSettings:
         ssl_verify = client_msg.TransformSettings["SSLVerify"] == "true"
+
+    if opencti_url:
+        opencti_url = opencti_url.rstrip('/')
     else:
-        ssl_verify = opencti_config["ssl_verify"]
+        response.addUIMessage("Please enter a valid API URL", UIM_PARTIAL)
+        return
+    if not opencti_token:
+        response.addUIMessage("Please enter a valid token", UIM_PARTIAL)
+        return
+
+    http_proxies = http_proxies or {}
 
     # Setup OpenCTI client
-    opencti_api_client = get_client(
-        opencti_url, opencti_token, ssl_verify, hashabledict(http_proxies)
-    )
+    opencti_api_client: OpenCTIApiClient
+    try:
+        opencti_api_client = get_client(opencti_url, opencti_token, ssl_verify, hashabledict(http_proxies))
+    except ValueError as error:
+        message = f"OpenCTI API Client Error: {error}"
+        if str(error) == "OpenCTI API is not reachable. Waiting for OpenCTI API to start or check your configuration...":
+            message = f"[{opencti_url}] - {error}"
+        log.error(message,exc_info=message)
+        response.addUIMessage(message, UIM_PARTIAL)
+        return
+
+
 
     entity = None
     if transformName == "PlainSearch":
@@ -123,7 +148,7 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                         "values": [entity["opencti_entity"]["x_opencti_id"]],
                     }
                 ],
-                first=opencti_config["limit"],
+                first=limit
             )
             for container in containers:
                 child_entity = addStixEntity(opencti_api_client, response, container)
@@ -243,14 +268,14 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                         fromId=entity["opencti_entity"]["x_opencti_id"],
                         toTypes=[opencti_type],
                         # inferred=inferred,
-                        first=opencti_config["limit"],
+                        first=limit,
                         customAttributes=custom_attributes_to,
                     )
                     stix_relations += opencti_api_client.stix_sighting_relationship.list(
                         toId=entity["opencti_entity"]["x_opencti_id"],
                         fromTypes=[opencti_type],
                         # inferred=inferred,
-                        first=opencti_config["limit"],
+                        first=limit,
                         customAttributes=custom_attributes_from,
                     )
                 else:
@@ -258,14 +283,14 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                         fromId=entity["opencti_entity"]["x_opencti_id"],
                         toTypes=[opencti_type],
                         # inferred=inferred,
-                        first=opencti_config["limit"],
+                        first=limit,
                         customAttributes=custom_attributes_to,
                     )
                     stix_relations += opencti_api_client.stix_core_relationship.list(
                         toId=entity["opencti_entity"]["x_opencti_id"],
                         fromTypes=[opencti_type],
                         # inferred=inferred,
-                        first=opencti_config["limit"],
+                        first=limit,
                         customAttributes=custom_attributes_from,
                     )
             else:
@@ -274,26 +299,26 @@ def opencti_transform(transformName, output, client_msg: MaltegoMsg, response):
                     stix_relations = opencti_api_client.stix_sighting_relationship.list(
                         fromId=entity["opencti_entity"]["x_opencti_id"],
                         # inferred=inferred,
-                        first=opencti_config["limit"],
+                        first=limit,
                         customAttributes=custom_attributes_to,
                     )
                     stix_relations += opencti_api_client.stix_sighting_relationship.list(
                         toId=entity["opencti_entity"]["x_opencti_id"],
                         # inferred=inferred,
-                        first=opencti_config["limit"],
+                        first=limit,
                         customAttributes=custom_attributes_from,
                     )
                 else:
                     stix_relations = opencti_api_client.stix_core_relationship.list(
                         fromId=entity["opencti_entity"]["x_opencti_id"],
                         # inferred=inferred,
-                        first=opencti_config["limit"],
+                        first=limit,
                         customAttributes=custom_attributes_to,
                     )
                     stix_relations += opencti_api_client.stix_core_relationship.list(
                         toId=entity["opencti_entity"]["x_opencti_id"],
                         # inferred=inferred,
-                        first=opencti_config["limit"],
+                        first=limit,
                         customAttributes=custom_attributes_from,
                     )
 
