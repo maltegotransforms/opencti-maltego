@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 1.0 (04/07/2024)
+## Version 1.1 (04/07/2024)
 
 Add support for OpenCTI v6.*.*
 
