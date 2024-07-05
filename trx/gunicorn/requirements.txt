@@ -4,3 +4,4 @@ six>=1.16.0
 markdown==3.5.2
 pycti>=6.0.5
 maltego-stix2>=2.1.7
+rich>=13.7.0

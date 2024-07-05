@@ -7,14 +7,14 @@ from functools import lru_cache
 from pycti import OpenCTIApiClient
 from maltego_trx.maltego import *
 from maltego_stix2.util import maltego_to_stix2
-from trx.gunicorn.opencti.config import (
+from opencti.config import (
     local_execution_path,
     python_path,
     opencti_config,
     max_client_sessions,
 )
-from trx.gunicorn.opencti.utils import STIX2toOpenCTItype, setLinkLabel, addDisplayInfo
-from trx.gunicorn.opencti.addEntities import (
+from opencti.utils import STIX2toOpenCTItype, setLinkLabel, addDisplayInfo
+from opencti.addEntities import (
     searchAndAddEntity,
     searchAndAddObservable,
     searchAndAddRelationship,
@@ -24,7 +24,7 @@ from trx.gunicorn.opencti.addEntities import (
 )
 import re
 
-from trx.gunicorn.extensions import opencti_token_setting, opencti_url_setting, ssl_verify_setting, http_proxies_setting
+from opencti.config import opencti_token_setting, opencti_url_setting, ssl_verify_setting, http_proxies_setting
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)

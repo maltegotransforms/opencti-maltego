@@ -1,6 +1,0 @@
-maltego-trx==1.6.1
-stix2==3.0.1
-six>=1.16.0
-markdown==3.6
-pycti>=6.2.1
-maltego-stix2>=2.1.7

@@ -1,0 +1,26 @@
+[ req ]
+default_bits = 2048
+prompt = no
+distinguished_name = dn
+
+[req]
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+C = DE
+ST = Bavaria
+L = Munich
+O = MaltegoTech
+OU = MT
+CN = localhost
+
+[v3_req]
+keyUsage = keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = localhost
+IP.1 = 127.0.0.1

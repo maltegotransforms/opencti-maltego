@@ -3,7 +3,7 @@
 
 from pycti.utils.constants import IdentityTypes
 from maltego_stix2.util import stix2_to_maltego
-from trx.gunicorn.opencti.utils import STIX2toOpenCTItype, addDisplayInfo
+from opencti.utils import STIX2toOpenCTItype, addDisplayInfo
 import re
 
 # OpenCTI marking types to be shown on each entity in Maltego
