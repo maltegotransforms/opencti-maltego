@@ -1,3 +1,7 @@
+import os
+
+from maltego_trx.decorator_registry import TransformRegistry, TransformSetting
+
 # Absolute path to the project.py folder
 local_execution_path = "/path/to/your/project/opencti-maltego/trx/gunicorn/"
 
@@ -6,18 +10,18 @@ python_path = "/usr/bin/python3"
 
 # Configuration of the OpenCTI API
 opencti_config = {
-	"url": "https://demo.opencti.io",
-	"token": "2b4f29e3-5ea8-4890-8cf5-a76f61f1e2b2",
-	"log_level": "error",
-	"ssl_verify": True,
-	"proxies": {},
-	"limit": 256
+    "url": "https://demo.opencti.io",
+    "token": "2b4f29e3-5ea8-4890-8cf5-a76f61f1e2b2",
+    "log_level": "error",
+    "ssl_verify": True,
+    "proxies": {},
+    "limit": 256
 }
 
 # OpenCTI marking types to be shown on each entity in Maltego
 format_config = {
-	"marking_color": "TLP",
-	"marking_text": None
+    "marking_color": "TLP",
+    "marking_text": None
 }
 
 # When running in server mode, this caps the cache size on OpenCTI clients / sessions.
@@ -25,5 +29,27 @@ format_config = {
 max_client_sessions = 2048
 
 # These values will be used to generate an importable CSV config for the iTDS. Local transform users can ignore these.
-trx_server_host = "https://localhost:443"
-itds_seed_name = "OpenCTI"
+
+HOST_URL = os.environ.get("HOST_URL", "https://localhost:8088")
+
+opencti_url_setting = TransformSetting('opencti_url', 'OpenCTI URL', setting_type='string', default_value="",
+                                       popup=True)
+opencti_token_setting = TransformSetting('opencti_token', 'OpenCTI Token', setting_type='string',
+                                         default_value="", popup=True)
+ssl_verify_setting = TransformSetting('opencti_ssl_verify', 'SSL Verify', setting_type='boolean', default_value="false",
+                                      popup=False)
+http_proxies_setting = TransformSetting('opencti_http_proxies', 'HTTP Proxies', setting_type='string', optional=True,
+                                        popup=False)
+
+global_settings = [
+    opencti_url_setting,
+    opencti_token_setting,
+    ssl_verify_setting,
+    http_proxies_setting
+]
+
+global_registry = TransformRegistry(owner='Maltego Technologies GmbH - OpenCTI On-Premise',
+                                    author='Maltego Technologies GmbH - OpenCTI On-Premise',
+                                    host_url=HOST_URL,
+                                    seed_ids=['opencti'],
+                                    global_settings=global_settings)

@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.1 (04/07/2024)
+
+Add support for OpenCTI v6.*.*
+
 ## Version 1.0 (14/04/2020)
 
 Release of a first stable version

@@ -3,6 +3,4 @@ __pycache__
 config.py
 mtz/*
 output/*
-*.mtz
 .idea
-trx/gunicorn/transforms/opencti*

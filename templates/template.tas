@@ -1,9 +1,0 @@
-<MaltegoServer name="Local" enabled="true" description="Local transforms hosted on this machine" url="http://localhost">
-   <LastSync>2017-10-06 18:12:26.205 CEST</LastSync>
-   <Protocol version="0.0"/>
-   <Authentication type="none"/>
-   <Transforms>
-{transforms}
-   </Transforms>
-   <Seeds/>
-</MaltegoServer>

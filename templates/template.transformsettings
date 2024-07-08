@@ -1,8 +1,0 @@
-<TransformSettings enabled="true" disclaimerAccepted="false" showHelp="true" runWithAll="true" favorite="false">
-   <Properties>
-      <Property name="transform.local.command" type="string" popup="false">{python_path}</Property>
-      <Property name="transform.local.parameters" type="string" popup="false">{local_execution_path}/project.py local {transform_function}</Property>
-      <Property name="transform.local.working-directory" type="string" popup="false">{local_execution_path}</Property>
-      <Property name="transform.local.debug" type="boolean" popup="false">false</Property>
-   </Properties>
-</TransformSettings>

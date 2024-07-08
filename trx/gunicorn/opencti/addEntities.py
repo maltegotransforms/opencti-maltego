@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 
 from pycti.utils.constants import IdentityTypes
-from maltego_trx.entities import *
-from maltego_stix2.entities import *
 from maltego_stix2.util import stix2_to_maltego
-from opencti.config import format_config, opencti_config
 from opencti.utils import STIX2toOpenCTItype, addDisplayInfo
-import json, re
+import re
 
+# OpenCTI marking types to be shown on each entity in Maltego
+format_config = {
+	"marking_color": "TLP",
+	"marking_text": None
+}
 
 def formatMarkings(markingDefinitions):
     color = ""
