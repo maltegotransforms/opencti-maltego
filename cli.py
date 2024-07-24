@@ -12,7 +12,6 @@ import zipfile
 
 from rich.logging import RichHandler
 
-VERSION = "2.0"
 
 # Setup logging
 logging.basicConfig(
